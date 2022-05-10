@@ -10,7 +10,9 @@ namespace doyou {
 		class INetServer :public TcpWebSocketServer
 		{
 		private:
+			//回调函数
 			typedef std::function<void(Server*, INetClientS*, neb::CJsonObject&)> NetEventCall;
+			//存储事件回调
 			std::map<std::string, NetEventCall> _map_msg_call;
 		public:
 			std::function<void(Server*, INetClientS*, std::string&, neb::CJsonObject&)> on_other_msg = nullptr;
@@ -80,7 +82,7 @@ namespace doyou {
 					return;
 				}
 				auto dataStr = pWSClient->fetch_data();
-				//CELLLog_Info("websocket client say: %s", dataStr);
+				//CELLLog_Info("websocket client say: %s", dataStr);  
 
 				neb::CJsonObject json;
 				if (!json.Parse(dataStr))
@@ -148,13 +150,13 @@ namespace doyou {
 				this->Listen(SOMAXCONN);
 				this->Start(nThread);
 			}
-
+			//注册消息
 			void reg_msg_call(std::string cmd, NetEventCall call)
 			{
 				_map_msg_call[cmd] = call;
 				CELLLog_Info("INetServer::reg_msg_call cmd<%s>.", cmd.c_str());
 			}
-
+			//根据消息调用回调
 			bool on_net_msg_do(Server* pServer, INetClientS* pWSClient, std::string& cmd, neb::CJsonObject& msgJson)
 			{
 				auto itr = _map_msg_call.find(cmd);
