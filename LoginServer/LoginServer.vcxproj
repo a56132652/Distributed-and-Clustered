@@ -24,7 +24,7 @@
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>HelloHttp</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>GateServer</ProjectName>
+    <ProjectName>LoginServer</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -154,7 +154,7 @@
   <ItemGroup>
     <ClCompile Include="..\depends\json\cJSON.c" />
     <ClCompile Include="..\depends\json\CJsonObject.cpp" />
-    <ClCompile Include="server.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\depends\include\base64.hpp" />
@@ -172,29 +172,29 @@
     <ClInclude Include="..\depends\include\HttpClientS.hpp" />
     <ClInclude Include="..\depends\include\INetClient.hpp" />
     <ClInclude Include="..\depends\include\INetClientS.hpp" />
+    <ClInclude Include="..\depends\include\INetEvent.hpp" />
     <ClInclude Include="..\depends\include\INetServer.hpp" />
     <ClInclude Include="..\depends\include\INetTransfer.hpp" />
-    <ClInclude Include="..\depends\include\KeyString.hpp" />
-    <ClInclude Include="..\depends\include\LoginServer.hpp" />
-    <ClInclude Include="..\depends\include\sha1.hpp" />
-    <ClInclude Include="..\depends\include\SplitString.hpp" />
-    <ClInclude Include="..\depends\include\TcpClientMgr.hpp" />
-    <ClInclude Include="..\depends\include\TcpHttpClient.hpp" />
-    <ClInclude Include="..\depends\include\TcpHttpServer.hpp" />
-    <ClInclude Include="..\depends\include\INetEvent.hpp" />
     <ClInclude Include="..\depends\include\Iocp.hpp" />
     <ClInclude Include="..\depends\include\IocpServer.hpp" />
+    <ClInclude Include="..\depends\include\KeyString.hpp" />
     <ClInclude Include="..\depends\include\Log.hpp" />
+    <ClInclude Include="..\depends\include\LoginServer.hpp" />
     <ClInclude Include="..\depends\include\MessageHeader.hpp" />
     <ClInclude Include="..\depends\include\MsgStream.hpp" />
     <ClInclude Include="..\depends\include\NetWork.hpp" />
     <ClInclude Include="..\depends\include\SelectServer.hpp" />
     <ClInclude Include="..\depends\include\Semaphore.hpp" />
     <ClInclude Include="..\depends\include\Server.hpp" />
+    <ClInclude Include="..\depends\include\sha1.hpp" />
+    <ClInclude Include="..\depends\include\SplitString.hpp" />
     <ClInclude Include="..\depends\include\Task.hpp" />
     <ClInclude Include="..\depends\include\TcpClient.hpp" />
+    <ClInclude Include="..\depends\include\TcpClientMgr.hpp" />
     <ClInclude Include="..\depends\include\TcpEpollClient.hpp" />
     <ClInclude Include="..\depends\include\TcpEpollServer.hpp" />
+    <ClInclude Include="..\depends\include\TcpHttpClient.hpp" />
+    <ClInclude Include="..\depends\include\TcpHttpServer.hpp" />
     <ClInclude Include="..\depends\include\TcpIocpClient.hpp" />
     <ClInclude Include="..\depends\include\TcpIocpServer.hpp" />
     <ClInclude Include="..\depends\include\TcpSelectClient.hpp" />

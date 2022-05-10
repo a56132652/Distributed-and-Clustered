@@ -18,7 +18,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="server.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="..\depends\json\cJSON.c">
@@ -29,6 +29,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\depends\include\base64.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
     <ClInclude Include="..\depends\include\Buffer.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -53,7 +56,31 @@
     <ClInclude Include="..\depends\include\FDSet.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\depends\include\GateServer.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\depends\include\HttpClient.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\depends\include\HttpClientC.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\depends\include\HttpClientS.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\depends\include\INetClient.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\depends\include\INetClientS.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
     <ClInclude Include="..\depends\include\INetEvent.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\depends\include\INetServer.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\depends\include\INetTransfer.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="..\depends\include\Iocp.hpp">
@@ -62,7 +89,13 @@
     <ClInclude Include="..\depends\include\IocpServer.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\depends\include\KeyString.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
     <ClInclude Include="..\depends\include\Log.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\depends\include\LoginServer.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="..\depends\include\MessageHeader.hpp">
@@ -83,16 +116,31 @@
     <ClInclude Include="..\depends\include\Server.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\depends\include\sha1.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\depends\include\SplitString.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
     <ClInclude Include="..\depends\include\Task.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="..\depends\include\TcpClient.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\depends\include\TcpClientMgr.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
     <ClInclude Include="..\depends\include\TcpEpollClient.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="..\depends\include\TcpEpollServer.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\depends\include\TcpHttpClient.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\depends\include\TcpHttpServer.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="..\depends\include\TcpIocpClient.hpp">
@@ -113,52 +161,16 @@
     <ClInclude Include="..\depends\include\TcpServerMgr.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\depends\include\Thread.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\depends\include\Timestamp.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\depends\include\TcpHttpServer.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\depends\include\SplitString.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\depends\include\HttpClientC.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\depends\json\cJSON.h">
-      <Filter>json</Filter>
-    </ClInclude>
-    <ClInclude Include="..\depends\json\CJsonObject.hpp">
-      <Filter>json</Filter>
-    </ClInclude>
-    <ClInclude Include="..\depends\include\base64.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\depends\include\HttpClient.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\depends\include\HttpClientS.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\depends\include\KeyString.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\depends\include\sha1.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\depends\include\TcpClientMgr.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\depends\include\TcpHttpClient.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="..\depends\include\TcpWebSocketClient.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="..\depends\include\TcpWebSocketServer.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\depends\include\Thread.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\depends\include\Timestamp.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="..\depends\include\WebSocketClientC.hpp">
@@ -170,23 +182,11 @@
     <ClInclude Include="..\depends\include\WebSocketObj.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\depends\include\GateServer.hpp">
-      <Filter>头文件</Filter>
+    <ClInclude Include="..\depends\json\cJSON.h">
+      <Filter>json</Filter>
     </ClInclude>
-    <ClInclude Include="..\depends\include\INetClient.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\depends\include\INetClientS.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\depends\include\INetServer.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\depends\include\INetTransfer.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\depends\include\LoginServer.hpp">
-      <Filter>头文件</Filter>
+    <ClInclude Include="..\depends\json\CJsonObject.hpp">
+      <Filter>json</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

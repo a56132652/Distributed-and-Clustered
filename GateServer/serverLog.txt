@@ -1,0 +1,40 @@
+Info [2022-5-9 21:36:10]Log::setLogPath success,<serverLog.txt,w>
+Debug [2022-5-9 21:36:10]madeCmd k<nSendBuffSize> v<102400>
+Debug [2022-5-9 21:36:10]madeCmd k<nRecvBuffSize> v<102400>
+Error [2022-5-9 21:36:10]Config::getStr not find <strIP>
+Info [2022-5-9 21:36:10]Config::getStr strIP=any
+Error [2022-5-9 21:36:10]Config::getStr not find <nPort>
+Info [2022-5-9 21:36:10]Config::getInt nPort=4567
+Error [2022-5-9 21:36:10]Config::getStr not find <nThread>
+Info [2022-5-9 21:36:10]Config::getInt nThread=1
+Info [2022-5-9 21:36:10]Config::getInt nSendBuffSize=102400
+Info [2022-5-9 21:36:10]Config::getInt nRecvBuffSize=102400
+Error [2022-5-9 21:36:10]Config::getStr not find <nMaxClient>
+Info [2022-5-9 21:36:10]Config::getInt nMaxClient=65535
+Info [2022-5-9 21:36:10]-ipv4
+Info [2022-5-9 21:36:10]create socket<208> success...
+Info [2022-5-9 21:36:10]bind port<4567> success...
+Info [2022-5-9 21:36:10]listen port<208> success...
+Info [2022-5-9 21:36:11]thread<1>,time<1.002654>,socket<208>,Accept<0>,Join<0>,recv<0>,msg<0>
+Info [2022-5-9 21:36:12]thread<1>,time<1.008791>,socket<208>,Accept<0>,Join<0>,recv<0>,msg<0>
+Info [2022-5-9 21:36:13]thread<1>,time<1.006016>,socket<208>,Accept<0>,Join<0>,recv<0>,msg<0>
+Info [2022-5-9 21:36:14]thread<1>,time<1.004392>,socket<208>,Accept<0>,Join<0>,recv<0>,msg<0>
+Info [2022-5-9 21:36:15]Accept_IP: 192.168.1.104, 224
+Info [2022-5-9 21:36:15]thread<1>,time<1.005636>,socket<208>,Accept<1>,Join<1>,recv<1>,msg<1>
+Info [2022-5-9 21:36:16]thread<1>,time<1.013834>,socket<208>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-9 21:36:17]websocket client say: {"time":1652103377626,"data":"hello"}
+Error [2022-5-9 21:36:17]not found key<msgId>.
+Info [2022-5-9 21:36:17]thread<1>,time<1.014469>,socket<208>,Accept<1>,Join<1>,recv<1>,msg<1>
+Info [2022-5-9 21:36:18]thread<1>,time<1.001594>,socket<208>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-9 21:36:19]thread<1>,time<1.013768>,socket<208>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-9 21:36:20]thread<1>,time<1.015431>,socket<208>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-9 21:36:21]websocket client say: {"time":1652103381471,"data":"hello"}
+Error [2022-5-9 21:36:21]not found key<msgId>.
+Info [2022-5-9 21:36:21]thread<1>,time<1.004598>,socket<208>,Accept<1>,Join<1>,recv<1>,msg<1>
+Info [2022-5-9 21:36:22]thread<1>,time<1.000177>,socket<208>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-9 21:36:23]thread<1>,time<1.001278>,socket<208>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-9 21:36:23]sockfd<224> onClose
+Info [2022-5-9 21:36:23]client<224> leave
+Info [2022-5-9 21:36:24]thread<1>,time<1.002481>,socket<208>,Accept<0>,Join<0>,recv<1>,msg<1>
+Info [2022-5-9 21:36:25]thread<1>,time<1.014435>,socket<208>,Accept<0>,Join<0>,recv<0>,msg<0>
+Info [2022-5-9 21:36:26]thread<1>,time<1.009100>,socket<208>,Accept<0>,Join<0>,recv<0>,msg<0>
