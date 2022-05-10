@@ -12,10 +12,10 @@ namespace doyou {
 		public:
 			void Init()
 			{
-				_csGate.connect("csGate","ws://192.168.0.100:4567");
-
+				_csGate.connect("csGate","ws://192.168.1.104:4567");
+				//×¢²á¹Ø×¢ÊÂ¼þ
 				_csGate.reg_msg_call("onopen", std::bind(&LoginServer::onopen_csGate, this, std::placeholders::_1, std::placeholders::_2));
-
+				
 				_csGate.reg_msg_call("cs_msg_heart", std::bind(&LoginServer::cs_msg_heart, this,std::placeholders::_1, std::placeholders::_2));
 				_csGate.reg_msg_call("cs_msg_login", std::bind(&LoginServer::cs_msg_login, this, std::placeholders::_1, std::placeholders::_2));
 			}
