@@ -39,7 +39,7 @@ namespace doyou {
 					return false;
 				}
 
-				//do
+				//注册消息
 				_client.onopen = [this](WebSocketClientC* pWSClient)
 				{
 					CELLLog_Info("%s::INetClient::connect(%s) success.", _link_name.c_str(), _url.c_str());
@@ -126,12 +126,12 @@ namespace doyou {
 			{
 				_client.Close();
 			}
-
+			//注册消息
 			void reg_msg_call(std::string cmd, NetEventCall call)
 			{
 				_map_msg_call[cmd] = call;
 			}
-
+			//调用回调
 			bool on_net_msg_do(const std::string& cmd, neb::CJsonObject& msgJson)
 			{
 				auto itr = _map_msg_call.find(cmd);

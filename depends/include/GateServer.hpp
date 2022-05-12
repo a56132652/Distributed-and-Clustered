@@ -47,7 +47,7 @@ namespace doyou {
 
 				//client->respone(msg, "wo ye bu ji dao.");
 			}
-
+			//响应LoginServer注册服务请求
 			void ss_reg_api(Server* server, INetClientS* client, neb::CJsonObject& msg)
 			{
 				auto sskey = msg["data"]("sskey");
@@ -55,18 +55,24 @@ namespace doyou {
 				if (sskey != sskey_local)
 				{
 					neb::CJsonObject ret;
+					//状态码 state 0-fail ,1-success
 					ret.Add("state", 0);
 					ret.Add("msg", "sskey error.");
 					client->response(msg, ret);
 					return;
 				}
+				//客户端类型
 				auto type = msg["data"]("type");
+				//客户端名称
 				auto name = msg["data"]("name");
 
 				client->link_type(type);
 				client->link_name(name);
 				client->is_ss_link(true);
-
+				/*
+					msg["data"]("type"):返回 "type" 字段所对应的字符串
+					msg["data"]["apis"]:返回 "apis" 字段所对应的json结构，结构下又包含字符串
+				*/
 				auto apis = msg["data"]["apis"];
 
 				if (!apis.IsArray())
