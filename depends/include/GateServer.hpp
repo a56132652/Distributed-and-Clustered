@@ -26,6 +26,7 @@ namespace doyou {
 				*/
 				_netserver.on_other_msg = std::bind(&GateServer::on_other_msg, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4);
 				_netserver.on_client_leave = std::bind(&GateServer::on_client_leave, this, std::placeholders::_1);
+				//网关服务器只关心心跳消息以及注册服务消息
 				_netserver.reg_msg_call("cs_msg_heart", std::bind(&GateServer::cs_msg_heart, this,std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
 				_netserver.reg_msg_call("ss_reg_api", std::bind(&GateServer::ss_reg_api, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
 				

@@ -118,10 +118,10 @@ namespace doyou {
 					CELLLog_Error("not found key<%s>.", "data");
 					return;
 				}
-
+				//网关服务器只关系心跳以及注册消息，如果是其他消息，网关服务器不会处理
 				if (on_net_msg_do(pServer, pWSClient, cmd, json))
 					return;
-
+				//分发消息给Listeners处理
 				on_other_msg(pServer, pWSClient, cmd, json);
 			}
 

@@ -1,9 +1,21 @@
-Info [2022-5-12 22:30:20]Log::setLogPath success,<LoginServerLog.txt,w>
-Debug [2022-5-12 22:30:20]madeCmd k<nSendBuffSize> v<102400>
-Debug [2022-5-12 22:30:20]madeCmd k<nRecvBuffSize> v<102400>
-Info [2022-5-12 22:30:20]Config::getInt nSendBuffSize=102400
-Info [2022-5-12 22:30:20]Config::getInt nRecvBuffSize=102400
-Info [2022-5-12 22:30:20]192.168.1.104 ipv4: 192.168.1.104
-Info [2022-5-12 22:30:20]connet2ip(192.168.1.104,4567)
-Info [2022-5-12 22:30:20]WebSocketClientC::handshake, Good.
-Info [2022-5-12 22:30:20]csGate::INetClient::connect(ws://192.168.1.104:4567) success.
+Info [2022-5-13 22:16:37]Log::setLogPath success,<LoginServerLog.txt,w>
+Debug [2022-5-13 22:16:37]madeCmd k<nSendBuffSize> v<102400>
+Debug [2022-5-13 22:16:37]madeCmd k<nRecvBuffSize> v<102400>
+Info [2022-5-13 22:16:37]Config::getInt nSendBuffSize=102400
+Info [2022-5-13 22:16:37]Config::getInt nRecvBuffSize=102400
+Info [2022-5-13 22:16:37]192.168.1.104 ipv4: 192.168.1.104
+Info [2022-5-13 22:16:37]connet2ip(192.168.1.104,4567)
+Info [2022-5-13 22:16:37]WebSocketClientC::handshake, Good.
+Info [2022-5-13 22:16:37]csGate::INetClient::connect(ws://192.168.1.104:4567) success.
+Info [2022-5-13 22:16:56]LoginServer::cs_msg_login
+Info [2022-5-13 22:17:2]LoginServer::cs_msg_login
+Info [2022-5-13 22:17:4]LoginServer::cs_msg_login
+Info [2022-5-13 22:17:4]LoginServer::cs_msg_login
+Info [2022-5-13 22:17:4]LoginServer::cs_msg_login
+Info [2022-5-13 22:17:4]LoginServer::cs_msg_login
+Info [2022-5-13 22:17:5]LoginServer::cs_msg_login
+Info [2022-5-13 22:17:5]LoginServer::cs_msg_login
+Info [2022-5-13 22:17:5]LoginServer::cs_msg_login
+Info [2022-5-13 22:17:6]LoginServer::cs_msg_login
+Info [2022-5-13 22:17:6]LoginServer::cs_msg_login
+Info [2022-5-13 22:17:6]LoginServer::cs_msg_login

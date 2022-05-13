@@ -1,45 +1,73 @@
-Info [2022-5-12 22:30:14]Log::setLogPath success,<GateServerLog.txt,w>
-Debug [2022-5-12 22:30:14]madeCmd k<nSendBuffSize> v<102400>
-Debug [2022-5-12 22:30:14]madeCmd k<nRecvBuffSize> v<102400>
-Info [2022-5-12 22:30:14]Config::getInt nSendBuffSize=102400
-Info [2022-5-12 22:30:14]Config::getInt nRecvBuffSize=102400
-Error [2022-5-12 22:30:14]Config::getStr not find <nMaxClient>
-Info [2022-5-12 22:30:14]Config::getInt nMaxClient=65535
-Error [2022-5-12 22:30:14]Config::getStr not find <strIP>
-Info [2022-5-12 22:30:14]Config::getStr strIP=any
-Error [2022-5-12 22:30:14]Config::getStr not find <nPort>
-Info [2022-5-12 22:30:14]Config::getInt nPort=4567
-Info [2022-5-12 22:30:14]-ipv4
-Info [2022-5-12 22:30:14]create socket<188> success...
-Info [2022-5-12 22:30:14]bind port<4567> success...
-Info [2022-5-12 22:30:14]listen port<188> success...
-Info [2022-5-12 22:30:14]INetServer::reg_msg_call cmd<cs_msg_heart>.
-Info [2022-5-12 22:30:14]INetServer::reg_msg_call cmd<ss_reg_api>.
-Info [2022-5-12 22:30:15]thread<1>,time<1.013834>,socket<188>,Accept<0>,Join<0>,recv<0>,msg<0>
-Info [2022-5-12 22:30:16]thread<1>,time<1.006109>,socket<188>,Accept<0>,Join<0>,recv<0>,msg<0>
-Info [2022-5-12 22:30:17]thread<1>,time<1.008176>,socket<188>,Accept<0>,Join<0>,recv<0>,msg<0>
-Info [2022-5-12 22:30:18]thread<1>,time<1.006103>,socket<188>,Accept<0>,Join<0>,recv<0>,msg<0>
-Info [2022-5-12 22:30:19]thread<1>,time<1.006200>,socket<188>,Accept<0>,Join<0>,recv<0>,msg<0>
-Info [2022-5-12 22:30:20]Accept_IP: 192.168.1.104, 212
-Info [2022-5-12 22:30:20]thread<1>,time<1.003241>,socket<188>,Accept<1>,Join<1>,recv<1>,msg<1>
-Error [2022-5-12 22:30:20]Config::getStr not find <sskey>
-Info [2022-5-12 22:30:20]Config::getStr sskey=ssmm00@123456
-Info [2022-5-12 22:30:20]ss_reg_api: LoginServer001 >> cs_msg_login
-Info [2022-5-12 22:30:20]ss_reg_api: LoginServer001 >> cs_msg_register
-Info [2022-5-12 22:30:20]ss_reg_api: LoginServer001 >> cs_msg_change_pw
-Info [2022-5-12 22:30:21]thread<1>,time<1.004218>,socket<188>,Accept<1>,Join<1>,recv<1>,msg<1>
-Info [2022-5-12 22:30:22]thread<1>,time<1.003153>,socket<188>,Accept<1>,Join<1>,recv<0>,msg<0>
-Info [2022-5-12 22:30:23]thread<1>,time<1.004146>,socket<188>,Accept<1>,Join<1>,recv<0>,msg<0>
-Info [2022-5-12 22:30:24]thread<1>,time<1.002179>,socket<188>,Accept<1>,Join<1>,recv<0>,msg<0>
-Info [2022-5-12 22:30:25]thread<1>,time<1.004174>,socket<188>,Accept<1>,Join<1>,recv<0>,msg<0>
-Info [2022-5-12 22:30:26]thread<1>,time<1.006563>,socket<188>,Accept<1>,Join<1>,recv<0>,msg<0>
-Info [2022-5-12 22:30:27]thread<1>,time<1.003153>,socket<188>,Accept<1>,Join<1>,recv<0>,msg<0>
-Info [2022-5-12 22:30:28]thread<1>,time<1.004127>,socket<188>,Accept<1>,Join<1>,recv<0>,msg<0>
-Info [2022-5-12 22:30:29]thread<1>,time<1.003166>,socket<188>,Accept<1>,Join<1>,recv<0>,msg<0>
-Info [2022-5-12 22:30:30]thread<1>,time<1.005164>,socket<188>,Accept<1>,Join<1>,recv<0>,msg<0>
-Info [2022-5-12 22:30:31]thread<1>,time<1.005201>,socket<188>,Accept<1>,Join<1>,recv<0>,msg<0>
-Info [2022-5-12 22:30:32]thread<1>,time<1.008160>,socket<188>,Accept<1>,Join<1>,recv<0>,msg<0>
-Info [2022-5-12 22:30:33]sockfd<212> onClose
-Info [2022-5-12 22:30:33]client<212> leave
-Info [2022-5-12 22:30:33]thread<1>,time<1.004266>,socket<188>,Accept<0>,Join<0>,recv<0>,msg<0>
-Info [2022-5-12 22:30:34]thread<1>,time<1.004961>,socket<188>,Accept<0>,Join<0>,recv<0>,msg<0>
+Info [2022-5-13 22:16:35]Log::setLogPath success,<GateServerLog.txt,w>
+Debug [2022-5-13 22:16:35]madeCmd k<nSendBuffSize> v<102400>
+Debug [2022-5-13 22:16:35]madeCmd k<nRecvBuffSize> v<102400>
+Info [2022-5-13 22:16:35]Config::getInt nSendBuffSize=102400
+Info [2022-5-13 22:16:35]Config::getInt nRecvBuffSize=102400
+Error [2022-5-13 22:16:35]Config::getStr not find <nMaxClient>
+Info [2022-5-13 22:16:35]Config::getInt nMaxClient=65535
+Error [2022-5-13 22:16:35]Config::getStr not find <strIP>
+Info [2022-5-13 22:16:35]Config::getStr strIP=any
+Error [2022-5-13 22:16:35]Config::getStr not find <nPort>
+Info [2022-5-13 22:16:35]Config::getInt nPort=4567
+Info [2022-5-13 22:16:35]-ipv4
+Info [2022-5-13 22:16:35]create socket<208> success...
+Info [2022-5-13 22:16:35]bind port<4567> success...
+Info [2022-5-13 22:16:35]listen port<208> success...
+Info [2022-5-13 22:16:35]INetServer::reg_msg_call cmd<cs_msg_heart>.
+Info [2022-5-13 22:16:35]INetServer::reg_msg_call cmd<ss_reg_api>.
+Info [2022-5-13 22:16:36]thread<1>,time<1.001875>,socket<208>,Accept<0>,Join<0>,recv<0>,msg<0>
+Info [2022-5-13 22:16:37]Accept_IP: 192.168.1.104, 144
+Error [2022-5-13 22:16:37]Config::getStr not find <sskey>
+Info [2022-5-13 22:16:37]Config::getStr sskey=ssmm00@123456
+Info [2022-5-13 22:16:37]ss_reg_api: LoginServer001 >> cs_msg_login
+Info [2022-5-13 22:16:37]ss_reg_api: LoginServer001 >> cs_msg_register
+Info [2022-5-13 22:16:37]ss_reg_api: LoginServer001 >> cs_msg_change_pw
+Info [2022-5-13 22:16:37]thread<1>,time<1.000059>,socket<208>,Accept<1>,Join<1>,recv<2>,msg<2>
+Info [2022-5-13 22:16:38]thread<1>,time<1.004281>,socket<208>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-13 22:16:39]thread<1>,time<1.014532>,socket<208>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-13 22:16:40]thread<1>,time<1.013578>,socket<208>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-13 22:16:41]thread<1>,time<1.009223>,socket<208>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-13 22:16:42]thread<1>,time<1.011797>,socket<208>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-13 22:16:43]thread<1>,time<1.009343>,socket<208>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-13 22:16:44]thread<1>,time<1.014079>,socket<208>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-13 22:16:45]thread<1>,time<1.009148>,socket<208>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-13 22:16:46]thread<1>,time<1.012720>,socket<208>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-13 22:16:47]thread<1>,time<1.009982>,socket<208>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-13 22:16:48]thread<1>,time<1.013020>,socket<208>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-13 22:16:49]thread<1>,time<1.012948>,socket<208>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-13 22:16:50]thread<1>,time<1.012927>,socket<208>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-13 22:16:51]thread<1>,time<1.006992>,socket<208>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-13 22:16:52]thread<1>,time<1.004239>,socket<208>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-13 22:16:53]thread<1>,time<1.014024>,socket<208>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-13 22:16:53]Accept_IP: 192.168.1.104, 220
+Info [2022-5-13 22:16:54]thread<1>,time<1.012232>,socket<208>,Accept<2>,Join<2>,recv<1>,msg<1>
+Info [2022-5-13 22:16:55]thread<1>,time<1.012764>,socket<208>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-13 22:16:56]thread<1>,time<1.013752>,socket<208>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-13 22:16:56]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-13 22:16:57]thread<1>,time<1.011265>,socket<208>,Accept<2>,Join<2>,recv<1>,msg<1>
+Info [2022-5-13 22:16:58]thread<1>,time<1.013919>,socket<208>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-13 22:16:59]thread<1>,time<1.011641>,socket<208>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-13 22:17:0]thread<1>,time<1.011956>,socket<208>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-13 22:17:1]thread<1>,time<1.010997>,socket<208>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-13 22:17:2]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-13 22:17:2]thread<1>,time<1.012697>,socket<208>,Accept<2>,Join<2>,recv<1>,msg<1>
+Info [2022-5-13 22:17:3]thread<1>,time<1.014888>,socket<208>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-13 22:17:4]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-13 22:17:4]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-13 22:17:4]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-13 22:17:4]thread<1>,time<1.011705>,socket<208>,Accept<2>,Join<2>,recv<3>,msg<3>
+Info [2022-5-13 22:17:4]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-13 22:17:5]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-13 22:17:5]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-13 22:17:5]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-13 22:17:5]thread<1>,time<1.014773>,socket<208>,Accept<2>,Join<2>,recv<4>,msg<4>
+Info [2022-5-13 22:17:6]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-13 22:17:6]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-13 22:17:6]thread<1>,time<1.011455>,socket<208>,Accept<2>,Join<2>,recv<2>,msg<2>
+Info [2022-5-13 22:17:6]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-13 22:17:7]thread<1>,time<1.010904>,socket<208>,Accept<2>,Join<2>,recv<1>,msg<1>
+Info [2022-5-13 22:17:8]thread<1>,time<1.012715>,socket<208>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-13 22:17:9]thread<1>,time<1.014530>,socket<208>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-13 22:17:10]sockfd<144> onClose
+Info [2022-5-13 22:17:10]client<144> leave
+Info [2022-5-13 22:17:10]thread<1>,time<1.000720>,socket<208>,Accept<1>,Join<1>,recv<0>,msg<0>
