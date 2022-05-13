@@ -10,7 +10,7 @@
     <script>
 
         function _createWebSocket() {
-            var serverAddress = 'ws://192.168.0.100:4567/test?a=1&b=2';
+            var serverAddress = 'ws://192.168.1.104:4567/test?a=1&b=2';
             try {
                 _websocket = new WebSocket(serverAddress);
             } catch (evt) {
@@ -48,7 +48,9 @@
 
         function _send(msg) {
             var jsonObj = {
-                //msgId:1,
+                cmd:"cs_msg_login",
+                is_req:true,
+                msgId:1,
                 time:Date.now(),
                 data:"hello"
             }

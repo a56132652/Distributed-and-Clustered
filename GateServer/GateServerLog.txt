@@ -1,73 +1,532 @@
-Info [2022-5-13 22:16:35]Log::setLogPath success,<GateServerLog.txt,w>
-Debug [2022-5-13 22:16:35]madeCmd k<nSendBuffSize> v<102400>
-Debug [2022-5-13 22:16:35]madeCmd k<nRecvBuffSize> v<102400>
-Info [2022-5-13 22:16:35]Config::getInt nSendBuffSize=102400
-Info [2022-5-13 22:16:35]Config::getInt nRecvBuffSize=102400
-Error [2022-5-13 22:16:35]Config::getStr not find <nMaxClient>
-Info [2022-5-13 22:16:35]Config::getInt nMaxClient=65535
-Error [2022-5-13 22:16:35]Config::getStr not find <strIP>
-Info [2022-5-13 22:16:35]Config::getStr strIP=any
-Error [2022-5-13 22:16:35]Config::getStr not find <nPort>
-Info [2022-5-13 22:16:35]Config::getInt nPort=4567
-Info [2022-5-13 22:16:35]-ipv4
-Info [2022-5-13 22:16:35]create socket<208> success...
-Info [2022-5-13 22:16:35]bind port<4567> success...
-Info [2022-5-13 22:16:35]listen port<208> success...
-Info [2022-5-13 22:16:35]INetServer::reg_msg_call cmd<cs_msg_heart>.
-Info [2022-5-13 22:16:35]INetServer::reg_msg_call cmd<ss_reg_api>.
-Info [2022-5-13 22:16:36]thread<1>,time<1.001875>,socket<208>,Accept<0>,Join<0>,recv<0>,msg<0>
-Info [2022-5-13 22:16:37]Accept_IP: 192.168.1.104, 144
-Error [2022-5-13 22:16:37]Config::getStr not find <sskey>
-Info [2022-5-13 22:16:37]Config::getStr sskey=ssmm00@123456
-Info [2022-5-13 22:16:37]ss_reg_api: LoginServer001 >> cs_msg_login
-Info [2022-5-13 22:16:37]ss_reg_api: LoginServer001 >> cs_msg_register
-Info [2022-5-13 22:16:37]ss_reg_api: LoginServer001 >> cs_msg_change_pw
-Info [2022-5-13 22:16:37]thread<1>,time<1.000059>,socket<208>,Accept<1>,Join<1>,recv<2>,msg<2>
-Info [2022-5-13 22:16:38]thread<1>,time<1.004281>,socket<208>,Accept<1>,Join<1>,recv<0>,msg<0>
-Info [2022-5-13 22:16:39]thread<1>,time<1.014532>,socket<208>,Accept<1>,Join<1>,recv<0>,msg<0>
-Info [2022-5-13 22:16:40]thread<1>,time<1.013578>,socket<208>,Accept<1>,Join<1>,recv<0>,msg<0>
-Info [2022-5-13 22:16:41]thread<1>,time<1.009223>,socket<208>,Accept<1>,Join<1>,recv<0>,msg<0>
-Info [2022-5-13 22:16:42]thread<1>,time<1.011797>,socket<208>,Accept<1>,Join<1>,recv<0>,msg<0>
-Info [2022-5-13 22:16:43]thread<1>,time<1.009343>,socket<208>,Accept<1>,Join<1>,recv<0>,msg<0>
-Info [2022-5-13 22:16:44]thread<1>,time<1.014079>,socket<208>,Accept<1>,Join<1>,recv<0>,msg<0>
-Info [2022-5-13 22:16:45]thread<1>,time<1.009148>,socket<208>,Accept<1>,Join<1>,recv<0>,msg<0>
-Info [2022-5-13 22:16:46]thread<1>,time<1.012720>,socket<208>,Accept<1>,Join<1>,recv<0>,msg<0>
-Info [2022-5-13 22:16:47]thread<1>,time<1.009982>,socket<208>,Accept<1>,Join<1>,recv<0>,msg<0>
-Info [2022-5-13 22:16:48]thread<1>,time<1.013020>,socket<208>,Accept<1>,Join<1>,recv<0>,msg<0>
-Info [2022-5-13 22:16:49]thread<1>,time<1.012948>,socket<208>,Accept<1>,Join<1>,recv<0>,msg<0>
-Info [2022-5-13 22:16:50]thread<1>,time<1.012927>,socket<208>,Accept<1>,Join<1>,recv<0>,msg<0>
-Info [2022-5-13 22:16:51]thread<1>,time<1.006992>,socket<208>,Accept<1>,Join<1>,recv<0>,msg<0>
-Info [2022-5-13 22:16:52]thread<1>,time<1.004239>,socket<208>,Accept<1>,Join<1>,recv<0>,msg<0>
-Info [2022-5-13 22:16:53]thread<1>,time<1.014024>,socket<208>,Accept<1>,Join<1>,recv<0>,msg<0>
-Info [2022-5-13 22:16:53]Accept_IP: 192.168.1.104, 220
-Info [2022-5-13 22:16:54]thread<1>,time<1.012232>,socket<208>,Accept<2>,Join<2>,recv<1>,msg<1>
-Info [2022-5-13 22:16:55]thread<1>,time<1.012764>,socket<208>,Accept<2>,Join<2>,recv<0>,msg<0>
-Info [2022-5-13 22:16:56]thread<1>,time<1.013752>,socket<208>,Accept<2>,Join<2>,recv<0>,msg<0>
-Info [2022-5-13 22:16:56]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
-Info [2022-5-13 22:16:57]thread<1>,time<1.011265>,socket<208>,Accept<2>,Join<2>,recv<1>,msg<1>
-Info [2022-5-13 22:16:58]thread<1>,time<1.013919>,socket<208>,Accept<2>,Join<2>,recv<0>,msg<0>
-Info [2022-5-13 22:16:59]thread<1>,time<1.011641>,socket<208>,Accept<2>,Join<2>,recv<0>,msg<0>
-Info [2022-5-13 22:17:0]thread<1>,time<1.011956>,socket<208>,Accept<2>,Join<2>,recv<0>,msg<0>
-Info [2022-5-13 22:17:1]thread<1>,time<1.010997>,socket<208>,Accept<2>,Join<2>,recv<0>,msg<0>
-Info [2022-5-13 22:17:2]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
-Info [2022-5-13 22:17:2]thread<1>,time<1.012697>,socket<208>,Accept<2>,Join<2>,recv<1>,msg<1>
-Info [2022-5-13 22:17:3]thread<1>,time<1.014888>,socket<208>,Accept<2>,Join<2>,recv<0>,msg<0>
-Info [2022-5-13 22:17:4]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
-Info [2022-5-13 22:17:4]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
-Info [2022-5-13 22:17:4]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
-Info [2022-5-13 22:17:4]thread<1>,time<1.011705>,socket<208>,Accept<2>,Join<2>,recv<3>,msg<3>
-Info [2022-5-13 22:17:4]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
-Info [2022-5-13 22:17:5]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
-Info [2022-5-13 22:17:5]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
-Info [2022-5-13 22:17:5]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
-Info [2022-5-13 22:17:5]thread<1>,time<1.014773>,socket<208>,Accept<2>,Join<2>,recv<4>,msg<4>
-Info [2022-5-13 22:17:6]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
-Info [2022-5-13 22:17:6]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
-Info [2022-5-13 22:17:6]thread<1>,time<1.011455>,socket<208>,Accept<2>,Join<2>,recv<2>,msg<2>
-Info [2022-5-13 22:17:6]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
-Info [2022-5-13 22:17:7]thread<1>,time<1.010904>,socket<208>,Accept<2>,Join<2>,recv<1>,msg<1>
-Info [2022-5-13 22:17:8]thread<1>,time<1.012715>,socket<208>,Accept<2>,Join<2>,recv<0>,msg<0>
-Info [2022-5-13 22:17:9]thread<1>,time<1.014530>,socket<208>,Accept<2>,Join<2>,recv<0>,msg<0>
-Info [2022-5-13 22:17:10]sockfd<144> onClose
-Info [2022-5-13 22:17:10]client<144> leave
-Info [2022-5-13 22:17:10]thread<1>,time<1.000720>,socket<208>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:1:17]Log::setLogPath success,<GateServerLog.txt,w>
+Debug [2022-5-14 0:1:17]madeCmd k<nSendBuffSize> v<102400>
+Debug [2022-5-14 0:1:17]madeCmd k<nRecvBuffSize> v<102400>
+Info [2022-5-14 0:1:17]Config::getInt nSendBuffSize=102400
+Info [2022-5-14 0:1:17]Config::getInt nRecvBuffSize=102400
+Error [2022-5-14 0:1:17]Config::getStr not find <nMaxClient>
+Info [2022-5-14 0:1:17]Config::getInt nMaxClient=65535
+Error [2022-5-14 0:1:17]Config::getStr not find <strIP>
+Info [2022-5-14 0:1:17]Config::getStr strIP=any
+Error [2022-5-14 0:1:17]Config::getStr not find <nPort>
+Info [2022-5-14 0:1:17]Config::getInt nPort=4567
+Info [2022-5-14 0:1:17]-ipv4
+Info [2022-5-14 0:1:17]create socket<196> success...
+Info [2022-5-14 0:1:17]bind port<4567> success...
+Info [2022-5-14 0:1:17]listen port<196> success...
+Info [2022-5-14 0:1:17]INetServer::reg_msg_call cmd<cs_msg_heart>.
+Info [2022-5-14 0:1:17]INetServer::reg_msg_call cmd<ss_reg_api>.
+Info [2022-5-14 0:1:18]thread<1>,time<1.013874>,socket<196>,Accept<0>,Join<0>,recv<0>,msg<0>
+Info [2022-5-14 0:1:19]thread<1>,time<1.011176>,socket<196>,Accept<0>,Join<0>,recv<0>,msg<0>
+Info [2022-5-14 0:1:20]thread<1>,time<1.012862>,socket<196>,Accept<0>,Join<0>,recv<0>,msg<0>
+Info [2022-5-14 0:1:21]Accept_IP: 192.168.1.104, 216
+Info [2022-5-14 0:1:21]websocket client say: {"cmd":"ss_reg_api","is_req":true,"msgId":1,"time":1652457681283,"data":{"type":"LoginServer","name":"LoginServer001","sskey":"ssmm00@123456","apis":["cs_msg_login","cs_msg_register","cs_msg_change_pw"]}}
+Error [2022-5-14 0:1:21]Config::getStr not find <sskey>
+Info [2022-5-14 0:1:21]Config::getStr sskey=ssmm00@123456
+Info [2022-5-14 0:1:21]ss_reg_api: LoginServer001 >> cs_msg_login
+Info [2022-5-14 0:1:21]ss_reg_api: LoginServer001 >> cs_msg_register
+Info [2022-5-14 0:1:21]ss_reg_api: LoginServer001 >> cs_msg_change_pw
+Info [2022-5-14 0:1:21]thread<1>,time<1.011846>,socket<196>,Accept<1>,Join<1>,recv<2>,msg<2>
+Info [2022-5-14 0:1:22]thread<1>,time<1.011541>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:1:23]thread<1>,time<1.012342>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:1:24]thread<1>,time<1.013153>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:1:25]thread<1>,time<1.013263>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:1:26]thread<1>,time<1.013617>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:1:27]thread<1>,time<1.013641>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:1:28]thread<1>,time<1.012600>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:1:29]thread<1>,time<1.012214>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:1:30]thread<1>,time<1.000545>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:1:31]thread<1>,time<1.009504>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:1:32]thread<1>,time<1.012642>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:1:33]thread<1>,time<1.011426>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:1:34]thread<1>,time<1.012313>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:1:35]thread<1>,time<1.015423>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:1:36]thread<1>,time<1.010076>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:1:37]thread<1>,time<1.014701>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:1:38]thread<1>,time<1.013941>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:1:39]thread<1>,time<1.013933>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:1:41]thread<1>,time<1.015262>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:1:42]thread<1>,time<1.012719>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:1:43]thread<1>,time<1.013833>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:1:43]Accept_IP: 192.168.1.104, 220
+Info [2022-5-14 0:1:44]thread<1>,time<1.007782>,socket<196>,Accept<2>,Join<2>,recv<1>,msg<1>
+Info [2022-5-14 0:1:45]thread<1>,time<1.003534>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:1:46]thread<1>,time<1.000395>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:1:46]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457706218,"data":"hello"}
+Info [2022-5-14 0:1:46]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:1:47]thread<1>,time<1.014283>,socket<196>,Accept<2>,Join<2>,recv<1>,msg<1>
+Info [2022-5-14 0:1:48]thread<1>,time<1.014878>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:1:49]thread<1>,time<1.013277>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:1:50]thread<1>,time<1.000174>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:1:50]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457710799,"data":"hello"}
+Info [2022-5-14 0:1:50]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:1:51]thread<1>,time<1.013559>,socket<196>,Accept<2>,Join<2>,recv<1>,msg<1>
+Info [2022-5-14 0:1:52]thread<1>,time<1.012290>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:1:53]thread<1>,time<1.013127>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:1:54]thread<1>,time<1.010018>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:1:55]thread<1>,time<1.014281>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:1:56]thread<1>,time<1.014179>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:1:57]thread<1>,time<1.009511>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:1:58]thread<1>,time<1.000152>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:1:59]thread<1>,time<1.014292>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:0]thread<1>,time<1.012080>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:1]thread<1>,time<1.018291>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:2]thread<1>,time<1.011242>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:3]thread<1>,time<1.012291>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:4]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457724226,"data":"hello"}
+Info [2022-5-14 0:2:4]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:2:4]thread<1>,time<1.015062>,socket<196>,Accept<2>,Join<2>,recv<1>,msg<1>
+Info [2022-5-14 0:2:5]thread<1>,time<1.000320>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:6]thread<1>,time<1.012724>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:7]thread<1>,time<1.012949>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:8]thread<1>,time<1.003080>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:8]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457728661,"data":"hello"}
+Info [2022-5-14 0:2:8]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:2:9]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457729147,"data":"hello"}
+Info [2022-5-14 0:2:9]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:2:9]thread<1>,time<1.011887>,socket<196>,Accept<2>,Join<2>,recv<2>,msg<2>
+Info [2022-5-14 0:2:9]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457729488,"data":"hello"}
+Info [2022-5-14 0:2:9]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:2:9]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457729795,"data":"hello"}
+Info [2022-5-14 0:2:9]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:2:10]thread<1>,time<1.013038>,socket<196>,Accept<2>,Join<2>,recv<2>,msg<2>
+Info [2022-5-14 0:2:10]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457730332,"data":"hello"}
+Info [2022-5-14 0:2:10]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:2:10]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457730582,"data":"hello"}
+Info [2022-5-14 0:2:10]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:2:10]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457730715,"data":"hello"}
+Info [2022-5-14 0:2:10]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:2:11]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457731135,"data":"hello"}
+Info [2022-5-14 0:2:11]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:2:11]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457731295,"data":"hello"}
+Info [2022-5-14 0:2:11]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:2:11]thread<1>,time<1.011633>,socket<196>,Accept<2>,Join<2>,recv<5>,msg<5>
+Info [2022-5-14 0:2:11]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457731435,"data":"hello"}
+Info [2022-5-14 0:2:11]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:2:11]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457731935,"data":"hello"}
+Info [2022-5-14 0:2:11]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:2:12]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457732086,"data":"hello"}
+Info [2022-5-14 0:2:12]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:2:12]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457732273,"data":"hello"}
+Info [2022-5-14 0:2:12]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:2:12]thread<1>,time<1.011090>,socket<196>,Accept<2>,Join<2>,recv<4>,msg<4>
+Info [2022-5-14 0:2:13]thread<1>,time<1.012975>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:14]thread<1>,time<1.013720>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:15]thread<1>,time<1.007319>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:16]thread<1>,time<1.010592>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:17]thread<1>,time<1.002760>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:18]thread<1>,time<1.001100>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:19]thread<1>,time<1.010253>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:20]thread<1>,time<1.007320>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:21]thread<1>,time<1.000165>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:22]thread<1>,time<1.012110>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:23]thread<1>,time<1.000693>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:24]thread<1>,time<1.014928>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:25]thread<1>,time<1.013873>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:26]thread<1>,time<1.012776>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:27]thread<1>,time<1.013509>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:28]thread<1>,time<1.012043>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:29]thread<1>,time<1.000661>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:30]thread<1>,time<1.003917>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:31]thread<1>,time<1.009486>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:32]thread<1>,time<1.011242>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:33]thread<1>,time<1.010800>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:34]thread<1>,time<1.014658>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:35]thread<1>,time<1.013395>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:36]thread<1>,time<1.013242>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:37]thread<1>,time<1.013107>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:38]thread<1>,time<1.012428>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:39]thread<1>,time<1.010952>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:40]thread<1>,time<1.003573>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:41]thread<1>,time<1.010778>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:42]thread<1>,time<1.013538>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:43]thread<1>,time<1.000737>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:44]thread<1>,time<1.014633>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:45]thread<1>,time<1.015817>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:46]thread<1>,time<1.012428>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:47]thread<1>,time<1.012883>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:48]thread<1>,time<1.015141>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:49]thread<1>,time<1.015294>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:50]thread<1>,time<1.000454>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:51]thread<1>,time<1.010879>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:52]thread<1>,time<1.012171>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:53]thread<1>,time<1.014376>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:54]thread<1>,time<1.014671>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:55]thread<1>,time<1.014803>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:56]thread<1>,time<1.012925>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:57]thread<1>,time<1.014511>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:58]thread<1>,time<1.011352>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:2:59]sockfd<216> onClose
+Info [2022-5-14 0:2:59]client<216> leave
+Info [2022-5-14 0:2:59]thread<1>,time<1.014984>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:3:0]thread<1>,time<1.000673>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:3:1]thread<1>,time<1.013205>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:3:2]thread<1>,time<1.015506>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:3:3]thread<1>,time<1.001730>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:3:4]thread<1>,time<1.010846>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:3:5]thread<1>,time<1.014094>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:3:6]thread<1>,time<1.001622>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:3:7]thread<1>,time<1.014508>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:3:8]thread<1>,time<1.012926>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:3:9]thread<1>,time<1.015900>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:3:10]thread<1>,time<1.012066>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:3:11]thread<1>,time<1.001485>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:3:12]thread<1>,time<1.003628>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:3:13]thread<1>,time<1.012906>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:3:14]thread<1>,time<1.012722>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:3:15]thread<1>,time<1.002819>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:3:16]thread<1>,time<1.000051>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:3:18]thread<1>,time<1.013543>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:3:19]thread<1>,time<1.012746>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:3:20]thread<1>,time<1.012542>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:3:21]thread<1>,time<1.001298>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:3:22]thread<1>,time<1.014266>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:3:23]thread<1>,time<1.014841>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:3:24]thread<1>,time<1.011227>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:3:25]thread<1>,time<1.013099>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:3:26]thread<1>,time<1.010344>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:3:27]thread<1>,time<1.013377>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:3:27]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457807802,"data":"hello"}
+Info [2022-5-14 0:3:27]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:3:27]on_other_msg: transfer not found cmd<cs_msg_login>.
+Info [2022-5-14 0:3:28]thread<1>,time<1.013650>,socket<196>,Accept<1>,Join<1>,recv<1>,msg<1>
+Info [2022-5-14 0:3:29]thread<1>,time<1.010558>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:3:30]thread<1>,time<1.012121>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:3:31]thread<1>,time<1.013816>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:3:32]thread<1>,time<1.013124>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:3:33]thread<1>,time<1.009412>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:3:34]thread<1>,time<1.009806>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:3:35]thread<1>,time<1.012248>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:3:36]thread<1>,time<1.015723>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:3:37]thread<1>,time<1.000993>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:3:38]Accept_IP: 192.168.1.104, 232
+Info [2022-5-14 0:3:38]thread<1>,time<1.015045>,socket<196>,Accept<2>,Join<2>,recv<1>,msg<1>
+Info [2022-5-14 0:3:38]websocket client say: {"cmd":"ss_reg_api","is_req":true,"msgId":1,"time":1652457818222,"data":{"type":"LoginServer","name":"LoginServer001","sskey":"ssmm00@123456","apis":["cs_msg_login","cs_msg_register","cs_msg_change_pw"]}}
+Error [2022-5-14 0:3:38]Config::getStr not find <sskey>
+Info [2022-5-14 0:3:38]Config::getStr sskey=ssmm00@123456
+Info [2022-5-14 0:3:38]ss_reg_api: LoginServer001 >> cs_msg_login
+Info [2022-5-14 0:3:38]ss_reg_api: LoginServer001 >> cs_msg_register
+Info [2022-5-14 0:3:38]ss_reg_api: LoginServer001 >> cs_msg_change_pw
+Info [2022-5-14 0:3:39]thread<1>,time<1.014944>,socket<196>,Accept<2>,Join<2>,recv<1>,msg<1>
+Info [2022-5-14 0:3:40]thread<1>,time<1.005316>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:3:41]thread<1>,time<1.012838>,socket<196>,Accept<2>,Join<2>,recv<0>,msg<0>
+Info [2022-5-14 0:3:41]Accept_IP: 192.168.1.104, 236
+Info [2022-5-14 0:3:41]websocket client say: {"cmd":"ss_reg_api","is_req":true,"msgId":1,"time":1652457821770,"data":{"type":"LoginServer","name":"LoginServer001","sskey":"ssmm00@123456","apis":["cs_msg_login","cs_msg_register","cs_msg_change_pw"]}}
+Error [2022-5-14 0:3:41]Config::getStr not find <sskey>
+Info [2022-5-14 0:3:41]Config::getStr sskey=ssmm00@123456
+Info [2022-5-14 0:3:41]ss_reg_api: LoginServer001 >> cs_msg_login
+Info [2022-5-14 0:3:41]ss_reg_api: LoginServer001 >> cs_msg_register
+Info [2022-5-14 0:3:41]ss_reg_api: LoginServer001 >> cs_msg_change_pw
+Info [2022-5-14 0:3:42]thread<1>,time<1.011585>,socket<196>,Accept<3>,Join<3>,recv<2>,msg<2>
+Info [2022-5-14 0:3:43]Accept_IP: 192.168.1.104, 216
+Info [2022-5-14 0:3:43]thread<1>,time<1.011264>,socket<196>,Accept<4>,Join<3>,recv<0>,msg<0>
+Info [2022-5-14 0:3:43]websocket client say: {"cmd":"ss_reg_api","is_req":true,"msgId":1,"time":1652457823310,"data":{"type":"LoginServer","name":"LoginServer001","sskey":"ssmm00@123456","apis":["cs_msg_login","cs_msg_register","cs_msg_change_pw"]}}
+Error [2022-5-14 0:3:43]Config::getStr not find <sskey>
+Info [2022-5-14 0:3:43]Config::getStr sskey=ssmm00@123456
+Info [2022-5-14 0:3:43]ss_reg_api: LoginServer001 >> cs_msg_login
+Info [2022-5-14 0:3:43]ss_reg_api: LoginServer001 >> cs_msg_register
+Info [2022-5-14 0:3:43]ss_reg_api: LoginServer001 >> cs_msg_change_pw
+Info [2022-5-14 0:3:44]thread<1>,time<1.011025>,socket<196>,Accept<4>,Join<4>,recv<2>,msg<2>
+Info [2022-5-14 0:3:45]thread<1>,time<1.002314>,socket<196>,Accept<4>,Join<4>,recv<0>,msg<0>
+Info [2022-5-14 0:3:46]thread<1>,time<1.008742>,socket<196>,Accept<4>,Join<4>,recv<0>,msg<0>
+Info [2022-5-14 0:3:47]thread<1>,time<1.014468>,socket<196>,Accept<4>,Join<4>,recv<0>,msg<0>
+Info [2022-5-14 0:3:48]thread<1>,time<1.013967>,socket<196>,Accept<4>,Join<4>,recv<0>,msg<0>
+Info [2022-5-14 0:3:49]thread<1>,time<1.000057>,socket<196>,Accept<4>,Join<4>,recv<0>,msg<0>
+Info [2022-5-14 0:3:50]thread<1>,time<1.013456>,socket<196>,Accept<4>,Join<4>,recv<0>,msg<0>
+Info [2022-5-14 0:3:50]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457830461,"data":"hello"}
+Info [2022-5-14 0:3:50]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:3:51]thread<1>,time<1.011772>,socket<196>,Accept<4>,Join<4>,recv<1>,msg<1>
+Info [2022-5-14 0:3:51]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457831780,"data":"hello"}
+Info [2022-5-14 0:3:51]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:3:52]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457832354,"data":"hello"}
+Info [2022-5-14 0:3:52]thread<1>,time<1.014354>,socket<196>,Accept<4>,Join<4>,recv<2>,msg<2>
+Info [2022-5-14 0:3:52]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:3:53]thread<1>,time<1.014212>,socket<196>,Accept<4>,Join<4>,recv<0>,msg<0>
+Info [2022-5-14 0:3:54]thread<1>,time<1.014569>,socket<196>,Accept<4>,Join<4>,recv<0>,msg<0>
+Info [2022-5-14 0:3:54]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457834543,"data":"hello"}
+Info [2022-5-14 0:3:54]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:3:55]thread<1>,time<1.012069>,socket<196>,Accept<4>,Join<4>,recv<1>,msg<1>
+Info [2022-5-14 0:3:56]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457836076,"data":"hello"}
+Info [2022-5-14 0:3:56]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:3:56]thread<1>,time<1.004232>,socket<196>,Accept<4>,Join<4>,recv<1>,msg<1>
+Info [2022-5-14 0:3:57]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457837205,"data":"hello"}
+Info [2022-5-14 0:3:57]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:3:57]thread<1>,time<1.015451>,socket<196>,Accept<4>,Join<4>,recv<1>,msg<1>
+Info [2022-5-14 0:3:58]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457838286,"data":"hello"}
+Info [2022-5-14 0:3:58]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:3:58]thread<1>,time<1.002347>,socket<196>,Accept<4>,Join<4>,recv<1>,msg<1>
+Info [2022-5-14 0:3:58]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457838824,"data":"hello"}
+Info [2022-5-14 0:3:58]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:3:59]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457839284,"data":"hello"}
+Info [2022-5-14 0:3:59]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:3:59]thread<1>,time<1.011677>,socket<196>,Accept<4>,Join<4>,recv<2>,msg<2>
+Info [2022-5-14 0:3:59]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457839626,"data":"hello"}
+Info [2022-5-14 0:3:59]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:3:59]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457839823,"data":"hello"}
+Info [2022-5-14 0:3:59]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:3:59]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457839955,"data":"hello"}
+Info [2022-5-14 0:3:59]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:4:0]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457840223,"data":"hello"}
+Info [2022-5-14 0:4:0]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:4:0]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457840398,"data":"hello"}
+Info [2022-5-14 0:4:0]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:4:0]thread<1>,time<1.011084>,socket<196>,Accept<4>,Join<4>,recv<5>,msg<5>
+Info [2022-5-14 0:4:0]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457840550,"data":"hello"}
+Info [2022-5-14 0:4:0]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:4:0]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457840684,"data":"hello"}
+Info [2022-5-14 0:4:0]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:4:0]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457840867,"data":"hello"}
+Info [2022-5-14 0:4:0]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:4:1]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457841016,"data":"hello"}
+Info [2022-5-14 0:4:1]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:4:1]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457841173,"data":"hello"}
+Info [2022-5-14 0:4:1]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:4:1]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457841333,"data":"hello"}
+Info [2022-5-14 0:4:1]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:4:1]thread<1>,time<1.011256>,socket<196>,Accept<4>,Join<4>,recv<6>,msg<6>
+Info [2022-5-14 0:4:1]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457841470,"data":"hello"}
+Info [2022-5-14 0:4:1]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:4:1]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457841627,"data":"hello"}
+Info [2022-5-14 0:4:1]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:4:1]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457841802,"data":"hello"}
+Info [2022-5-14 0:4:1]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:4:1]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457841925,"data":"hello"}
+Info [2022-5-14 0:4:1]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:4:2]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457842091,"data":"hello"}
+Info [2022-5-14 0:4:2]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:4:2]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457842243,"data":"hello"}
+Info [2022-5-14 0:4:2]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:4:2]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457842396,"data":"hello"}
+Info [2022-5-14 0:4:2]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:4:2]thread<1>,time<1.014177>,socket<196>,Accept<4>,Join<4>,recv<7>,msg<7>
+Info [2022-5-14 0:4:2]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457842509,"data":"hello"}
+Info [2022-5-14 0:4:2]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:4:2]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457842705,"data":"hello"}
+Info [2022-5-14 0:4:2]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:4:2]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457842852,"data":"hello"}
+Info [2022-5-14 0:4:2]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:4:2]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457842968,"data":"hello"}
+Info [2022-5-14 0:4:2]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:4:3]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457843228,"data":"hello"}
+Info [2022-5-14 0:4:3]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:4:3]websocket client say: {"cmd":"cs_msg_login","is_req":true,"msgId":1,"time":1652457843358,"data":"hello"}
+Info [2022-5-14 0:4:3]::INetServer::on_net_msg_do not found cmd<cs_msg_login>.
+Info [2022-5-14 0:4:3]thread<1>,time<1.010936>,socket<196>,Accept<4>,Join<4>,recv<6>,msg<6>
+Info [2022-5-14 0:4:4]sockfd<216> onClose
+Info [2022-5-14 0:4:4]client<216> leave
+Info [2022-5-14 0:4:4]thread<1>,time<1.011824>,socket<196>,Accept<3>,Join<3>,recv<0>,msg<0>
+Info [2022-5-14 0:4:5]thread<1>,time<1.000260>,socket<196>,Accept<3>,Join<3>,recv<0>,msg<0>
+Info [2022-5-14 0:4:6]thread<1>,time<1.000272>,socket<196>,Accept<3>,Join<3>,recv<0>,msg<0>
+Info [2022-5-14 0:4:6]sockfd<236> onClose
+Info [2022-5-14 0:4:6]client<236> leave
+Info [2022-5-14 0:4:7]sockfd<232> onClose
+Info [2022-5-14 0:4:7]client<232> leave
+Info [2022-5-14 0:4:7]thread<1>,time<1.009029>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:8]thread<1>,time<1.011771>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:9]thread<1>,time<1.010900>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:10]thread<1>,time<1.014117>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:11]thread<1>,time<1.000403>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:12]thread<1>,time<1.013150>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:13]thread<1>,time<1.001003>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:14]thread<1>,time<1.012143>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:15]thread<1>,time<1.001800>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:16]thread<1>,time<1.000313>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:17]thread<1>,time<1.011837>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:18]thread<1>,time<1.004650>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:19]thread<1>,time<1.000519>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:20]thread<1>,time<1.003589>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:21]thread<1>,time<1.009424>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:22]thread<1>,time<1.002443>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:23]thread<1>,time<1.014896>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:24]thread<1>,time<1.013251>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:25]thread<1>,time<1.013997>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:26]thread<1>,time<1.014717>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:27]thread<1>,time<1.012688>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:28]thread<1>,time<1.000453>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:29]thread<1>,time<1.000178>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:30]thread<1>,time<1.012936>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:31]thread<1>,time<1.002462>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:32]thread<1>,time<1.014591>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:33]thread<1>,time<1.009960>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:34]thread<1>,time<1.014039>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:35]thread<1>,time<1.012192>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:36]thread<1>,time<1.013092>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:37]thread<1>,time<1.001789>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:38]thread<1>,time<1.000478>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:39]thread<1>,time<1.012014>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:40]thread<1>,time<1.011905>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:41]thread<1>,time<1.000014>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:42]thread<1>,time<1.009858>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:43]thread<1>,time<1.015140>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:44]thread<1>,time<1.013976>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:45]thread<1>,time<1.011141>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:46]thread<1>,time<1.014161>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:47]thread<1>,time<1.013942>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:48]thread<1>,time<1.012963>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:49]thread<1>,time<1.011414>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:50]thread<1>,time<1.012005>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:51]thread<1>,time<1.012256>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:52]thread<1>,time<1.013884>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:53]thread<1>,time<1.011914>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:54]thread<1>,time<1.014747>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:55]thread<1>,time<1.015376>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:57]thread<1>,time<1.012491>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:58]thread<1>,time<1.002014>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:4:59]thread<1>,time<1.001359>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:0]thread<1>,time<1.013714>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:1]thread<1>,time<1.012851>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:2]thread<1>,time<1.011962>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:3]thread<1>,time<1.002546>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:4]thread<1>,time<1.010365>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:5]thread<1>,time<1.013583>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:6]thread<1>,time<1.009703>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:7]thread<1>,time<1.012589>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:8]thread<1>,time<1.011278>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:9]thread<1>,time<1.011352>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:10]thread<1>,time<1.014987>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:11]thread<1>,time<1.004149>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:12]thread<1>,time<1.000587>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:13]thread<1>,time<1.014116>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:14]thread<1>,time<1.013029>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:15]thread<1>,time<1.011539>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:16]thread<1>,time<1.001521>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:17]thread<1>,time<1.001508>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:18]thread<1>,time<1.013515>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:19]thread<1>,time<1.000268>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:20]thread<1>,time<1.000852>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:21]thread<1>,time<1.001560>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:22]thread<1>,time<1.005203>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:23]thread<1>,time<1.013212>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:24]thread<1>,time<1.014563>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:25]thread<1>,time<1.014924>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:26]thread<1>,time<1.001336>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:27]thread<1>,time<1.011658>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:28]thread<1>,time<1.001592>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:29]thread<1>,time<1.014230>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:30]thread<1>,time<1.014865>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:31]thread<1>,time<1.015953>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:32]thread<1>,time<1.015247>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:33]thread<1>,time<1.012668>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:34]thread<1>,time<1.013758>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:35]thread<1>,time<1.001228>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:36]thread<1>,time<1.012242>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:37]thread<1>,time<1.013604>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:38]thread<1>,time<1.014214>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:39]thread<1>,time<1.014001>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:40]thread<1>,time<1.000664>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:41]thread<1>,time<1.013198>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:42]thread<1>,time<1.014616>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:43]thread<1>,time<1.011063>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:44]thread<1>,time<1.014145>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:45]thread<1>,time<1.015241>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:46]thread<1>,time<1.012020>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:47]thread<1>,time<1.013680>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:48]thread<1>,time<1.014931>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:49]thread<1>,time<1.001002>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:50]thread<1>,time<1.015268>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:51]thread<1>,time<1.013279>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:52]thread<1>,time<1.009847>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:53]thread<1>,time<1.013001>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:54]thread<1>,time<1.010530>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:55]thread<1>,time<1.013171>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:56]thread<1>,time<1.011957>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:57]thread<1>,time<1.012843>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:58]thread<1>,time<1.015581>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:5:59]thread<1>,time<1.015532>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:0]thread<1>,time<1.014820>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:1]thread<1>,time<1.010245>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:2]thread<1>,time<1.015209>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:3]checkHeart dead:s=220,time=120005
+Info [2022-5-14 0:6:3]sockfd<-1> onClose
+Info [2022-5-14 0:6:3]thread<1>,time<1.014611>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:4]thread<1>,time<1.012945>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:5]thread<1>,time<1.011076>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:6]thread<1>,time<1.001381>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:7]thread<1>,time<1.001167>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:8]thread<1>,time<1.011504>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:9]thread<1>,time<1.013802>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:10]thread<1>,time<1.012399>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:11]thread<1>,time<1.014299>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:12]thread<1>,time<1.014696>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:13]thread<1>,time<1.011276>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:14]thread<1>,time<1.014674>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:15]thread<1>,time<1.015040>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:16]thread<1>,time<1.015567>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:17]thread<1>,time<1.011764>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:18]thread<1>,time<1.011255>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:19]thread<1>,time<1.000628>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:20]thread<1>,time<1.011298>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:21]thread<1>,time<1.013267>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:22]thread<1>,time<1.012067>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:23]thread<1>,time<1.012541>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:24]thread<1>,time<1.009359>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:25]thread<1>,time<1.003927>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:26]thread<1>,time<1.013510>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:27]thread<1>,time<1.012343>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:28]thread<1>,time<1.013952>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:29]thread<1>,time<1.011513>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:31]thread<1>,time<1.014394>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:32]thread<1>,time<1.005034>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:33]thread<1>,time<1.002533>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:34]thread<1>,time<1.012581>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:35]thread<1>,time<1.003928>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:36]thread<1>,time<1.011970>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:37]thread<1>,time<1.003130>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:38]thread<1>,time<1.011819>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:39]thread<1>,time<1.001192>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:40]thread<1>,time<1.014949>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:41]thread<1>,time<1.000344>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:42]thread<1>,time<1.015374>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:43]thread<1>,time<1.014811>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:44]thread<1>,time<1.011897>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:45]thread<1>,time<1.001638>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:46]thread<1>,time<1.000397>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:47]thread<1>,time<1.000264>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:48]thread<1>,time<1.012658>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:49]thread<1>,time<1.004966>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:50]thread<1>,time<1.001220>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:51]thread<1>,time<1.008890>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:52]thread<1>,time<1.000588>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:53]thread<1>,time<1.002653>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:54]thread<1>,time<1.013548>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:55]thread<1>,time<1.011923>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:56]thread<1>,time<1.014735>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:57]thread<1>,time<1.011283>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:58]thread<1>,time<1.009076>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:6:59]thread<1>,time<1.010377>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:7:0]thread<1>,time<1.001642>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:7:1]thread<1>,time<1.000190>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:7:2]thread<1>,time<1.009830>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:7:3]thread<1>,time<1.005876>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:7:4]thread<1>,time<1.011693>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:7:5]thread<1>,time<1.014341>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:7:6]thread<1>,time<1.012587>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:7:7]thread<1>,time<1.013919>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:7:8]thread<1>,time<1.011836>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:7:9]thread<1>,time<1.002136>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:7:10]thread<1>,time<1.001405>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:7:11]thread<1>,time<1.013427>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:7:12]thread<1>,time<1.000252>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:7:13]thread<1>,time<1.013508>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:7:14]thread<1>,time<1.013941>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:7:15]thread<1>,time<1.013285>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:7:16]thread<1>,time<1.014007>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:7:17]thread<1>,time<1.000142>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:7:18]thread<1>,time<1.010789>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:7:19]thread<1>,time<1.013340>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:7:20]thread<1>,time<1.011990>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:7:21]thread<1>,time<1.011770>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:7:22]thread<1>,time<1.000316>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:7:23]thread<1>,time<1.014147>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:7:24]thread<1>,time<1.015075>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:7:25]thread<1>,time<1.014234>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:7:26]thread<1>,time<1.008993>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:7:27]thread<1>,time<1.015013>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:7:28]thread<1>,time<1.013940>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:7:29]thread<1>,time<1.000441>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:7:30]thread<1>,time<1.013562>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:7:31]thread<1>,time<1.013837>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:7:32]thread<1>,time<1.012329>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:7:33]thread<1>,time<1.015094>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:7:34]thread<1>,time<1.012598>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:7:35]thread<1>,time<1.010556>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>
+Info [2022-5-14 0:7:36]thread<1>,time<1.015505>,socket<196>,Accept<1>,Join<1>,recv<0>,msg<0>

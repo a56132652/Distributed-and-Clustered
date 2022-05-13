@@ -149,6 +149,7 @@ namespace doyou {
 			{
 				neb::CJsonObject msg;
 				msg.Add("cmd", cmd);
+				msg.Add("is_req", true,true);
 				msg.Add("msgId", ++msgId);
 				msg.Add("time", Time::system_clock_now());
 				msg.Add("data", data);
@@ -161,6 +162,7 @@ namespace doyou {
 			{
 				neb::CJsonObject ret;
 				ret.Add("msgId", msgId);
+				ret.Add("is_resp", true, true);
 				ret.Add("time", Time::system_clock_now());
 				ret.Add("data", data);
 
@@ -179,6 +181,7 @@ namespace doyou {
 
 				neb::CJsonObject ret;
 				ret.Add("msgId", msgId);
+				ret.Add("is_resp", true, true);
 				ret.Add("time", Time::system_clock_now());
 				ret.Add("data", data);
 
@@ -195,7 +198,16 @@ namespace doyou {
 					return;
 				}
 
+				int clientId = 0;
+				if (!msg.Get("clientId", clientId))
+				{
+					CELLLog_Error("not found key<%s>.", "clientId");
+					return;
+				}
+
 				ret.Add("msgId", msgId);
+				ret.Add("clientId", clientId);
+				ret.Add("is_resp", true, true);
 				ret.Add("time", Time::system_clock_now());
 
 				std::string retStr = ret.ToString();
