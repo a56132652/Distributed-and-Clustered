@@ -1,20 +1,46 @@
-Info [2022-5-14 0:3:43]Log::setLogPath success,<LoginServerLog.txt,w>
-Debug [2022-5-14 0:3:43]madeCmd k<nSendBuffSize> v<102400>
-Debug [2022-5-14 0:3:43]madeCmd k<nRecvBuffSize> v<102400>
-Info [2022-5-14 0:3:43]Config::getInt nSendBuffSize=102400
-Info [2022-5-14 0:3:43]Config::getInt nRecvBuffSize=102400
-Info [2022-5-14 0:3:43]192.168.1.104 ipv4: 192.168.1.104
-Info [2022-5-14 0:3:43]connet2ip(192.168.1.104,4567)
-Info [2022-5-14 0:3:43]WebSocketClientC::handshake, Good.
-Info [2022-5-14 0:3:43]csGate::INetClient::connect(ws://192.168.1.104:4567) success.
-Info [2022-5-14 0:3:52]LoginServer::cs_msg_login
-Info [2022-5-14 0:3:57]LoginServer::cs_msg_login
-Info [2022-5-14 0:3:59]LoginServer::cs_msg_login
-Info [2022-5-14 0:3:59]LoginServer::cs_msg_login
-Info [2022-5-14 0:4:0]LoginServer::cs_msg_login
-Info [2022-5-14 0:4:1]LoginServer::cs_msg_login
-Info [2022-5-14 0:4:1]LoginServer::cs_msg_login
-Info [2022-5-14 0:4:1]LoginServer::cs_msg_login
-Info [2022-5-14 0:4:2]LoginServer::cs_msg_login
-Info [2022-5-14 0:4:2]LoginServer::cs_msg_login
-Info [2022-5-14 0:4:3]LoginServer::cs_msg_login
+Info [2022-5-15 20:28:53]Log::setLogPath success,<LoginServerLog.txt,w>
+Debug [2022-5-15 20:28:53]madeCmd k<nSendBuffSize> v<102400>
+Debug [2022-5-15 20:28:53]madeCmd k<nRecvBuffSize> v<102400>
+Info [2022-5-15 20:28:53]Config::getInt nSendBuffSize=102400
+Info [2022-5-15 20:28:53]Config::getInt nRecvBuffSize=102400
+Info [2022-5-15 20:28:53]192.168.1.104 ipv4: 192.168.1.104
+Info [2022-5-15 20:28:53]connet2ip(192.168.1.104,4567)
+Warring [2022-5-15 20:28:53]csGate::INetClient::connect(ws://192.168.1.104:4567) success.
+Info [2022-5-15 20:28:53]WebSocketClientC::handshake, Good.
+Info [2022-5-15 20:28:53]csGate::INetClient::connect(ws://192.168.1.104:4567) success.
+Info [2022-5-15 20:28:53]ss_reg_api ok!
+Info [2022-5-15 20:28:58]csGate::INetClient::on_net_msg_do not found msgId<2>.
+Info [2022-5-15 20:29:3]csGate::INetClient::on_net_msg_do not found msgId<3>.
+Info [2022-5-15 20:29:8]csGate::INetClient::on_net_msg_do not found msgId<4>.
+Info [2022-5-15 20:29:13]csGate::INetClient::on_net_msg_do not found msgId<5>.
+Info [2022-5-15 20:29:18]csGate::INetClient::on_net_msg_do not found msgId<6>.
+Info [2022-5-15 20:29:23]csGate::INetClient::on_net_msg_do not found msgId<7>.
+Info [2022-5-15 20:29:28]csGate::INetClient::on_net_msg_do not found msgId<8>.
+Info [2022-5-15 20:29:33]csGate::INetClient::on_net_msg_do not found msgId<9>.
+Info [2022-5-15 20:29:38]csGate::INetClient::on_net_msg_do not found msgId<10>.
+Info [2022-5-15 20:29:43]csGate::INetClient::on_net_msg_do not found msgId<11>.
+Info [2022-5-15 20:29:48]csGate::INetClient::on_net_msg_do not found msgId<12>.
+Info [2022-5-15 20:29:53]csGate::INetClient::on_net_msg_do not found msgId<13>.
+Info [2022-5-15 20:29:58]csGate::INetClient::on_net_msg_do not found msgId<14>.
+Info [2022-5-15 20:30:0]csGate::INetClient::on_net_msg_do not found msgId<15>.
+
+Info [2022-5-15 20:29:56]csGate::INetClient::on_net_msg_do not found msgId<16>.
+Info [2022-5-15 20:30:1]csGate::INetClient::on_net_msg_do not found msgId<17>.
+Error [2022-5-15 20:30:2]TcpIocpClient.DoIocpNetEvents rmClient sockfd=188, IO_TYPE::RECV bytesTrans=0
+Info [2022-5-15 20:30:2]csGate::INetClient::on_net_msg_do not found cmd<onclose>.
+Info [2022-5-15 20:30:2]192.168.1.104 ipv4: 192.168.1.104
+PError [2022-5-15 20:30:4]<socket=188> connect <192.168.1.104:4567> failed...
+PError [2022-5-15 20:30:4]errno=10061,errmsg=由于目标计算机积极拒绝，无法连接。
+Info [2022-5-15 20:30:4]192.168.1.104 ipv4: 192.168.1.104
+Info [2022-5-15 20:30:4]warning, initSocket close old socket<188>...
+Info [2022-5-15 20:30:4]csGate::INetClient::on_net_msg_do not found cmd<onclose>.
+PError [2022-5-15 20:30:6]<socket=188> connect <192.168.1.104:4567> failed...
+PError [2022-5-15 20:30:6]errno=10061,errmsg=由于目标计算机积极拒绝，无法连接。
+Info [2022-5-15 20:30:6]192.168.1.104 ipv4: 192.168.1.104
+Info [2022-5-15 20:30:6]warning, initSocket close old socket<188>...
+Info [2022-5-15 20:30:6]csGate::INetClient::on_net_msg_do not found cmd<onclose>.
+PError [2022-5-15 20:30:8]<socket=188> connect <192.168.1.104:4567> failed...
+PError [2022-5-15 20:30:8]errno=10061,errmsg=由于目标计算机积极拒绝，无法连接。
+Info [2022-5-15 20:30:8]192.168.1.104 ipv4: 192.168.1.104
+Info [2022-5-15 20:30:8]warning, initSocket close old socket<188>...
+Info [2022-5-15 20:30:8]csGate::INetClient::on_net_msg_do not found cmd<onclose>.

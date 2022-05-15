@@ -2,6 +2,7 @@
 #include"Config.hpp"
 #include"LoginServer.hpp"
 
+#pragma warning(disable:4996)
 
 using namespace doyou::io;
 
