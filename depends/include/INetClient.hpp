@@ -81,21 +81,28 @@ namespace doyou {
 						return;
 					}
 
-					std::string cmd;
-					if (!json.Get("cmd", cmd))
-					{
-						CELLLog_Error("not found key<%s>.", "cmd");
+					//响应
+					bool is_resp = false;
+					if (json.Get("is_resp", is_resp) && is_resp)
+					{  
+						on_net_msg_do(msgId, json);
 						return;
 					}
 
-					std::string data;
-					if (!json.Get("data", data))
+					//请求
+					bool is_req = false;
+					if (!json.Get("is_req", is_req) && is_req)
 					{
-						CELLLog_Error("not found key<%s>.", "data");
+						std::string cmd;
+						if (!json.Get("cmd", cmd))
+						{
+							CELLLog_Error("not found key<%s>.", "cmd");
+							return;
+						}
+
+						on_net_msg_do(cmd, json);
 						return;
 					}
-
-					on_net_msg_do(cmd, json);
 				};
 
 				_client.onclose = [this](WebSocketClientC* pWSClient)
@@ -119,11 +126,14 @@ namespace doyou {
 			bool run(int microseconds = 1)
 			{
 				if (_client.isRun())
-				{
+				{	
+					//超过5秒
 					if (_time2heart.getElapsedSecond() > 5.0)
 					{
+						//重置计时器
 						_time2heart.update();
 						neb::CJsonObject json;
+						//向网关服务端发送心跳消息，消息为空
 						request("cs_msg_heart", json);
 					}
 					return _client.OnRun(microseconds);
@@ -131,6 +141,7 @@ namespace doyou {
 
 				if (_client.connect(_url.c_str()))
 				{
+					//连接上服务端以后重置心跳计时器
 					_time2heart.update();
 					CELLLog_Warring("%s::INetClient::connect(%s) success.", _link_name.c_str(), _url.c_str());
 					return true;
@@ -159,9 +170,22 @@ namespace doyou {
 				CELLLog_Info("%s::INetClient::on_net_msg_do not found cmd<%s>.", _link_name.c_str(),cmd.c_str());
 				return false;
 			}
+			//通过msgId存储回调
+			bool on_net_msg_do(int msgId, neb::CJsonObject& msgJson)
+			{
+				auto itr = _map_request_call.find(msgId);
+				if (itr != _map_request_call.end())
+				{
+					itr->second(this, msgJson);
+					return true;
+				}
+				CELLLog_Info("%s::INetClient::on_net_msg_do not found msgId<%d>.", _link_name.c_str(), msgId);
+				return false;
+			}
 
 			void request(const std::string& cmd, neb::CJsonObject& data)
 			{
+				//每次请求时重置心跳计时
 				_time2heart.update();
 
 				neb::CJsonObject msg;
@@ -174,7 +198,8 @@ namespace doyou {
 				std::string retStr = msg.ToString();
 				_client.writeText(retStr.c_str(), retStr.length());
 			}
-
+			
+			//发起请求时带上回调方法
 			void request(const std::string& cmd, neb::CJsonObject& data, NetEventCall call)
 			{
 				_time2heart.update();

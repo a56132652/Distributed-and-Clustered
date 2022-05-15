@@ -90,6 +90,8 @@ namespace doyou {
 					CELLLog_Info("ss_reg_api: %s >> %s", name.c_str(), apis(i).c_str());
 					_transfer.add(apis(i), client);
 				}
+
+				client->response(msg, "ss_reg_api ok!");
 			}
 
 			void on_other_msg(Server* server, INetClientS* client, std::string& cmd, neb::CJsonObject& msg)
