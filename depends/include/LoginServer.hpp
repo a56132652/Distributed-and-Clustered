@@ -12,11 +12,13 @@ namespace doyou {
 		public:
 			void Init()
 			{
-				_csGate.connect("csGate","ws://192.168.1.104:4567");
+				auto csGateUrl = Config::Instance().getStr("csGateUrl", "ws://127.0.0.1:4567");
+				_csGate.connect("csGate", csGateUrl);
 				//注册关注事件
 				_csGate.reg_msg_call("onopen", std::bind(&LoginServer::onopen_csGate, this, std::placeholders::_1, std::placeholders::_2));
 				
 				_csGate.reg_msg_call("cs_msg_login", std::bind(&LoginServer::cs_msg_login, this, std::placeholders::_1, std::placeholders::_2));
+				_csGate.reg_msg_call("cs_msg_register", std::bind(&LoginServer::cs_msg_register, this, std::placeholders::_1, std::placeholders::_2));
 			}
 
 			void Run()
@@ -62,6 +64,30 @@ namespace doyou {
 
 				neb::CJsonObject ret;
 				ret.Add("data", "login successs.");
+				client->response(msg, ret);
+			}
+
+			void cs_msg_register(INetClient* client, neb::CJsonObject& msg)
+			{
+				int msgId = 0;
+				if (!msg.Get("msgId", msgId))
+				{
+					CELLLog_Error("not found key<%s>.", "msgId");
+					return;
+				}
+
+				std::string username = "";
+				if (!msg.Get("userbame", username))
+				{
+					CELLLog_Error("not found key<%s>.", "username");
+					return;
+				}
+				CELLLog_Info("LoginServer:: cs_msg_register: msgId=%d", msgId);
+
+				std::string password = msg("password");
+
+				neb::CJsonObject ret;
+				ret.Add("data", "register success.");
 				client->response(msg, ret);
 			}
 		};

@@ -74,7 +74,7 @@ namespace doyou {
 						return;
 					}
 
-					time_t time = 0;
+					int64 time = 0;
 					if (!json.Get("time", time))
 					{
 						CELLLog_Error("not found key<%s>.", "time");
@@ -91,7 +91,7 @@ namespace doyou {
 
 					//请求
 					bool is_req = false;
-					if (!json.Get("is_req", is_req) && is_req)
+					if (json.Get("is_req", is_req) && is_req)
 					{
 						std::string cmd;
 						if (!json.Get("cmd", cmd))
@@ -146,6 +146,7 @@ namespace doyou {
 					CELLLog_Warring("%s::INetClient::connect(%s) success.", _link_name.c_str(), _url.c_str());
 					return true;
 				}
+				Thread::Sleep(1000);
 				return false;
 			}
 

@@ -3,6 +3,7 @@
 
 #include"CJsonObject.hpp"
 #include"INetClientS.hpp"
+#include<algorithm>
 #include<vector>
 
 namespace doyou {

@@ -98,7 +98,7 @@ namespace doyou {
 					return;
 				}
 
-				time_t time = 0;
+				int64 time = 0;
 				if (!json.Get("time", time))
 				{
 					CELLLog_Error("not found key<%s>.", "time");
