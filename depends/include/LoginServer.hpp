@@ -1,4 +1,4 @@
-#ifndef _doyou_io_LoginServer_HPP_
+ï»¿#ifndef _doyou_io_LoginServer_HPP_
 #define _doyou_io_LoginServer_HPP_
 
 #include"INetClient.hpp"
@@ -13,10 +13,9 @@ namespace doyou {
 			void Init()
 			{
 				_csGate.connect("csGate","ws://192.168.1.104:4567");
-				//×¢²á¹Ø×¢ÊÂ¼ş
+				//æ³¨å†Œå…³æ³¨äº‹ä»¶
 				_csGate.reg_msg_call("onopen", std::bind(&LoginServer::onopen_csGate, this, std::placeholders::_1, std::placeholders::_2));
 				
-				_csGate.reg_msg_call("cs_msg_heart", std::bind(&LoginServer::cs_msg_heart, this,std::placeholders::_1, std::placeholders::_2));
 				_csGate.reg_msg_call("cs_msg_login", std::bind(&LoginServer::cs_msg_login, this, std::placeholders::_1, std::placeholders::_2));
 			}
 
@@ -31,44 +30,39 @@ namespace doyou {
 			}
 
 		private:
-			//ÊÕµ½ onopen ÏûÏ¢Ê±µÄ»Øµ÷£¬ÊÕµ½onopenÏûÏ¢ºóÏòÍø¹Ø·şÎñÆ÷·¢Æğ×¢²á·şÎñÇëÇó
+			//æ”¶åˆ° onopen æ¶ˆæ¯æ—¶çš„å›è°ƒï¼Œæ”¶åˆ°onopenæ¶ˆæ¯åå‘ç½‘å…³æœåŠ¡å™¨å‘èµ·æ³¨å†ŒæœåŠ¡è¯·æ±‚
 			void onopen_csGate(INetClient* client, neb::CJsonObject& msg)
 			{
 				neb::CJsonObject json;
-				//¸æÖªÍø¹Ø×Ô¼ºÊÇÊ²Ã´ÀàĞÍµÄ·şÎñ
+				//å‘ŠçŸ¥ç½‘å…³è‡ªå·±æ˜¯ä»€ä¹ˆç±»å‹çš„æœåŠ¡
 				json.Add("type", "LoginServer");
-				//×Ô¼ºµÄÃû×Ö
+				//è‡ªå·±çš„åå­—
 				json.Add("name", "LoginServer001");
-				//Ğ£Ñé»úÖÆ£¬Íø¹Ø·şÎñÆ÷»áĞ£Ñé¸ÃÖµ
+				//æ ¡éªŒæœºåˆ¶ï¼Œç½‘å…³æœåŠ¡å™¨ä¼šæ ¡éªŒè¯¥å€¼
 				json.Add("sskey", "ssmm00@123456");
 				json.AddEmptySubArray("apis");
 				/*
-					¸æÖªÍø¹Ø×Ô¼º¹ØĞÄÊ²Ã´ÀàĞÍµÄÏûÏ¢
-					Íø¹ØÊÕµ½¸ÃÀàĞÍµÄÏûÏ¢µ½»á·Ö·¢¸ø×Ô¼º
+					å‘ŠçŸ¥ç½‘å…³è‡ªå·±å…³å¿ƒä»€ä¹ˆç±»å‹çš„æ¶ˆæ¯
+					ç½‘å…³æ”¶åˆ°è¯¥ç±»å‹çš„æ¶ˆæ¯åˆ°ä¼šåˆ†å‘ç»™è‡ªå·±
 				*/
-				//µÇÂ¼
+				//ç™»å½•
 				json["apis"].Add("cs_msg_login");
-				//×¢²á
+				//æ³¨å†Œ
 				json["apis"].Add("cs_msg_register");
-				//¸ÄÃÜÂë
+				//æ”¹å¯†ç 
 				json["apis"].Add("cs_msg_change_pw");
-				client->request("ss_reg_api", json);
-			}
-
-			void cs_msg_heart(INetClient* client, neb::CJsonObject& msg)
-			{
-				CELLLog_Info("LoginServer::cs_msg_heart");
-
-				neb::CJsonObject ret;
-				ret.Add("data", "wo ye bu ji dao.");
-				client->response(msg, ret);
-
-				//client->respone(msg, "wo ye bu ji dao.");
+				client->request("ss_reg_api", json, [](INetClient* client, neb::CJsonObject& msg) {
+					CELLLog_Info(msg("data").c_str());
+				});
 			}
 
 			void cs_msg_login(INetClient* client, neb::CJsonObject& msg)
 			{
 				CELLLog_Info("LoginServer::cs_msg_login");
+
+				neb::CJsonObject ret;
+				ret.Add("data", "login successs.");
+				client->response(msg, ret);
 			}
 		};
 	}

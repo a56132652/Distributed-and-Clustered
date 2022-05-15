@@ -14,6 +14,8 @@ namespace doyou {
 		private:
 			TcpWebSocketClient _client;
 			//
+			Timestamp _time2heart;
+			//
 			std::string _link_name;
 			std::string _url;
 			//
@@ -21,8 +23,10 @@ namespace doyou {
 		private:
 			typedef std::function<void(INetClient*, neb::CJsonObject&)> NetEventCall;
 			std::map<std::string, NetEventCall> _map_msg_call;
+			//
+			std::map<int, NetEventCall> _map_request_call;
 		public:
-			bool connect(const char* link_name,const char* url)
+			void connect(const char* link_name,const char* url)
 			{
 				_link_name = link_name;
 				_url = url;
@@ -33,11 +37,6 @@ namespace doyou {
 				_client.send_buff_size(s_size);
 				_client.recv_buff_size(r_size);
 
-				if (!_client.connect(url))
-				{
-					CELLLog_Warring("%s::INetClient::connect(%s) failed.", _link_name.c_str(), _url.c_str());
-					return false;
-				}
 
 				//注册消息
 				_client.onopen = [this](WebSocketClientC* pWSClient)
@@ -119,7 +118,24 @@ namespace doyou {
 
 			bool run(int microseconds = 1)
 			{
-				return _client.OnRun(microseconds);
+				if (_client.isRun())
+				{
+					if (_time2heart.getElapsedSecond() > 5.0)
+					{
+						_time2heart.update();
+						neb::CJsonObject json;
+						request("cs_msg_heart", json);
+					}
+					return _client.OnRun(microseconds);
+				}
+
+				if (_client.connect(_url.c_str()))
+				{
+					_time2heart.update();
+					CELLLog_Warring("%s::INetClient::connect(%s) success.", _link_name.c_str(), _url.c_str());
+					return true;
+				}
+				return false;
 			}
 
 			void close()
@@ -144,13 +160,31 @@ namespace doyou {
 				return false;
 			}
 
-
 			void request(const std::string& cmd, neb::CJsonObject& data)
 			{
+				_time2heart.update();
+
 				neb::CJsonObject msg;
 				msg.Add("cmd", cmd);
-				msg.Add("is_req", true,true);
+				msg.Add("is_req", true, true);
 				msg.Add("msgId", ++msgId);
+				msg.Add("time", Time::system_clock_now());
+				msg.Add("data", data);
+
+				std::string retStr = msg.ToString();
+				_client.writeText(retStr.c_str(), retStr.length());
+			}
+
+			void request(const std::string& cmd, neb::CJsonObject& data, NetEventCall call)
+			{
+				_time2heart.update();
+
+				neb::CJsonObject msg;
+				msg.Add("cmd", cmd);
+				msg.Add("is_req", true, true);
+				msg.Add("msgId", ++msgId);
+				_map_request_call[msgId] = call;
+
 				msg.Add("time", Time::system_clock_now());
 				msg.Add("data", data);
 
