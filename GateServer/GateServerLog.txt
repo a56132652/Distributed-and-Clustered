@@ -1,287 +1,133 @@
-Info [2022-5-15 20:28:34]Log::setLogPath success,<GateServerLog.txt,w>
-Debug [2022-5-15 20:28:34]madeCmd k<nSendBuffSize> v<102400>
-Debug [2022-5-15 20:28:34]madeCmd k<nRecvBuffSize> v<102400>
-Info [2022-5-15 20:28:34]Config::getInt nSendBuffSize=102400
-Info [2022-5-15 20:28:34]Config::getInt nRecvBuffSize=102400
-Error [2022-5-15 20:28:34]Config::getStr not find <nMaxClient>
-Info [2022-5-15 20:28:34]Config::getInt nMaxClient=65535
-Error [2022-5-15 20:28:34]Config::getStr not find <strIP>
-Info [2022-5-15 20:28:34]Config::getStr strIP=any
-Error [2022-5-15 20:28:34]Config::getStr not find <nPort>
-Info [2022-5-15 20:28:34]Config::getInt nPort=4567
-Info [2022-5-15 20:28:34]-ipv4
-Info [2022-5-15 20:28:34]create socket<224> success...
-Info [2022-5-15 20:28:34]bind port<4567> success...
-Info [2022-5-15 20:28:34]listen port<224> success...
-Info [2022-5-15 20:28:34]INetServer::reg_msg_call cmd<cs_msg_heart>.
-Info [2022-5-15 20:28:34]INetServer::reg_msg_call cmd<ss_reg_api>.
-Info [2022-5-15 20:28:35]thread<1>,time<1.000909>,socket<224>,Accept<0>,Join<0>,recv<0>,msg<0>
-Info [2022-5-15 20:28:36]thread<1>,time<1.000954>,socket<224>,Accept<0>,Join<0>,recv<0>,msg<0>
-Info [2022-5-15 20:28:37]thread<1>,time<1.000975>,socket<224>,Accept<0>,Join<0>,recv<0>,msg<0>
-Info [2022-5-15 20:28:38]thread<1>,time<1.000185>,socket<224>,Accept<0>,Join<0>,recv<0>,msg<0>
-Info [2022-5-15 20:28:39]thread<1>,time<1.000293>,socket<224>,Accept<0>,Join<0>,recv<0>,msg<0>
-Info [2022-5-15 20:28:40]thread<1>,time<1.000191>,socket<224>,Accept<0>,Join<0>,recv<0>,msg<0>
-Info [2022-5-15 20:28:40]Accept_IP: 192.168.1.104, 180
-Info [2022-5-15 20:28:41]websocket client say: {"cmd":"ss_reg_api","is_req":true,"msgId":1,"time":1652617720998,"data":{"type":"LoginServer","name":"LoginServer001","sskey":"ssmm00@123456","apis":["cs_msg_login","cs_msg_register","cs_msg_change_pw"]}}
-Error [2022-5-15 20:28:41]Config::getStr not find <sskey>
-Info [2022-5-15 20:28:41]Config::getStr sskey=ssmm00@123456
-Info [2022-5-15 20:28:41]ss_reg_api: LoginServer001 >> cs_msg_login
-Info [2022-5-15 20:28:41]ss_reg_api: LoginServer001 >> cs_msg_register
-Info [2022-5-15 20:28:41]ss_reg_api: LoginServer001 >> cs_msg_change_pw
-Info [2022-5-15 20:28:41]thread<1>,time<1.001984>,socket<224>,Accept<1>,Join<1>,recv<2>,msg<2>
-Info [2022-5-15 20:28:42]thread<1>,time<1.000793>,socket<224>,Accept<1>,Join<1>,recv<0>,msg<0>
-Info [2022-5-15 20:28:43]thread<1>,time<1.000183>,socket<224>,Accept<1>,Join<1>,recv<0>,msg<0>
-Info [2022-5-15 20:28:44]thread<1>,time<1.000876>,socket<224>,Accept<1>,Join<1>,recv<0>,msg<0>
-Info [2022-5-15 20:28:45]thread<1>,time<1.000185>,socket<224>,Accept<1>,Join<1>,recv<0>,msg<0>
-Info [2022-5-15 20:28:46]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":2,"time":1652617725999}
-Info [2022-5-15 20:28:46]GateServer::cs_msg_heart
-Info [2022-5-15 20:28:46]thread<1>,time<1.000190>,socket<224>,Accept<1>,Join<1>,recv<1>,msg<1>
-Info [2022-5-15 20:28:47]thread<1>,time<1.000466>,socket<224>,Accept<1>,Join<1>,recv<0>,msg<0>
-Info [2022-5-15 20:28:48]Accept_IP: 192.168.1.104, 188
-Info [2022-5-15 20:28:48]websocket client say: {"cmd":"ss_reg_api","is_req":true,"msgId":1,"time":1652617728546,"data":{"type":"LoginServer","name":"LoginServer001","sskey":"ssmm00@123456","apis":["cs_msg_login","cs_msg_register","cs_msg_change_pw"]}}
-Error [2022-5-15 20:28:48]Config::getStr not find <sskey>
-Info [2022-5-15 20:28:48]Config::getStr sskey=ssmm00@123456
-Info [2022-5-15 20:28:48]ss_reg_api: LoginServer001 >> cs_msg_login
-Info [2022-5-15 20:28:48]ss_reg_api: LoginServer001 >> cs_msg_register
-Info [2022-5-15 20:28:48]ss_reg_api: LoginServer001 >> cs_msg_change_pw
-Info [2022-5-15 20:28:48]thread<1>,time<1.000114>,socket<224>,Accept<2>,Join<2>,recv<2>,msg<2>
-Info [2022-5-15 20:28:49]thread<1>,time<1.000492>,socket<224>,Accept<2>,Join<2>,recv<0>,msg<0>
-Info [2022-5-15 20:28:50]Accept_IP: 192.168.1.104, 240
-Info [2022-5-15 20:28:50]websocket client say: {"cmd":"ss_reg_api","is_req":true,"msgId":1,"time":1652617730546,"data":{"type":"LoginServer","name":"LoginServer001","sskey":"ssmm00@123456","apis":["cs_msg_login","cs_msg_register","cs_msg_change_pw"]}}
-Error [2022-5-15 20:28:50]Config::getStr not find <sskey>
-Info [2022-5-15 20:28:50]Config::getStr sskey=ssmm00@123456
-Info [2022-5-15 20:28:50]ss_reg_api: LoginServer001 >> cs_msg_login
-Info [2022-5-15 20:28:50]ss_reg_api: LoginServer001 >> cs_msg_register
-Info [2022-5-15 20:28:50]ss_reg_api: LoginServer001 >> cs_msg_change_pw
-Info [2022-5-15 20:28:50]thread<1>,time<1.000051>,socket<224>,Accept<3>,Join<3>,recv<2>,msg<2>
-Info [2022-5-15 20:28:51]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":3,"time":1652617730999}
-Info [2022-5-15 20:28:51]GateServer::cs_msg_heart
-Info [2022-5-15 20:28:51]thread<1>,time<1.000917>,socket<224>,Accept<3>,Join<3>,recv<1>,msg<1>
-Info [2022-5-15 20:28:51]Accept_IP: 192.168.1.104, 244
-Info [2022-5-15 20:28:51]websocket client say: {"cmd":"ss_reg_api","is_req":true,"msgId":1,"time":1652617731804,"data":{"type":"LoginServer","name":"LoginServer001","sskey":"ssmm00@123456","apis":["cs_msg_login","cs_msg_register","cs_msg_change_pw"]}}
-Error [2022-5-15 20:28:51]Config::getStr not find <sskey>
-Info [2022-5-15 20:28:51]Config::getStr sskey=ssmm00@123456
-Info [2022-5-15 20:28:51]ss_reg_api: LoginServer001 >> cs_msg_login
-Info [2022-5-15 20:28:51]ss_reg_api: LoginServer001 >> cs_msg_register
-Info [2022-5-15 20:28:51]ss_reg_api: LoginServer001 >> cs_msg_change_pw
-Info [2022-5-15 20:28:52]thread<1>,time<1.000302>,socket<224>,Accept<4>,Join<4>,recv<2>,msg<2>
-Info [2022-5-15 20:28:53]Accept_IP: 192.168.1.104, 148
-Info [2022-5-15 20:28:53]websocket client say: {"cmd":"ss_reg_api","is_req":true,"msgId":1,"time":1652617733151,"data":{"type":"LoginServer","name":"LoginServer001","sskey":"ssmm00@123456","apis":["cs_msg_login","cs_msg_register","cs_msg_change_pw"]}}
-Error [2022-5-15 20:28:53]Config::getStr not find <sskey>
-Info [2022-5-15 20:28:53]Config::getStr sskey=ssmm00@123456
-Info [2022-5-15 20:28:53]ss_reg_api: LoginServer001 >> cs_msg_login
-Info [2022-5-15 20:28:53]ss_reg_api: LoginServer001 >> cs_msg_register
-Info [2022-5-15 20:28:53]ss_reg_api: LoginServer001 >> cs_msg_change_pw
-Info [2022-5-15 20:28:53]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":2,"time":1652617733547}
-Info [2022-5-15 20:28:53]GateServer::cs_msg_heart
-Info [2022-5-15 20:28:53]thread<1>,time<1.001178>,socket<224>,Accept<5>,Join<5>,recv<3>,msg<3>
-Info [2022-5-15 20:28:54]thread<1>,time<1.001843>,socket<224>,Accept<5>,Join<5>,recv<0>,msg<0>
-Info [2022-5-15 20:28:55]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":2,"time":1652617735546}
-Info [2022-5-15 20:28:55]GateServer::cs_msg_heart
-Info [2022-5-15 20:28:55]thread<1>,time<1.000135>,socket<224>,Accept<5>,Join<5>,recv<1>,msg<1>
-Info [2022-5-15 20:28:56]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":4,"time":1652617736000}
-Info [2022-5-15 20:28:56]GateServer::cs_msg_heart
-Info [2022-5-15 20:28:56]thread<1>,time<1.000432>,socket<224>,Accept<5>,Join<5>,recv<1>,msg<1>
-Info [2022-5-15 20:28:56]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":2,"time":1652617736804}
-Info [2022-5-15 20:28:56]GateServer::cs_msg_heart
-Info [2022-5-15 20:28:57]thread<1>,time<1.000254>,socket<224>,Accept<5>,Join<5>,recv<1>,msg<1>
-Info [2022-5-15 20:28:58]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":2,"time":1652617738152}
-Info [2022-5-15 20:28:58]GateServer::cs_msg_heart
-Info [2022-5-15 20:28:58]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":3,"time":1652617738548}
-Info [2022-5-15 20:28:58]GateServer::cs_msg_heart
-Info [2022-5-15 20:28:58]thread<1>,time<1.000381>,socket<224>,Accept<5>,Join<5>,recv<2>,msg<2>
-Info [2022-5-15 20:28:59]thread<1>,time<1.000361>,socket<224>,Accept<5>,Join<5>,recv<0>,msg<0>
-Info [2022-5-15 20:29:0]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":3,"time":1652617740547}
-Info [2022-5-15 20:29:0]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:0]thread<1>,time<1.001151>,socket<224>,Accept<5>,Join<5>,recv<1>,msg<1>
-Info [2022-5-15 20:29:1]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":5,"time":1652617741001}
-Info [2022-5-15 20:29:1]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:1]thread<1>,time<1.001229>,socket<224>,Accept<5>,Join<5>,recv<1>,msg<1>
-Info [2022-5-15 20:29:1]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":3,"time":1652617741804}
-Info [2022-5-15 20:29:1]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:2]thread<1>,time<1.000133>,socket<224>,Accept<5>,Join<5>,recv<1>,msg<1>
-Info [2022-5-15 20:29:3]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":3,"time":1652617743153}
-Info [2022-5-15 20:29:3]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:3]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":4,"time":1652617743548}
-Info [2022-5-15 20:29:3]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:3]thread<1>,time<1.000244>,socket<224>,Accept<5>,Join<5>,recv<2>,msg<2>
-Info [2022-5-15 20:29:4]thread<1>,time<1.000124>,socket<224>,Accept<5>,Join<5>,recv<0>,msg<0>
-Info [2022-5-15 20:29:5]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":4,"time":1652617745547}
-Info [2022-5-15 20:29:5]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:5]thread<1>,time<1.000679>,socket<224>,Accept<5>,Join<5>,recv<1>,msg<1>
-Info [2022-5-15 20:29:6]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":6,"time":1652617746001}
-Info [2022-5-15 20:29:6]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:6]thread<1>,time<1.000661>,socket<224>,Accept<5>,Join<5>,recv<1>,msg<1>
-Info [2022-5-15 20:29:6]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":4,"time":1652617746804}
-Info [2022-5-15 20:29:6]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:7]thread<1>,time<1.000924>,socket<224>,Accept<5>,Join<5>,recv<1>,msg<1>
-Info [2022-5-15 20:29:8]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":4,"time":1652617748153}
-Info [2022-5-15 20:29:8]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:8]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":5,"time":1652617748549}
-Info [2022-5-15 20:29:8]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:8]thread<1>,time<1.000989>,socket<224>,Accept<5>,Join<5>,recv<2>,msg<2>
-Info [2022-5-15 20:29:9]thread<1>,time<1.000972>,socket<224>,Accept<5>,Join<5>,recv<0>,msg<0>
-Info [2022-5-15 20:29:10]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":5,"time":1652617750547}
-Info [2022-5-15 20:29:10]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:10]thread<1>,time<1.000962>,socket<224>,Accept<5>,Join<5>,recv<1>,msg<1>
-Info [2022-5-15 20:29:11]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":7,"time":1652617751001}
-Info [2022-5-15 20:29:11]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:11]thread<1>,time<1.000151>,socket<224>,Accept<5>,Join<5>,recv<1>,msg<1>
-Info [2022-5-15 20:29:11]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":5,"time":1652617751805}
-Info [2022-5-15 20:29:11]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:12]thread<1>,time<1.000531>,socket<224>,Accept<5>,Join<5>,recv<1>,msg<1>
-Info [2022-5-15 20:29:13]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":5,"time":1652617753154}
-Info [2022-5-15 20:29:13]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:13]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":6,"time":1652617753549}
-Info [2022-5-15 20:29:13]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:13]thread<1>,time<1.000777>,socket<224>,Accept<5>,Join<5>,recv<2>,msg<2>
-Info [2022-5-15 20:29:14]thread<1>,time<1.000311>,socket<224>,Accept<5>,Join<5>,recv<0>,msg<0>
-Info [2022-5-15 20:29:15]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":6,"time":1652617755548}
-Info [2022-5-15 20:29:15]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:15]thread<1>,time<1.000193>,socket<224>,Accept<5>,Join<5>,recv<1>,msg<1>
-Info [2022-5-15 20:29:16]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":8,"time":1652617756002}
-Info [2022-5-15 20:29:16]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:16]thread<1>,time<1.000429>,socket<224>,Accept<5>,Join<5>,recv<1>,msg<1>
-Info [2022-5-15 20:29:16]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":6,"time":1652617756806}
-Info [2022-5-15 20:29:16]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:17]thread<1>,time<1.000208>,socket<224>,Accept<5>,Join<5>,recv<1>,msg<1>
-Info [2022-5-15 20:29:18]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":6,"time":1652617758155}
-Info [2022-5-15 20:29:18]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:18]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":7,"time":1652617758549}
-Info [2022-5-15 20:29:18]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:18]thread<1>,time<1.000531>,socket<224>,Accept<5>,Join<5>,recv<2>,msg<2>
-Info [2022-5-15 20:29:19]thread<1>,time<1.000184>,socket<224>,Accept<5>,Join<5>,recv<0>,msg<0>
-Info [2022-5-15 20:29:20]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":7,"time":1652617760548}
-Info [2022-5-15 20:29:20]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:20]thread<1>,time<1.000516>,socket<224>,Accept<5>,Join<5>,recv<1>,msg<1>
-Info [2022-5-15 20:29:21]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":9,"time":1652617761004}
-Info [2022-5-15 20:29:21]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:21]thread<1>,time<1.001180>,socket<224>,Accept<5>,Join<5>,recv<1>,msg<1>
-Info [2022-5-15 20:29:21]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":7,"time":1652617761807}
-Info [2022-5-15 20:29:21]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:22]thread<1>,time<1.000440>,socket<224>,Accept<5>,Join<5>,recv<1>,msg<1>
-Info [2022-5-15 20:29:23]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":7,"time":1652617763156}
-Info [2022-5-15 20:29:23]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:23]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":8,"time":1652617763550}
-Info [2022-5-15 20:29:23]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:23]thread<1>,time<1.000397>,socket<224>,Accept<5>,Join<5>,recv<2>,msg<2>
-Info [2022-5-15 20:29:24]thread<1>,time<1.001467>,socket<224>,Accept<5>,Join<5>,recv<0>,msg<0>
-Info [2022-5-15 20:29:25]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":8,"time":1652617765549}
-Info [2022-5-15 20:29:25]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:25]thread<1>,time<1.000829>,socket<224>,Accept<5>,Join<5>,recv<1>,msg<1>
-Info [2022-5-15 20:29:26]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":10,"time":1652617766004}
-Info [2022-5-15 20:29:26]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:26]thread<1>,time<1.000373>,socket<224>,Accept<5>,Join<5>,recv<1>,msg<1>
-Info [2022-5-15 20:29:26]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":8,"time":1652617766808}
-Info [2022-5-15 20:29:26]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:27]thread<1>,time<1.000186>,socket<224>,Accept<5>,Join<5>,recv<1>,msg<1>
-Info [2022-5-15 20:29:28]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":8,"time":1652617768156}
-Info [2022-5-15 20:29:28]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:28]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":9,"time":1652617768551}
-Info [2022-5-15 20:29:28]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:28]thread<1>,time<1.000691>,socket<224>,Accept<5>,Join<5>,recv<2>,msg<2>
-Info [2022-5-15 20:29:29]thread<1>,time<1.000194>,socket<224>,Accept<5>,Join<5>,recv<0>,msg<0>
-Info [2022-5-15 20:29:30]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":9,"time":1652617770549}
-Info [2022-5-15 20:29:30]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:30]thread<1>,time<1.000531>,socket<224>,Accept<5>,Join<5>,recv<1>,msg<1>
-Info [2022-5-15 20:29:31]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":11,"time":1652617771005}
-Info [2022-5-15 20:29:31]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:31]thread<1>,time<1.000420>,socket<224>,Accept<5>,Join<5>,recv<1>,msg<1>
-Info [2022-5-15 20:29:31]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":9,"time":1652617771808}
-Info [2022-5-15 20:29:31]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:32]thread<1>,time<1.000850>,socket<224>,Accept<5>,Join<5>,recv<1>,msg<1>
-Info [2022-5-15 20:29:33]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":9,"time":1652617773157}
-Info [2022-5-15 20:29:33]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:33]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":10,"time":1652617773551}
-Info [2022-5-15 20:29:33]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:33]thread<1>,time<1.000317>,socket<224>,Accept<5>,Join<5>,recv<2>,msg<2>
-Info [2022-5-15 20:29:34]thread<1>,time<1.000192>,socket<224>,Accept<5>,Join<5>,recv<0>,msg<0>
-Info [2022-5-15 20:29:35]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":10,"time":1652617775549}
-Info [2022-5-15 20:29:35]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:35]thread<1>,time<1.000071>,socket<224>,Accept<5>,Join<5>,recv<1>,msg<1>
-Info [2022-5-15 20:29:36]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":12,"time":1652617776005}
-Info [2022-5-15 20:29:36]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:36]thread<1>,time<1.000491>,socket<224>,Accept<5>,Join<5>,recv<1>,msg<1>
-Info [2022-5-15 20:29:36]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":10,"time":1652617776808}
-Info [2022-5-15 20:29:36]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:37]thread<1>,time<1.000214>,socket<224>,Accept<5>,Join<5>,recv<1>,msg<1>
-Info [2022-5-15 20:29:38]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":10,"time":1652617778157}
-Info [2022-5-15 20:29:38]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:38]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":11,"time":1652617778551}
-Info [2022-5-15 20:29:38]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:38]thread<1>,time<1.000192>,socket<224>,Accept<5>,Join<5>,recv<2>,msg<2>
-Info [2022-5-15 20:29:39]thread<1>,time<1.000468>,socket<224>,Accept<5>,Join<5>,recv<0>,msg<0>
-Info [2022-5-15 20:29:40]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":11,"time":1652617780550}
-Info [2022-5-15 20:29:40]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:40]thread<1>,time<1.000230>,socket<224>,Accept<5>,Join<5>,recv<1>,msg<1>
-Info [2022-5-15 20:29:41]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":13,"time":1652617781005}
-Info [2022-5-15 20:29:41]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:41]thread<1>,time<1.000132>,socket<224>,Accept<5>,Join<5>,recv<1>,msg<1>
-Info [2022-5-15 20:29:41]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":11,"time":1652617781809}
-Info [2022-5-15 20:29:41]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:42]thread<1>,time<1.000890>,socket<224>,Accept<5>,Join<5>,recv<1>,msg<1>
-Info [2022-5-15 20:29:43]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":11,"time":1652617783158}
-Info [2022-5-15 20:29:43]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:43]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":12,"time":1652617783552}
-Info [2022-5-15 20:29:43]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:43]thread<1>,time<1.000511>,socket<224>,Accept<5>,Join<5>,recv<2>,msg<2>
-Info [2022-5-15 20:29:44]thread<1>,time<1.000446>,socket<224>,Accept<5>,Join<5>,recv<0>,msg<0>
-Info [2022-5-15 20:29:45]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":12,"time":1652617785552}
-Info [2022-5-15 20:29:45]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:45]thread<1>,time<1.000305>,socket<224>,Accept<5>,Join<5>,recv<1>,msg<1>
-Info [2022-5-15 20:29:46]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":14,"time":1652617786006}
-Info [2022-5-15 20:29:46]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:46]thread<1>,time<1.000183>,socket<224>,Accept<5>,Join<5>,recv<1>,msg<1>
-Info [2022-5-15 20:29:46]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":12,"time":1652617786809}
-Info [2022-5-15 20:29:46]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:47]thread<1>,time<1.001662>,socket<224>,Accept<5>,Join<5>,recv<1>,msg<1>
-Info [2022-5-15 20:29:48]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":12,"time":1652617788160}
-Info [2022-5-15 20:29:48]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:48]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":13,"time":1652617788553}
-Info [2022-5-15 20:29:48]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:48]thread<1>,time<1.000045>,socket<224>,Accept<5>,Join<5>,recv<2>,msg<2>
-Info [2022-5-15 20:29:49]thread<1>,time<1.000518>,socket<224>,Accept<5>,Join<5>,recv<0>,msg<0>
-Info [2022-5-15 20:29:50]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":13,"time":1652617790553}
-Info [2022-5-15 20:29:50]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:50]thread<1>,time<1.000351>,socket<224>,Accept<5>,Join<5>,recv<1>,msg<1>
-Info [2022-5-15 20:29:51]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":15,"time":1652617791007}
-Info [2022-5-15 20:29:51]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:51]thread<1>,time<1.000976>,socket<224>,Accept<5>,Join<5>,recv<1>,msg<1>
-Info [2022-5-15 20:29:51]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":13,"time":1652617791810}
-Info [2022-5-15 20:29:51]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:52]thread<1>,time<1.000878>,socket<224>,Accept<5>,Join<5>,recv<1>,msg<1>
-Info [2022-5-15 20:29:53]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":13,"time":1652617793161}
-Info [2022-5-15 20:29:53]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:53]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":14,"time":1652617793554}
-Info [2022-5-15 20:29:53]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:53]thread<1>,time<1.000855>,socket<224>,Accept<5>,Join<5>,recv<2>,msg<2>
-Info [2022-5-15 20:29:54]thread<1>,time<1.000546>,socket<224>,Accept<5>,Join<5>,recv<0>,msg<0>
-Info [2022-5-15 20:29:55]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":14,"time":1652617795553}
-Info [2022-5-15 20:29:55]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:55]thread<1>,time<1.001699>,socket<224>,Accept<5>,Join<5>,recv<1>,msg<1>
-Info [2022-5-15 20:29:56]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":16,"time":1652617796007}
-Info [2022-5-15 20:29:56]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:56]thread<1>,time<1.000807>,socket<224>,Accept<5>,Join<5>,recv<1>,msg<1>
-Info [2022-5-15 20:29:56]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":14,"time":1652617796810}
-Info [2022-5-15 20:29:56]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:57]thread<1>,time<1.000177>,socket<224>,Accept<5>,Join<5>,recv<1>,msg<1>
-Info [2022-5-15 20:29:58]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":14,"time":1652617798161}
-Info [2022-5-15 20:29:58]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:58]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":15,"time":1652617798554}
-Info [2022-5-15 20:29:58]GateServer::cs_msg_heart
-Info [2022-5-15 20:29:58]thread<1>,time<1.000783>,socket<224>,Accept<5>,Join<5>,recv<2>,msg<2>
-Info [2022-5-15 20:29:58]sockfd<148> onClose
-Info [2022-5-15 20:29:58]client<148> leave
-Info [2022-5-15 20:29:59]sockfd<188> onClose
-Info [2022-5-15 20:29:59]client<188> leave
-Info [2022-5-15 20:29:59]thread<1>,time<1.000049>,socket<224>,Accept<3>,Join<3>,recv<0>,msg<0>
-Info [2022-5-15 20:30:0]sockfd<244> onClose
-Info [2022-5-15 20:30:0]client<244> leave
-Info [2022-5-15 20:30:0]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":15,"time":1652617800553}
-Info [2022-5-15 20:30:0]GateServer::cs_msg_heart
-Info [2022-5-15 20:30:0]thread<1>,time<1.000215>,socket<224>,Accept<2>,Join<2>,recv<1>,msg<1>
-Info [2022-5-15 20:30:1]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":17,"time":1652617801007}
-Info [2022-5-15 20:30:1]GateServer::cs_msg_heart
-Info [2022-5-15 20:30:1]sockfd<240> onClose
-Info [2022-5-15 20:30:1]client<240> leave
-Info [2022-5-15 20:30:1]thread<1>,time<1.000767>,socket<224>,Accept<1>,Join<1>,recv<1>,msg<1>
+Info [2022-5-15 22:5:57]Log::setLogPath success,<GateServerLog.txt,w>
+Debug [2022-5-15 22:5:57]madeCmd k<nSendBuffSize> v<102400>
+Debug [2022-5-15 22:5:57]madeCmd k<nRecvBuffSize> v<102400>
+Info [2022-5-15 22:5:57]Config::getInt nSendBuffSize=102400
+Info [2022-5-15 22:5:57]Config::getInt nRecvBuffSize=102400
+Error [2022-5-15 22:5:57]Config::getStr not find <nMaxClient>
+Info [2022-5-15 22:5:57]Config::getInt nMaxClient=65535
+Error [2022-5-15 22:5:57]Config::getStr not find <strIP>
+Info [2022-5-15 22:5:57]Config::getStr strIP=any
+Error [2022-5-15 22:5:57]Config::getStr not find <nPort>
+Info [2022-5-15 22:5:57]Config::getInt nPort=4567
+Info [2022-5-15 22:5:57]-ipv4
+Info [2022-5-15 22:5:57]create socket<212> success...
+Info [2022-5-15 22:5:57]bind port<4567> success...
+Info [2022-5-15 22:5:57]listen port<212> success...
+Info [2022-5-15 22:5:57]INetServer::reg_msg_call cmd<cs_msg_heart>.
+Info [2022-5-15 22:5:57]INetServer::reg_msg_call cmd<ss_reg_api>.
+Info [2022-5-15 22:5:58]thread<1>,time<1.000883>,socket<212>,Accept<0>,Join<0>,recv<0>,msg<0>
+Info [2022-5-15 22:5:59]thread<1>,time<1.000424>,socket<212>,Accept<0>,Join<0>,recv<0>,msg<0>
+Info [2022-5-15 22:5:59]Accept_IP: 127.0.0.1, 160
+Info [2022-5-15 22:5:59]Accept_IP: 127.0.0.1, 220
+Info [2022-5-15 22:5:59]Accept_IP: 127.0.0.1, 224
+Info [2022-5-15 22:5:59]Accept_IP: 127.0.0.1, 228
+Info [2022-5-15 22:5:59]Accept_IP: 127.0.0.1, 232
+Info [2022-5-15 22:5:59]Accept_IP: 127.0.0.1, 236
+Info [2022-5-15 22:5:59]Accept_IP: 127.0.0.1, 244
+Info [2022-5-15 22:5:59]Accept_IP: 127.0.0.1, 252
+Info [2022-5-15 22:5:59]Accept_IP: 127.0.0.1, 256
+Info [2022-5-15 22:5:59]Accept_IP: 127.0.0.1, 260
+Info [2022-5-15 22:5:59]websocket client say: {"cmd":"cs_msg_register","is_req":true,"msgId":1,"time":1652623559747,"data":{"username":"test000","password":"abc1234"}}
+Info [2022-5-15 22:5:59]::INetServer::on_net_msg_do not found cmd<cs_msg_register>.
+Info [2022-5-15 22:5:59]on_other_msg: transfer not found cmd<cs_msg_register>.
+Info [2022-5-15 22:5:59]websocket client say: {"cmd":"cs_msg_register","is_req":true,"msgId":1,"time":1652623559749,"data":{"username":"test001","password":"abc1234"}}
+Info [2022-5-15 22:5:59]::INetServer::on_net_msg_do not found cmd<cs_msg_register>.
+Info [2022-5-15 22:5:59]on_other_msg: transfer not found cmd<cs_msg_register>.
+Info [2022-5-15 22:5:59]websocket client say: {"cmd":"cs_msg_register","is_req":true,"msgId":1,"time":1652623559749,"data":{"username":"test002","password":"abc1234"}}
+Info [2022-5-15 22:5:59]::INetServer::on_net_msg_do not found cmd<cs_msg_register>.
+Info [2022-5-15 22:5:59]on_other_msg: transfer not found cmd<cs_msg_register>.
+Info [2022-5-15 22:5:59]websocket client say: {"cmd":"cs_msg_register","is_req":true,"msgId":1,"time":1652623559749,"data":{"username":"test003","password":"abc1234"}}
+Info [2022-5-15 22:5:59]::INetServer::on_net_msg_do not found cmd<cs_msg_register>.
+Info [2022-5-15 22:5:59]on_other_msg: transfer not found cmd<cs_msg_register>.
+Info [2022-5-15 22:5:59]websocket client say: {"cmd":"cs_msg_register","is_req":true,"msgId":1,"time":1652623559750,"data":{"username":"test004","password":"abc1234"}}
+Info [2022-5-15 22:5:59]::INetServer::on_net_msg_do not found cmd<cs_msg_register>.
+Info [2022-5-15 22:5:59]on_other_msg: transfer not found cmd<cs_msg_register>.
+Info [2022-5-15 22:5:59]websocket client say: {"cmd":"cs_msg_register","is_req":true,"msgId":1,"time":1652623559750,"data":{"username":"test005","password":"abc1234"}}
+Info [2022-5-15 22:5:59]::INetServer::on_net_msg_do not found cmd<cs_msg_register>.
+Info [2022-5-15 22:5:59]on_other_msg: transfer not found cmd<cs_msg_register>.
+Info [2022-5-15 22:5:59]websocket client say: {"cmd":"cs_msg_register","is_req":true,"msgId":1,"time":1652623559750,"data":{"username":"test006","password":"abc1234"}}
+Info [2022-5-15 22:5:59]::INetServer::on_net_msg_do not found cmd<cs_msg_register>.
+Info [2022-5-15 22:5:59]on_other_msg: transfer not found cmd<cs_msg_register>.
+Info [2022-5-15 22:5:59]websocket client say: {"cmd":"cs_msg_register","is_req":true,"msgId":1,"time":1652623559751,"data":{"username":"test007","password":"abc1234"}}
+Info [2022-5-15 22:5:59]::INetServer::on_net_msg_do not found cmd<cs_msg_register>.
+Info [2022-5-15 22:5:59]on_other_msg: transfer not found cmd<cs_msg_register>.
+Info [2022-5-15 22:5:59]websocket client say: {"cmd":"cs_msg_register","is_req":true,"msgId":1,"time":1652623559751,"data":{"username":"test008","password":"abc1234"}}
+Info [2022-5-15 22:5:59]::INetServer::on_net_msg_do not found cmd<cs_msg_register>.
+Info [2022-5-15 22:5:59]on_other_msg: transfer not found cmd<cs_msg_register>.
+Info [2022-5-15 22:5:59]websocket client say: {"cmd":"cs_msg_register","is_req":true,"msgId":1,"time":1652623559751,"data":{"username":"test009","password":"abc1234"}}
+Info [2022-5-15 22:5:59]::INetServer::on_net_msg_do not found cmd<cs_msg_register>.
+Info [2022-5-15 22:5:59]on_other_msg: transfer not found cmd<cs_msg_register>.
+Info [2022-5-15 22:6:0]thread<1>,time<1.000421>,socket<212>,Accept<10>,Join<10>,recv<20>,msg<20>
+Info [2022-5-15 22:6:1]thread<1>,time<1.000184>,socket<212>,Accept<10>,Join<10>,recv<0>,msg<0>
+Info [2022-5-15 22:6:2]thread<1>,time<1.001637>,socket<212>,Accept<10>,Join<10>,recv<0>,msg<0>
+Info [2022-5-15 22:6:3]thread<1>,time<1.001045>,socket<212>,Accept<10>,Join<10>,recv<0>,msg<0>
+Info [2022-5-15 22:6:4]thread<1>,time<1.000930>,socket<212>,Accept<10>,Join<10>,recv<0>,msg<0>
+Info [2022-5-15 22:6:4]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":2,"time":1652623564749,"data":null}
+Info [2022-5-15 22:6:4]GateServer::cs_msg_heart
+Info [2022-5-15 22:6:4]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":2,"time":1652623564749,"data":null}
+Info [2022-5-15 22:6:4]GateServer::cs_msg_heart
+Info [2022-5-15 22:6:4]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":2,"time":1652623564750,"data":null}
+Info [2022-5-15 22:6:4]GateServer::cs_msg_heart
+Info [2022-5-15 22:6:4]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":2,"time":1652623564751,"data":null}
+Info [2022-5-15 22:6:4]GateServer::cs_msg_heart
+Info [2022-5-15 22:6:4]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":2,"time":1652623564751,"data":null}
+Info [2022-5-15 22:6:4]GateServer::cs_msg_heart
+Info [2022-5-15 22:6:4]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":2,"time":1652623564752,"data":null}
+Info [2022-5-15 22:6:4]GateServer::cs_msg_heart
+Info [2022-5-15 22:6:4]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":2,"time":1652623564752,"data":null}
+Info [2022-5-15 22:6:4]GateServer::cs_msg_heart
+Info [2022-5-15 22:6:4]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":2,"time":1652623564754,"data":null}
+Info [2022-5-15 22:6:4]GateServer::cs_msg_heart
+Info [2022-5-15 22:6:4]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":2,"time":1652623564754,"data":null}
+Info [2022-5-15 22:6:4]GateServer::cs_msg_heart
+Info [2022-5-15 22:6:4]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":2,"time":1652623564755,"data":null}
+Info [2022-5-15 22:6:4]GateServer::cs_msg_heart
+Info [2022-5-15 22:6:5]thread<1>,time<1.000023>,socket<212>,Accept<10>,Join<10>,recv<10>,msg<10>
+Info [2022-5-15 22:6:6]thread<1>,time<1.000391>,socket<212>,Accept<10>,Join<10>,recv<0>,msg<0>
+Info [2022-5-15 22:6:7]thread<1>,time<1.001986>,socket<212>,Accept<10>,Join<10>,recv<0>,msg<0>
+Info [2022-5-15 22:6:8]thread<1>,time<1.000257>,socket<212>,Accept<10>,Join<10>,recv<0>,msg<0>
+Info [2022-5-15 22:6:9]thread<1>,time<1.000195>,socket<212>,Accept<10>,Join<10>,recv<0>,msg<0>
+Info [2022-5-15 22:6:9]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":3,"time":1652623569750,"data":null}
+Info [2022-5-15 22:6:9]GateServer::cs_msg_heart
+Info [2022-5-15 22:6:9]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":3,"time":1652623569751,"data":null}
+Info [2022-5-15 22:6:9]GateServer::cs_msg_heart
+Info [2022-5-15 22:6:9]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":3,"time":1652623569752,"data":null}
+Info [2022-5-15 22:6:9]GateServer::cs_msg_heart
+Info [2022-5-15 22:6:9]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":3,"time":1652623569752,"data":null}
+Info [2022-5-15 22:6:9]GateServer::cs_msg_heart
+Info [2022-5-15 22:6:9]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":3,"time":1652623569755,"data":null}
+Info [2022-5-15 22:6:9]GateServer::cs_msg_heart
+Info [2022-5-15 22:6:9]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":3,"time":1652623569756,"data":null}
+Info [2022-5-15 22:6:9]GateServer::cs_msg_heart
+Info [2022-5-15 22:6:9]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":3,"time":1652623569757,"data":null}
+Info [2022-5-15 22:6:9]GateServer::cs_msg_heart
+Info [2022-5-15 22:6:9]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":3,"time":1652623569757,"data":null}
+Info [2022-5-15 22:6:9]GateServer::cs_msg_heart
+Info [2022-5-15 22:6:9]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":3,"time":1652623569758,"data":null}
+Info [2022-5-15 22:6:9]GateServer::cs_msg_heart
+Info [2022-5-15 22:6:9]websocket client say: {"cmd":"cs_msg_heart","is_req":true,"msgId":3,"time":1652623569759,"data":null}
+Info [2022-5-15 22:6:9]GateServer::cs_msg_heart
+Info [2022-5-15 22:6:10]thread<1>,time<1.000595>,socket<212>,Accept<10>,Join<10>,recv<10>,msg<10>
+Info [2022-5-15 22:6:11]thread<1>,time<1.000271>,socket<212>,Accept<10>,Join<10>,recv<0>,msg<0>
+Info [2022-5-15 22:6:12]sockfd<160> onClose
+Info [2022-5-15 22:6:12]sockfd<220> onClose
+Info [2022-5-15 22:6:12]sockfd<224> onClose
+Info [2022-5-15 22:6:12]sockfd<228> onClose
+Info [2022-5-15 22:6:12]sockfd<232> onClose
+Info [2022-5-15 22:6:12]sockfd<236> onClose
+Info [2022-5-15 22:6:12]sockfd<244> onClose
+Info [2022-5-15 22:6:12]sockfd<252> onClose
+Info [2022-5-15 22:6:12]sockfd<256> onClose
+Info [2022-5-15 22:6:12]sockfd<260> onClose
+Info [2022-5-15 22:6:12]client<160> leave
+Info [2022-5-15 22:6:12]client<220> leave
+Info [2022-5-15 22:6:12]client<224> leave
+Info [2022-5-15 22:6:12]client<228> leave
+Info [2022-5-15 22:6:12]client<232> leave
+Info [2022-5-15 22:6:12]client<236> leave
+Info [2022-5-15 22:6:12]client<244> leave
+Info [2022-5-15 22:6:12]client<252> leave
+Info [2022-5-15 22:6:12]client<256> leave
+Info [2022-5-15 22:6:12]client<260> leave
+Info [2022-5-15 22:6:12]thread<1>,time<1.000225>,socket<212>,Accept<0>,Join<0>,recv<0>,msg<0>
+Info [2022-5-15 22:6:13]thread<1>,time<1.000184>,socket<212>,Accept<0>,Join<0>,recv<0>,msg<0>

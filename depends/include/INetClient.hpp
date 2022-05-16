@@ -218,10 +218,12 @@ namespace doyou {
 				_client.writeText(retStr.c_str(), retStr.length());
 			}
 
-			void response(int msgId, std::string data)
+			void response(int clientId, int msgId, neb::CJsonObject& data, int state = 0)
 			{
 				neb::CJsonObject ret;
+				ret.Add("state", state);
 				ret.Add("msgId", msgId);
+				ret.Add("clientId", clientId);
 				ret.Add("is_resp", true, true);
 				ret.Add("time", Time::system_clock_now());
 				ret.Add("data", data);
@@ -230,6 +232,25 @@ namespace doyou {
 				_client.writeText(retStr.c_str(), retStr.length());
 			}
 
+			void response(int clientId, int msgId, std::string data, int state = 1)
+			{
+				neb::CJsonObject ret;
+				ret.Add("state", state);
+				ret.Add("msgId", msgId);
+				ret.Add("clientId", clientId);
+				ret.Add("is_resp", true, true);
+				ret.Add("time", Time::system_clock_now());
+				ret.Add("data", data);
+
+				std::string retStr = ret.ToString();
+				_client.writeText(retStr.c_str(), retStr.length());
+			}
+
+			void resp_error(int clientId, int msgId, const std::string& data, int state = 1)
+			{
+				response(clientId, msgId, data, state);
+			}
+			/*
 			void response(neb::CJsonObject& msg, std::string data)
 			{
 				int msgId = 0;
@@ -239,8 +260,16 @@ namespace doyou {
 					return;
 				}
 
+				int clientId = 0;
+				if (!msg.Get("clientId", clientId))
+				{
+					CELLLog_Error("not found key<%s>.", "clientId");
+					return;
+				}
+
 				neb::CJsonObject ret;
 				ret.Add("msgId", msgId);
+				ret.Add("clientId", clientId);
 				ret.Add("is_resp", true, true);
 				ret.Add("time", Time::system_clock_now());
 				ret.Add("data", data);
@@ -273,6 +302,7 @@ namespace doyou {
 				std::string retStr = ret.ToString();
 				_client.writeText(retStr.c_str(), retStr.length());
 			}
+			*/
 		};
 	}
 }
