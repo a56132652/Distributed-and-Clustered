@@ -3,7 +3,7 @@
 
 #include"Log.hpp"
 #include"CppSQLite3.h"
-
+#include<sstream>
 namespace doyou {
 	namespace io {
 		class DBManager
@@ -40,35 +40,24 @@ namespace doyou {
 				}
 				return false;
 			}
-			//查询之后返回是否存在
-			bool hasByKV(const char* table, const char* k, const char* v)
+			//表是否存在
+			bool tableExists(const char* szTable)
 			{
-				char sql_buff[1024] = {};
-				auto sql = "SELECT 1 FROM %s WHERE %s='%s' LIMIT 1;";
-				sprintf(sql_buff, sql, table, k, v);
-
 				try
 				{
-					CppSQLite3Query query = _db.execQuery(sql_buff);
-					return !query.eof();
+					return _db.tableExists(szTable);
 				}
 				catch (CppSQLite3Exception& e)
 				{
-					CELLLog_Error("DBManager::hasByKV(%s) error: %s", _db_name.c_str(), e.errorMessage());
+					CELLLog_Error("DBManager::tableExists(%s.%s) error: %s", _db_name.c_str(), szTable, e.errorMessage());
 				}
 				return false;
 			}
-			//查询并返回json格式数据
-			bool findByKV(const char* table, const char* k, const char* v, neb::CJsonObject& json)
+			//查询结果转化为json格式数据
+			bool query2json(CppSQLite3Query& query, neb::CJsonObject& json)
 			{
-				char sql_buff[1024] = {};
-				auto sql = "SELECT * FROM %s WHERE %s='%s';";
-				sprintf(sql_buff, sql, table, k, v);
-
 				try
 				{
-					//查询结果
-					CppSQLite3Query query = _db.execQuery(sql_buff);
 					while (!query.eof())
 					{
 						neb::CJsonObject row;
@@ -109,7 +98,7 @@ namespace doyou {
 							}
 							else if (SQLITE_NULL == kType)
 							{
-								//row.Add(k, "NULL");
+								//row.Add(k, "NULL"); 
 							}
 						}
 						json.Add(row);
@@ -118,10 +107,152 @@ namespace doyou {
 				}
 				catch (CppSQLite3Exception& e)
 				{
-					CELLLog_Error("DBManager::findByKV(%s) error: %s", _db_name.c_str(), e.errorMessage());
+					CELLLog_Error("DBManager::query2json(%s) error: %s", _db_name.c_str(), e.errorMessage());
 					return false;
 				}
 				return true;
+			}
+			//执行查询语句，需要json结果
+			bool execQuery(const char* sql, neb::CJsonObject& json)
+			{
+				CppSQLite3Query query;
+				try
+				{
+					query = _db.execQuery(sql);
+				}
+				catch (CppSQLite3Exception& e)
+				{
+					CELLLog_Error("DBManager::execQuery(%s) sql:%s error: %s", _db_name.c_str(), sql, e.errorMessage());
+					return false;
+				}
+				return query2json(query, json);
+			}
+			//执行查询语句,不需要结果
+			bool execQuery(const char* sql)
+			{
+				CppSQLite3Query query;
+				try
+				{
+					query = _db.execQuery(sql);
+					return !query.eof();
+				}
+				catch (CppSQLite3Exception& e)
+				{
+					CELLLog_Error("DBManager::execQuery(%s) sql:%s error: %s", _db_name.c_str(), sql, e.errorMessage());
+				}
+				return false;
+			}
+			//执行DML语句
+			int execDML(const char* sql)
+			{
+				try
+				{
+					return _db.execDML(sql);
+				}
+				catch (CppSQLite3Exception& e)
+				{
+					CELLLog_Error("DBManager::execDML(%s) sql:%s error: %s", _db_name.c_str(), sql, e.errorMessage());
+				}
+				return -1;
+			}
+			//查询之后返回是否存在
+			template<typename vT>
+			bool hasByKV(const char* table, const char* k, vT v)
+			{//sql = "SELECT 1 FROM table WHERE k=v LIMIT 1;"
+				std::stringstream ss;
+				//使用字符串组织数据
+				ss << "SELECT 1 FROM " << table << " WHERE " << k << '=';
+				//typeid():返回指针或引用所指对象的实际类型
+				if (typeid(v) == typeid(const char*) || typeid(v) == typeid(char*))
+					ss << '\'' << v << '\'';
+				else
+					ss << v;
+
+				ss << " LIMIT 1;";
+
+				return execQuery(ss.str().c_str());
+			}
+
+			template<typename vT>
+			bool findByKV(const char* table, const char* k, vT v, neb::CJsonObject& json)
+			{//sql = "SELECT * FROM table WHERE k=v;"
+				std::stringstream ss;
+				ss << "SELECT * FROM " << table << " WHERE " << k << '=';
+				//
+				if (typeid(v) == typeid(const char*) || typeid(v) == typeid(char*))
+					ss << '\'' << v << '\'';
+				else
+					ss << v;
+				//
+				return execQuery(ss.str().c_str(), json);
+			}
+
+			template<typename vT, typename v2T>
+			bool findByKV2(const char* table, const char* k, vT v, const char* k2, v2T v2, neb::CJsonObject& json)
+			{//sql = "SELECT * FROM table WHERE k=v and k2=v2;"
+				std::stringstream ss;
+				ss << "SELECT * FROM " << table << " WHERE " << k << '=';
+				//
+				if (typeid(v) == typeid(const char*) || typeid(v) == typeid(char*))
+					ss << '\'' << v << '\'';
+				else
+					ss << v;
+				//
+				ss << " AND " << k2 << '=';
+				if (typeid(v2) == typeid(const char*) || typeid(v2) == typeid(char*))
+					ss << '\'' << v2 << '\'';
+				else
+					ss << v2;
+				//
+				return execQuery(ss.str().c_str(), json);
+			}
+
+			template<typename vT, typename uvT>
+			int updateByKV(const char* table, const char* k, vT v, const char* uk, uvT uv)
+			{//sql = "UPDATE table SET uk=uv WHERE k='v';"
+				std::stringstream ss;
+				ss << "UPDATE " << table << " SET " << uk << '=';
+				//
+				if (typeid(uv) == typeid(const char*) || typeid(uv) == typeid(char*))
+					ss << '\'' << uv << '\'';
+				else
+					ss << uv;
+				//
+				ss << " WHERE " << k << '=';
+				//
+				if (typeid(v) == typeid(const char*) || typeid(v) == typeid(char*))
+					ss << '\'' << v << '\'';
+				else
+					ss << v;
+				//
+				return execDML(ss.str().c_str());
+			}
+
+			template<typename vT, typename v2T, typename uvT>
+			int updateByKV2(const char* table, const char* k, vT v, const char* k2, v2T v2, const char* uk, uvT uv)
+			{//sql = "UPDATE table SET uk=uv WHERE k='v' AND k2='v2';"
+				std::stringstream ss;
+				ss << "UPDATE " << table << " SET " << uk << '=';
+				//
+				if (typeid(uv) == typeid(const char*) || typeid(uv) == typeid(char*))
+					ss << '\'' << uv << '\'';
+				else
+					ss << uv;
+				//
+				ss << " WHERE " << k << '=';
+				//
+				if (typeid(v) == typeid(const char*) || typeid(v) == typeid(char*))
+					ss << '\'' << v << '\'';
+				else
+					ss << v;
+				//
+				ss << " AND " << k2 << '=';
+				if (typeid(v2) == typeid(const char*) || typeid(v2) == typeid(char*))
+					ss << '\'' << v2 << '\'';
+				else
+					ss << v2;
+				//
+				return execDML(ss.str().c_str());
 			}
 		};
 	}

@@ -26,21 +26,17 @@ namespace doyou {
 			//每次启动程序时找到数据库中最大的Id值
 			void load_id()
 			{
-				try
+				neb::CJsonObject json;
+				execQuery("SELECT MAX(userId) FROM user_info;", json);
+				if (json.IsArray() && json.GetArraySize() > 0)
 				{
-					CppSQLite3Query query = _db.execQuery("SELECT MAX(userId) FROM user_info;");
-					if (query.eof())
-						return;
-					//查询id最大值
-					auto max_id = query.getInt64Field("MAX(userId)", 0);
-					if (max_id == 0)
-						return;
-
-					_max_userId = max_id;
-				}
-				catch (CppSQLite3Exception& e)
-				{
-					CELLLog_Error("DBManager::hasByKV(%s) error: %s", _db_name.c_str(), e.errorMessage());
+					int64 max_id = 0;
+					if (json[0].Get("MAX(userId)", max_id))
+					{
+						if (max_id == 0)
+							return;
+						_max_userId = max_id;
+					}
 				}
 			}
 
@@ -60,30 +56,30 @@ CREATE TABLE user_info(\
 	create_date INTEGER\
 );\
 ";
-				try
+				if (!tableExists("user_info"))
 				{
-					if (!_db.tableExists("user_info"))
-					{
-						_db.execDML(sql);
-					}
-					return true;
+					return execDML(sql) != -1;
 				}
-				catch (CppSQLite3Exception& e)
-				{
-					CELLLog_Error("DBManager::create_table_user_info(%s) error: %s", _db_name.c_str(), e.errorMessage());
-				}
-				return false;
+				return true;
 			}
 		public:
 			void init()
 			{
 				if (!open("user.db"))
+				{
+					CELLLog_Info("DBUser::init(%s.%s) failed.", _db_name.c_str(), "user_info");
 					return;
+				}
 
 				if (!create_table_user_info())
+				{
+					CELLLog_Info("DBUser::init(%s.%s) failed.", _db_name.c_str(), "user_info");
 					return;
+				}
 
 				load_id();
+
+				CELLLog_Info("DBUser::init(%s.%s) success.", _db_name.c_str(), "user_info");
 			}
 
 			bool has_username(const std::string& username)
@@ -99,32 +95,27 @@ CREATE TABLE user_info(\
 			int64 add_user(const std::string& username, const std::string& password, const std::string& nickname, int sex)
 			{
 				int64 userId = makeId();
-				char sql_buff[1024] = {};
-#ifdef _WIN32
-				auto sql = "INSERT INTO user_info (userId, username, password, nickname, sex, state, create_date) VALUES (%I64d, '%s', '%s', '%s', %d, %d, %I64d);";
-#else
-				auto sql = "INSERT INTO user_info (userId, username, password, nickname, sex, state, create_date) VALUES (%lld, '%s', '%s', '%s', %d, %d, %lld);";
-#endif
-				sprintf(sql_buff, sql, userId, username.c_str(), password.c_str(), nickname.c_str(), sex, 0, Time::system_clock_now());
-				try
+				//sql = "INSERT INTO user_info (userId, username, password, nickname, sex, state, create_date) VALUES (%lld, '%s', '%s', '%s', %d, %d, %lld);
+				std::stringstream ss;
+				ss << "INSERT INTO user_info (userId, username, password, nickname, sex, state, create_date) VALUES (";
+				ss << userId << ", ";
+				ss << "'" << username << "', ";
+				ss << "'" << password << "', ";
+				ss << "'" << nickname << "', ";
+				ss << sex << ", ";
+				ss << 0 << ", ";
+				ss << Time::system_clock_now() << ");";
+
+				int changes = execDML(ss.str().c_str());
+
+				CELLLog_Info("DBUser::add_user changes=%d", changes);
+				if (changes > 0)
 				{
-					//改变记录的数量，若为0，则DML语句执行失败
-					int changes = _db.execDML(sql_buff);
-					CELLLog_Info("DBUser::add_user changes=%d", changes);
-					if (changes > 0)
-					{
-						++_max_userId;
-						return userId;
-					}
-				}
-				catch (CppSQLite3Exception& e)
-				{
-					CELLLog_Error("DBUser::add_user(%s) error: %s", _db_name.c_str(), e.errorMessage());
+					++_max_userId;
+					return userId;
 				}
 				return 0;
 			}
-
-
 		};
 	}
 }

@@ -15,6 +15,8 @@ namespace doyou {
 		public:
 			void Init()
 			{
+				_dbuser.init();
+
 				auto csGateUrl = Config::Instance().getStr("csGateUrl", "ws://127.0.0.1:4567");
 				_csGate.connect("csGate", csGateUrl);
 				//注册关注事件
@@ -283,8 +285,29 @@ namespace doyou {
 				CELLLog_Info("LoginServer::cs_msg_change_pw: msgId=%d username=%s password_old=%s password_new=%s", msgId, username.c_str(), password_old.c_str(), password_new.c_str());
 
 				//获取用户数据
-
+				neb::CJsonObject users;
+				_dbuser.findByKV("user_info", "username", username.c_str(), users);
+				if (users.GetArraySize() < 1)
+				{
+					client->resp_error(clientId, msgId, "<username> is incorrect!");
+					return;
+				}
+				//比较当前密码是否正确
+				auto password_now = users[0]("password");
+				if (password_now != password_old)
+				{
+					client->resp_error(clientId, msgId, "<password> is incorrect!");
+					return;
+				}
 				//更新用户密码
+				int changes = _dbuser.updateByKV("user_info", "username", username.c_str(), "password", password_new.c_str());
+				if (changes == 1)
+				{
+					client->response(clientId, msgId, "change password success.");
+				}
+				else {
+					client->resp_error(clientId, msgId, "unkown error.");
+				}
 
 			}
 		};
