@@ -99,7 +99,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>..\depends\include;..\depends\json;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\depends\include;..\depends\sqlite;..\depends\json;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -114,7 +114,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>..\depends\include;..\depends\json;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\depends\include;..\depends\sqlite;..\depends\json;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -127,7 +127,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>..\depends\include;..\depends\json;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\depends\include;..\depends\sqlite;..\depends\json;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -142,7 +142,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>..\depends\include;..\depends\json;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\depends\include;..\depends\sqlite;..\depends\json;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -154,6 +154,9 @@
   <ItemGroup>
     <ClCompile Include="..\depends\json\cJSON.c" />
     <ClCompile Include="..\depends\json\CJsonObject.cpp" />
+    <ClCompile Include="..\depends\sqlite\CppSQLite3.cpp" />
+    <ClCompile Include="..\depends\sqlite\shell.c" />
+    <ClCompile Include="..\depends\sqlite\sqlite3.c" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -163,6 +166,8 @@
     <ClInclude Include="..\depends\include\CELL.hpp" />
     <ClInclude Include="..\depends\include\Client.hpp" />
     <ClInclude Include="..\depends\include\Config.hpp" />
+    <ClInclude Include="..\depends\include\DBManager.hpp" />
+    <ClInclude Include="..\depends\include\DBUser.hpp" />
     <ClInclude Include="..\depends\include\Epoll.hpp" />
     <ClInclude Include="..\depends\include\EpollServer.hpp" />
     <ClInclude Include="..\depends\include\FDSet.hpp" />
@@ -210,6 +215,13 @@
     <ClInclude Include="..\depends\include\WebSocketObj.hpp" />
     <ClInclude Include="..\depends\json\cJSON.h" />
     <ClInclude Include="..\depends\json\CJsonObject.hpp" />
+    <ClInclude Include="..\depends\sqlite\CppSQLite3.h" />
+    <ClInclude Include="..\depends\sqlite\sqlite3.h" />
+    <ClInclude Include="..\depends\sqlite\sqlite3ext.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="LoginServer.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
