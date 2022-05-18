@@ -17,12 +17,12 @@ namespace doyou {
 			{
 				close();
 			}
-		protected:
+
 			int64 makeId()
 			{
 				return _max_userId+1;
 			}
-			
+		protected:
 			//每次启动程序时找到数据库中最大的Id值
 			void load_id()
 			{

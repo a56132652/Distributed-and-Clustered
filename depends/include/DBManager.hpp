@@ -4,6 +4,7 @@
 #include"Log.hpp"
 #include"CppSQLite3.h"
 #include<sstream>
+
 namespace doyou {
 	namespace io {
 		class DBManager
@@ -11,6 +12,7 @@ namespace doyou {
 		protected:
 			CppSQLite3DB _db;
 			std::string _db_name;
+			Timestamp _timestamp;
 		public:
 			bool open(const char* db_name)
 			{
@@ -40,7 +42,27 @@ namespace doyou {
 				}
 				return false;
 			}
-			//表是否存在
+
+			void begin()
+			{
+				execDML("begin;");
+			}
+
+			void commit()
+			{
+				execDML("commit;");
+			}
+
+			void run()
+			{
+				if (_timestamp.getElapsedSecond() > 10.0)
+				{
+					commit();
+					_timestamp.update();
+					begin();
+				}
+			}
+
 			bool tableExists(const char* szTable)
 			{
 				try
@@ -53,41 +75,33 @@ namespace doyou {
 				}
 				return false;
 			}
-			//查询结果转化为json格式数据
+
 			bool query2json(CppSQLite3Query& query, neb::CJsonObject& json)
 			{
-				try
-				{
+				try {
 					while (!query.eof())
 					{
 						neb::CJsonObject row;
-						//返回当前表里有多少个字段
 						int num = query.numFields();
 						for (int n = 0; n < num; n++)
 						{
-							//取到相应字段名
 							auto k = query.fieldName(n);
-							//字段类型
 							auto kType = query.fieldDataType(n);
-							//整数
 							if (SQLITE_INTEGER == kType)
 							{
 								int64 v = query.getInt64Field(k, 0);
 								row.Add(k, v);
 							}
-							//文本
 							else if (SQLITE_TEXT == kType)
 							{
 								auto v = query.getStringField(k);
 								row.Add(k, v);
 							}
-							//浮点数
 							else if (SQLITE_FLOAT == kType)
 							{
 								auto v = query.getFloatField(k);
 								row.Add(k, v);
 							}
-							//二进制数据（图像，音视频）
 							else if (SQLITE_BLOB == kType)
 							{
 								//int nLen = 0;
@@ -98,7 +112,7 @@ namespace doyou {
 							}
 							else if (SQLITE_NULL == kType)
 							{
-								//row.Add(k, "NULL"); 
+								//row.Add(k, "NULL");
 							}
 						}
 						json.Add(row);
@@ -112,7 +126,7 @@ namespace doyou {
 				}
 				return true;
 			}
-			//执行查询语句，需要json结果
+
 			bool execQuery(const char* sql, neb::CJsonObject& json)
 			{
 				CppSQLite3Query query;
@@ -127,7 +141,7 @@ namespace doyou {
 				}
 				return query2json(query, json);
 			}
-			//执行查询语句,不需要结果
+
 			bool execQuery(const char* sql)
 			{
 				CppSQLite3Query query;
@@ -142,7 +156,7 @@ namespace doyou {
 				}
 				return false;
 			}
-			//执行DML语句
+
 			int execDML(const char* sql)
 			{
 				try
@@ -155,14 +169,13 @@ namespace doyou {
 				}
 				return -1;
 			}
-			//查询之后返回是否存在
+
 			template<typename vT>
 			bool hasByKV(const char* table, const char* k, vT v)
 			{//sql = "SELECT 1 FROM table WHERE k=v LIMIT 1;"
 				std::stringstream ss;
-				//使用字符串组织数据
 				ss << "SELECT 1 FROM " << table << " WHERE " << k << '=';
-				//typeid():返回指针或引用所指对象的实际类型
+
 				if (typeid(v) == typeid(const char*) || typeid(v) == typeid(char*))
 					ss << '\'' << v << '\'';
 				else
@@ -178,6 +191,20 @@ namespace doyou {
 			{//sql = "SELECT * FROM table WHERE k=v;"
 				std::stringstream ss;
 				ss << "SELECT * FROM " << table << " WHERE " << k << '=';
+				//
+				if (typeid(v) == typeid(const char*) || typeid(v) == typeid(char*))
+					ss << '\'' << v << '\'';
+				else
+					ss << v;
+				//
+				return execQuery(ss.str().c_str(), json);
+			}
+
+			template<typename vT>
+			bool findByKV(const char* sk, const char* table, const char* k, vT v, neb::CJsonObject& json)
+			{//sql = "SELECT * FROM table WHERE k=v;"
+				std::stringstream ss;
+				ss << "SELECT " << sk << " FROM " << table << " WHERE " << k << '=';
 				//
 				if (typeid(v) == typeid(const char*) || typeid(v) == typeid(char*))
 					ss << '\'' << v << '\'';
