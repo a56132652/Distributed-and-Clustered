@@ -1,4 +1,4 @@
-﻿#ifndef _EasyIOCPServer_hpp_
+﻿ #ifndef _EasyIOCPServer_hpp_
 #define _EasyIOCPServer_hpp_
 
 #ifndef CELL_USE_IOCP
@@ -16,7 +16,7 @@ namespace doyou {
 			void Start(int nCELLServer)
 			{
 				TcpServer::Start<IocpServer>(nCELLServer);
-			}
+			} 
 		protected:
 			//处理网络消息
 			void OnRun(Thread* pThread)

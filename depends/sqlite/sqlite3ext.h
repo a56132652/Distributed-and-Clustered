@@ -13,7 +13,7 @@
 ** shared libraries that want to be imported as extensions into
 ** an SQLite instance.  Shared libraries that intend to be loaded
 ** as extensions by SQLite should #include this file instead of 
-** sqlite3.h.
+** sqlite3.h. 
 */
 #ifndef SQLITE3EXT_H
 #define SQLITE3EXT_H

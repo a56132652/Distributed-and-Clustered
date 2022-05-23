@@ -13,7 +13,7 @@ namespace doyou {
 	namespace io {
 		class TcpWebSocketClient :public TcpClientMgr
 		{
-		public:
+		public: 
 			TcpWebSocketClient()
 			{
 				NetWork::Init();

@@ -1,6 +1,6 @@
 #ifndef _doyou_io_KeyString_HPP_
 #define _doyou_io_KeyString_HPP_
-
+ 
 #include<cstring>
 
 namespace doyou {

@@ -11,7 +11,7 @@ namespace doyou {
 	namespace io {
 		class NetWork
 		{
-		private:
+		private: 
 			NetWork()
 			{
 #ifdef _WIN32

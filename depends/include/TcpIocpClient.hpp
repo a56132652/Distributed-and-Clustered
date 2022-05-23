@@ -18,7 +18,7 @@ namespace doyou {
 			};
 
 			void Close()
-			{
+			{ 
 				_iocp.destory();
 				TcpClient::Close();
 			}

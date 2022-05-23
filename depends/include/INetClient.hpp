@@ -4,6 +4,8 @@
 #include"TcpWebSocketClient.hpp"
 #include"CJsonObject.hpp"
 #include"Config.hpp"
+#include"Timestamp.hpp"
+#include"INetStateCode.hpp"
 
 namespace doyou {
 	namespace io {
@@ -12,36 +14,68 @@ namespace doyou {
 		class INetClient
 		{
 		private:
+			neb::CJsonObject _ret_timeout;
+			//
 			TcpWebSocketClient _client;
 			//
 			Timestamp _time2heart;
+			//从发送请求起_timeout_dt毫秒会触发超时
+			time_t _timeout_dt = 5000;
 			//
 			std::string _link_name;
+			//
 			std::string _url;
 			//
-			int msgId = 0;
+			int _msgId = 0;
+			//
+			int _clientId = 0;
 		private:
+			//
 			typedef std::function<void(INetClient*, neb::CJsonObject&)> NetEventCall;
+			//对请求添加时间属性，标识该请求是什么时间发送的，用于超时反馈
+			struct NetEventCallData {
+				NetEventCall callFun = nullptr;
+				time_t dt = 0;
+			};
+			//
 			std::map<std::string, NetEventCall> _map_msg_call;
 			//
-			std::map<int, NetEventCall> _map_request_call;
+			std::map<int, NetEventCallData> _map_request_call;
 		public:
-			void connect(const char* link_name,const char* url)
+			//处理不是给我的推送信息
+			NetEventCall on_other_push = nullptr;
+		public:
+			INetClient()
+			{
+				//初始化超时反馈消息内容
+				_ret_timeout.Add("type", msg_type_resp);
+				_ret_timeout.Add("msgId", 0);
+				_ret_timeout.Add("state", state_code_timeout);
+				_ret_timeout.Add("data", "request timeout");
+			}
+
+			int clientId()
+			{
+				return _clientId;
+			}
+
+			void clientId(int n)
+			{
+				_clientId = n;
+			}
+
+			void connect(const char* link_name, const char* url, int s_size, int r_size)
 			{
 				_link_name = link_name;
 				_url = url;
 
-				int s_size = Config::Instance().getInt("nSendBuffSize", SEND_BUFF_SZIE);
-				int r_size = Config::Instance().getInt("nRecvBuffSize", RECV_BUFF_SZIE);
-
 				_client.send_buff_size(s_size);
 				_client.recv_buff_size(r_size);
 
-
-				//注册消息
+				//do
 				_client.onopen = [this](WebSocketClientC* pWSClient)
 				{
-					CELLLog_Info("%s::INetClient::connect(%s) success.", _link_name.c_str(), _url.c_str());
+					//CELLLog_Info("%s::INetClient::connect(%s) success.", _link_name.c_str(), _url.c_str());
 					neb::CJsonObject json;
 					json.Add("link_name", _link_name);
 					json.Add("url", _url);
@@ -57,8 +91,9 @@ namespace doyou {
 						return;
 					}
 
-					auto dataStr = pWSClient->fetch_data();
-					//CELLLog_Info("websocket server say: %s", dataStr);
+					auto pStr = pWSClient->fetch_data();
+					std::string dataStr(pStr, wsh.len);
+					//CELLLog_Info("websocket server say: %s", dataStr.c_str());
 
 					neb::CJsonObject json;
 					if (!json.Parse(dataStr))
@@ -67,36 +102,51 @@ namespace doyou {
 						return;
 					}
 
-					int msgId = 0;
-					if (!json.Get("msgId", msgId))
+					int msg_type = 0;
+					if (!json.Get("type", msg_type))
 					{
-						CELLLog_Error("not found key<%s>.", "msgId");
-						return;
-					}
-
-					int64 time = 0;
-					if (!json.Get("time", time))
-					{
-						CELLLog_Error("not found key<%s>.", "time");
+						CELLLog_Error("not found key<type>.");
 						return;
 					}
 
 					//响应
-					bool is_resp = false;
-					if (json.Get("is_resp", is_resp) && is_resp)
-					{  
+					if (msg_type_resp == msg_type)
+					{
+						int msgId = 0;
+						if (!json.Get("msgId", msgId))
+						{
+							CELLLog_Error("not found key<msgId>.");
+							return;
+						}
+
 						on_net_msg_do(msgId, json);
 						return;
 					}
 
-					//请求
-					bool is_req = false;
-					if (json.Get("is_req", is_req) && is_req)
+					//请求 or 推送
+					if (msg_type_req == msg_type ||
+						msg_type_push == msg_type ||
+						msg_type_broadcast == msg_type)
 					{
+						if (on_other_push && msg_type_push == msg_type)
+						{//一般呢LinkGate才会有on_other_push
+							do
+							{
+								//没有clientId
+								//clientId和我相同的消息不需要on_other_push
+								int clientId = 0;
+								if (json.Get("clientId", clientId) && clientId == _clientId)
+									break;
+
+								on_other_push(this, json);
+								return;
+							} while (false);
+						}
+
 						std::string cmd;
 						if (!json.Get("cmd", cmd))
 						{
-							CELLLog_Error("not found key<%s>.", "cmd");
+							CELLLog_Error("not found key<cmd>.");
 							return;
 						}
 
@@ -126,24 +176,24 @@ namespace doyou {
 			bool run(int microseconds = 1)
 			{
 				if (_client.isRun())
-				{	
-					//超过5秒
+				{
+					//
+					check_timeout();
+					//
 					if (_time2heart.getElapsedSecond() > 5.0)
 					{
-						//重置计时器
 						_time2heart.update();
 						neb::CJsonObject json;
-						//向网关服务端发送心跳消息，消息为空
 						request("cs_msg_heart", json);
 					}
+					//
 					return _client.OnRun(microseconds);
 				}
 
 				if (_client.connect(_url.c_str()))
 				{
-					//连接上服务端以后重置心跳计时器
 					_time2heart.update();
-					CELLLog_Warring("%s::INetClient::connect(%s) success.", _link_name.c_str(), _url.c_str());
+					//CELLLog_Warring("%s::INetClient::connect(%s) success.", _link_name.c_str(), _url.c_str());
 					return true;
 				}
 				Thread::Sleep(1000);
@@ -154,12 +204,45 @@ namespace doyou {
 			{
 				_client.Close();
 			}
-			//注册消息
+
+			void to_close()
+			{
+				_client.toClose();
+			}
+
+			void timeout_dt(time_t dt)
+			{
+				_timeout_dt = dt;
+			}
+			//请求超时检测
+			void check_timeout()
+			{
+				//如果_timeout_dt为0  就不检测超时
+				if (0 == _timeout_dt)
+					return;
+
+				time_t now = Time::system_clock_now();
+				for (auto itr = _map_request_call.begin(); itr != _map_request_call.end(); )
+				{
+					if (now - itr->second.dt >= _timeout_dt)
+					{
+						//该请求触发超时
+						itr->second.callFun(this, _ret_timeout);
+						//移除该请求的响应回调
+						auto itrOld = itr;
+						++itr;
+						_map_request_call.erase(itrOld);
+						continue;
+					}
+					++itr;
+				}
+			}
+
 			void reg_msg_call(std::string cmd, NetEventCall call)
 			{
 				_map_msg_call[cmd] = call;
 			}
-			//调用回调
+
 			bool on_net_msg_do(const std::string& cmd, neb::CJsonObject& msgJson)
 			{
 				auto itr = _map_msg_call.find(cmd);
@@ -168,141 +251,183 @@ namespace doyou {
 					itr->second(this, msgJson);
 					return true;
 				}
-				CELLLog_Info("%s::INetClient::on_net_msg_do not found cmd<%s>.", _link_name.c_str(),cmd.c_str());
+				CELLLog_Info("%s::INetClient::on_net_msg_do not found cmd<%s>.", _link_name.c_str(), cmd.c_str());
 				return false;
 			}
-			//通过msgId存储回调
+
 			bool on_net_msg_do(int msgId, neb::CJsonObject& msgJson)
 			{
 				auto itr = _map_request_call.find(msgId);
 				if (itr != _map_request_call.end())
 				{
-					itr->second(this, msgJson);
+					itr->second.callFun(this, msgJson);
+					_map_request_call.erase(itr);
 					return true;
 				}
 				CELLLog_Info("%s::INetClient::on_net_msg_do not found msgId<%d>.", _link_name.c_str(), msgId);
 				return false;
 			}
-
-			void request(const std::string& cmd, neb::CJsonObject& data)
+			//消息转发
+			bool transfer(neb::CJsonObject& msg)
 			{
-				//每次请求时重置心跳计时
+				std::string retStr = msg.ToString();
+				if (SOCKET_ERROR == _client.writeText(retStr.c_str(), retStr.length()))
+				{
+					CELLLog_Error("INetClient::transfer::writeText SOCKET_ERROR.");
+					return false;
+				}
 				_time2heart.update();
+				return true;
+			}
 
+			template<typename vT>
+			bool request(const std::string& cmd, const vT& data)
+			{
 				neb::CJsonObject msg;
 				msg.Add("cmd", cmd);
-				msg.Add("is_req", true, true);
-				msg.Add("msgId", ++msgId);
+				msg.Add("type", msg_type_req);
+				msg.Add("msgId", ++_msgId);
 				msg.Add("time", Time::system_clock_now());
 				msg.Add("data", data);
 
-				std::string retStr = msg.ToString();
-				_client.writeText(retStr.c_str(), retStr.length());
+				return transfer(msg);
 			}
-			
-			//发起请求时带上回调方法
-			void request(const std::string& cmd, neb::CJsonObject& data, NetEventCall call)
+			//发起请求时注册回调，当收到该请求的响应时，调用该回调方法
+			template<typename vT>
+			bool request(const std::string& cmd, const vT& data, NetEventCall call)
 			{
-				_time2heart.update();
+				if (!request(cmd, data))
+				{
+					return false;
+				}
 
-				neb::CJsonObject msg;
-				msg.Add("cmd", cmd);
-				msg.Add("is_req", true, true);
-				msg.Add("msgId", ++msgId);
-				_map_request_call[msgId] = call;
-
-				msg.Add("time", Time::system_clock_now());
-				msg.Add("data", data);
-
-				std::string retStr = msg.ToString();
-				_client.writeText(retStr.c_str(), retStr.length());
+				if (call != nullptr)
+				{
+					NetEventCallData calldata;
+					calldata.callFun = call;
+					calldata.dt = Time::system_clock_now();
+					_map_request_call[_msgId] = calldata;
+				}
+				return true;
 			}
 
-			void response(int clientId, int msgId, neb::CJsonObject& data, int state = 0)
+			bool request(neb::CJsonObject& msg, NetEventCall call)
+			{
+				//置换msgId
+				int msgId = 0;
+				if (!msg.Get("msgId", msgId))
+				{
+					msg.Add("msgId", ++_msgId);
+				}
+				else {
+					msg.Replace("msgId", ++_msgId);
+				}
+
+				//转发
+				if (!transfer(msg))
+				{
+					return false;
+				}
+
+				//记录回调
+				if (call != nullptr)
+				{
+					NetEventCallData calldata;
+					calldata.callFun = call;
+					calldata.dt = Time::system_clock_now();
+					_map_request_call[_msgId] = calldata;
+				}
+				return true;
+			}
+
+			template<typename vT>
+			void response(int clientId, int msgId, const vT& data, int state = state_code_ok)
 			{
 				neb::CJsonObject ret;
 				ret.Add("state", state);
 				ret.Add("msgId", msgId);
 				ret.Add("clientId", clientId);
-				ret.Add("is_resp", true, true);
+				ret.Add("type", msg_type_resp);
 				ret.Add("time", Time::system_clock_now());
 				ret.Add("data", data);
 
-				std::string retStr = ret.ToString();
-				_client.writeText(retStr.c_str(), retStr.length());
+				transfer(ret);
 			}
 
-			void response(int clientId, int msgId, std::string data, int state = 1)
+			template<typename vT>
+			void response(neb::CJsonObject& msg, const vT& data, int state = state_code_ok)
 			{
-				neb::CJsonObject ret;
-				ret.Add("state", state);
-				ret.Add("msgId", msgId);
-				ret.Add("clientId", clientId);
-				ret.Add("is_resp", true, true);
-				ret.Add("time", Time::system_clock_now());
-				ret.Add("data", data);
+				//通用基础字段获取与验证
+				int clientId = 0;
+				if (!msg.Get("clientId", clientId))
+				{
+					CELLLog_Error("INetClient::transfer::response not found key<clientId>.");
+					return;
+				}
 
-				std::string retStr = ret.ToString();
-				_client.writeText(retStr.c_str(), retStr.length());
-			}
+				int msgId = 0;
+				if (!msg.Get("msgId", msgId))
+				{
+					CELLLog_Error("INetClient::transfer::response not found key<msgId>.");
+					return;
+				}
 
-			void resp_error(int clientId, int msgId, const std::string& data, int state = 1)
-			{
 				response(clientId, msgId, data, state);
 			}
-			/*
-			void response(neb::CJsonObject& msg, std::string data)
+
+			template<typename vT>
+			void resp_error(neb::CJsonObject& msg, const vT& data, int state = state_code_error)
 			{
-				int msgId = 0;
-				if (!msg.Get("msgId", msgId))
-				{
-					CELLLog_Error("not found key<%s>.", "msgId");
-					return;
-				}
-
-				int clientId = 0;
-				if (!msg.Get("clientId", clientId))
-				{
-					CELLLog_Error("not found key<%s>.", "clientId");
-					return;
-				}
-
+				response(msg, data, state);
+			}
+			//给网关推送 另一客户端异地登陆
+			template<typename vT>
+			void push(int clientId, const std::string& cmd, const vT& data, int state = state_code_ok)
+			{
 				neb::CJsonObject ret;
-				ret.Add("msgId", msgId);
+				ret.Add("state", state);
 				ret.Add("clientId", clientId);
-				ret.Add("is_resp", true, true);
+				ret.Add("cmd", cmd);
+				ret.Add("type", msg_type_push);
 				ret.Add("time", Time::system_clock_now());
 				ret.Add("data", data);
 
-				std::string retStr = ret.ToString();
-				_client.writeText(retStr.c_str(), retStr.length());
+				transfer(ret);
 			}
 
-			void response(neb::CJsonObject& msg, neb::CJsonObject& ret)
+			template<typename vT>
+			void push(const std::vector<int64_t>& clients, const std::string& cmd, const vT& data, int state = state_code_ok)
 			{
-				int msgId = 0;
-				if (!msg.Get("msgId", msgId))
-				{
-					CELLLog_Error("not found key<%s>.", "msgId");
-					return;
-				}
+				neb::CJsonObject ret;
+				ret.Add("state", state);
 
-				int clientId = 0;
-				if (!msg.Get("clientId", clientId))
-				{
-					CELLLog_Error("not found key<%s>.", "clientId");
-					return;
-				}
-
-				ret.Add("msgId", msgId);
-				ret.Add("clientId", clientId);
-				ret.Add("is_resp", true, true);
+				ret.Add("cmd", cmd);
+				ret.Add("type", msg_type_push_s);
 				ret.Add("time", Time::system_clock_now());
+				ret.Add("data", data);
 
-				std::string retStr = ret.ToString();
-				_client.writeText(retStr.c_str(), retStr.length());
+				ret.AddEmptySubArray("clients");
+
+				auto length = clients.size();
+				for (size_t i = 0; i < length; i++)
+				{
+					ret["clients"].Add(clients[i]);
+				}
+
+				transfer(ret);
 			}
-			*/
+
+			template<typename vT>
+			void broadcast(const std::string& cmd, const vT& data)
+			{
+				neb::CJsonObject ret;
+				ret.Add("cmd", cmd);
+				ret.Add("type", msg_type_broadcast);
+				ret.Add("time", Time::system_clock_now());
+				ret.Add("data", data);
+
+				transfer(ret);
+			}
 		};
 	}
 }

@@ -18,7 +18,7 @@ namespace doyou {
 			{
 
 			}
-
+			 
 			bool handshake()
 			{
 				auto strUpgrade = this->header_getStr("Upgrade", "");

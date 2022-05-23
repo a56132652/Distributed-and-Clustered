@@ -12,7 +12,7 @@ namespace doyou {
 	namespace io {
 		//网络消息接收处理服务类
 		class Server
-		{
+		{ 
 		public:
 			virtual ~Server()
 			{

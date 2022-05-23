@@ -1,6 +1,6 @@
 ﻿#ifndef _CELL_STREAM_HPP_
 #define _CELL_STREAM_HPP_
-
+ 
 #include"Log.hpp"
 #include<cstdint>
 #include<string>

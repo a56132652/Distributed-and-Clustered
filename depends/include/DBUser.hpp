@@ -78,7 +78,8 @@ CREATE TABLE user_info(\
 				}
 
 				load_id();
-
+				//开启事务
+				begin();
 				CELLLog_Info("DBUser::init(%s.%s) success.", _db_name.c_str(), "user_info");
 			}
 

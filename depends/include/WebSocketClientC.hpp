@@ -17,7 +17,7 @@ namespace doyou {
 				HttpClientC(sockfd, sendSize, recvSize)
 			{
 
-			}
+			} 
 
 			virtual bool hasMsg()
 			{

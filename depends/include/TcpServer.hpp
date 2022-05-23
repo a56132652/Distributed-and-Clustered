@@ -15,7 +15,7 @@ namespace doyou {
 	namespace io {
 		class TcpServer : public INetEvent
 		{
-		private:
+		private: 
 			//
 			Thread _thread;
 			//消息处理对象，内部会创建线程

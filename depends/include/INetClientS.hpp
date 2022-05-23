@@ -3,6 +3,7 @@
 
 #include"WebSocketClientS.hpp"
 #include"CJsonObject.hpp"
+#include"INetStateCode.hpp"
 
 namespace doyou {
 	namespace io {
@@ -17,6 +18,10 @@ namespace doyou {
 			std::string _link_type = "client";
 			//是否是服务，是服务的话不进行限流
 			bool _is_ss_link = false;
+			bool _is_cc_link = false;
+			//
+			std::string _token;
+			int64_t _userId = 0;
 		public:
 			INetClientS(SOCKET sockfd = INVALID_SOCKET, int sendSize = SEND_BUFF_SZIE, int recvSize = RECV_BUFF_SZIE) :
 				WebSocketClientS(sockfd, sendSize, recvSize)
@@ -24,17 +29,17 @@ namespace doyou {
 
 			}
 
-			std::string& link_name()
+			const std::string& link_name()
 			{
 				return _link_name;
 			}
 
-			void link_name(std::string& str)
+			void link_name(const std::string& str)
 			{
 				_link_name = str;
 			}
 
-			std::string& link_type()
+			const std::string& link_type()
 			{
 				return _link_type;
 			}
@@ -54,52 +59,80 @@ namespace doyou {
 				_is_ss_link = b;
 			}
 
-			void response(int msgId, std::string data)
+			bool is_cc_link()
 			{
-				neb::CJsonObject ret;
-				ret.Add("msgId", msgId);
-				ret.Add("is_resp", true, true);
-				ret.Add("time", Time::system_clock_now());
-				ret.Add("data", data);
-
-				std::string retStr = ret.ToString();
-				this->writeText(retStr.c_str(), retStr.length());
+				return _is_cc_link;
 			}
 
-			void response(neb::CJsonObject& msg, std::string data)
+			void is_cc_link(bool b)
+			{
+				_is_cc_link = b;
+			}
+
+			const std::string& token()
+			{
+				return _token;
+			}
+
+			void token(const std::string& str)
+			{
+				_token = str;
+			}
+			int clientId()
+			{
+				return (int)this->sockfd();
+			}
+
+			int64_t userId()
+			{
+				return _userId;
+			}
+
+			void userId(int64_t n)
+			{
+				_userId = n;
+			}
+
+			bool is_login()
+			{
+				return _userId != 0;
+			}
+
+			bool transfer(neb::CJsonObject& msg)
+			{
+				std::string retStr = msg.ToString();
+				if (SOCKET_ERROR == this->writeText(retStr.c_str(), retStr.length()))
+				{
+					CELLLog_Error("INetClientS::transfer::writeText SOCKET_ERROR.");
+					return false;
+				}
+				return true;
+			}
+
+			template<typename vT>
+			void response(neb::CJsonObject& msg, const vT& data, int state = state_code_ok)
 			{
 				int msgId = 0;
 				if (!msg.Get("msgId", msgId))
 				{
-					CELLLog_Error("not found key<%s>.", "msgId");
+					CELLLog_Error("not found key<msgId>.");
 					return;
 				}
 
 				neb::CJsonObject ret;
+				ret.Add("state", state);
 				ret.Add("msgId", msgId);
-				ret.Add("is_resp", true, true);
+				ret.Add("type", msg_type_resp);
 				ret.Add("time", Time::system_clock_now());
 				ret.Add("data", data);
 
-				std::string retStr = ret.ToString();
-				this->writeText(retStr.c_str(), retStr.length());
+				transfer(ret);
 			}
 
-			void response(neb::CJsonObject& msg, neb::CJsonObject& ret)
+			template<typename vT>
+			void resp_error(neb::CJsonObject& msg, const vT& data, int state = state_code_error)
 			{
-				int msgId = 0;
-				if (!msg.Get("msgId", msgId))
-				{
-					CELLLog_Error("not found key<%s>.", "msgId");
-					return;
-				}
-
-				ret.Add("msgId", msgId);
-				ret.Add("is_resp", true, true);
-				ret.Add("time", Time::system_clock_now());
-
-				std::string retStr = ret.ToString();
-				this->writeText(retStr.c_str(), retStr.length());
+				response(msg, data, state);
 			}
 		};
 	}

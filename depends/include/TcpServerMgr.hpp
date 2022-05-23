@@ -15,7 +15,7 @@ namespace doyou {
 		typedef TcpIocpServer TcpServerMgr;
 #elif __linux__
 		typedef TcpEpollServer TcpServerMgr;
-#else
+#else 
 		typedef TcpSelectServer TcpServerMgr;
 #endif
 	}

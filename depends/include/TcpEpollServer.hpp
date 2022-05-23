@@ -17,7 +17,7 @@ namespace doyou {
 		protected:
 			//处理网络消息
 			void OnRun(Thread* pThread)
-			{
+			{ 
 				Epoll ep;
 				ep.create(_nMaxClient);
 				ep.ctl(EPOLL_CTL_ADD, sockfd(), EPOLLIN);

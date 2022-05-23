@@ -1,6 +1,6 @@
 ﻿#ifndef _doyou_io_HttpClientC_HPP_
 #define _doyou_io_HttpClientC_HPP_
-
+ 
 #include"Client.hpp"
 #include"SplitString.hpp"
 #include"KeyString.hpp"

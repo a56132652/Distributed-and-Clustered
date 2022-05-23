@@ -1,4 +1,4 @@
-﻿#ifndef _CELL_BUFFER_HPP_
+﻿ #ifndef _CELL_BUFFER_HPP_
 #define _CELL_BUFFER_HPP_
 
 #include"CELL.hpp"

@@ -14,7 +14,7 @@ This software is distributed without any warranty.
 #define SHA_H__
 
 #include <string>
-
+ 
 namespace gloox
 {
 

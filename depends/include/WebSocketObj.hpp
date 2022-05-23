@@ -1,4 +1,4 @@
-﻿#ifndef _doyou_io_WebSocketObj_HPP_
+﻿ #ifndef _doyou_io_WebSocketObj_HPP_
 #define _doyou_io_WebSocketObj_HPP_
 
 #include<cstdint>
@@ -13,7 +13,7 @@ namespace doyou {
 			opcode_CLOSE = 0x8,
 			opcode_PING = 0x9,
 			opcode_PONG = 0xA,
-		};
+		}; 
 
 		//WebSocket数据帧头部协议格式
 		struct WebSocketHeader {

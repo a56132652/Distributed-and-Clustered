@@ -1,6 +1,6 @@
 #ifndef _doyou_io_INetServer_HPP_
 #define _doyou_io_INetServer_HPP_
-
+ 
 #include"TcpWebSocketServer.hpp"
 #include "CJsonObject.hpp"
 #include"INetClientS.hpp"
@@ -16,14 +16,16 @@ namespace doyou {
 			std::map<std::string, NetEventCall> _map_msg_call;
 		public:
 			std::function<void(Server*, INetClientS*, std::string&, neb::CJsonObject&)> on_other_msg = nullptr;
+			std::function<void(Server*, INetClientS*, std::string&, neb::CJsonObject&)> on_broadcast_msg = nullptr;
 			std::function<void(INetClientS*)> on_client_leave = nullptr;
+			std::function<void(Server*)> on_net_run = nullptr;
 		private:
 			virtual Client* makeClientObj(SOCKET cSock)
 			{
 				return new INetClientS(cSock, _nSendBuffSize, _nRecvBuffSize);
 			}
 
-			virtual void OnNetMsg(Server* pServer, Client* pClient, netmsg_DataHeader* header)
+			virtual void OnNetMsg(Server* pServer, Client* pClient, netmsg_DataH eader* header)
 			{
 				TcpServer::OnNetMsg(pServer, pClient, header);
 				INetClientS* pWSClient = dynamic_cast<INetClientS*>(pClient);
@@ -107,7 +109,9 @@ namespace doyou {
 				
 				//·þÎñ¶ËÏìÓ¦
 				bool is_resp = false;
-				if (json.Get("is_resp", is_resp) && is_resp)
+				bool is_push = false;
+				if ((json.Get("is_resp", is_resp) && is_resp)
+					||(json.Get("is_push", is_push) && is_push) )
 				{
 					if (!pWSClient->is_ss_link())
 					{

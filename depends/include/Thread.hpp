@@ -20,7 +20,7 @@ namespace doyou {
 				EventCall onCreate = nullptr,
 				EventCall onRun = nullptr,
 				EventCall onDestory = nullptr)
-			{
+			{ 
 				std::lock_guard<std::mutex> lock(_mutex);
 				if (!_isRun)
 				{

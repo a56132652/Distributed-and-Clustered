@@ -19,7 +19,7 @@ namespace doyou {
 			virtual Client* makeClientObj(SOCKET cSock, int sendSize, int recvSize)
 			{
 				return new HttpClientC(cSock, sendSize, recvSize);
-			}
+			} 
 		private:
 			typedef std::function<void(HttpClientC*)> EventCall;
 

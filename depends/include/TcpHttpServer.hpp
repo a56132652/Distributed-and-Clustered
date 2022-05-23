@@ -19,7 +19,7 @@ namespace doyou {
 				HttpClientS* pHttpClient = dynamic_cast<HttpClientS*>(pClient);
 				if (!pHttpClient)
 					return;
-
+				 
 				if (!pHttpClient->getRequestInfo())
 					return;
 

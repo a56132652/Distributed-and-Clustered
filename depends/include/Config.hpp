@@ -7,7 +7,7 @@
 #include<string>
 #include<map>
 #include"Log.hpp"
-
+ 
 namespace doyou {
 	namespace io {
 		class Config

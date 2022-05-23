@@ -1,6 +1,6 @@
 ﻿#ifndef _CELL_LOG_HPP_
 #define _CELL_LOG_HPP_
-
+ 
 #include"CELL.hpp"
 #include"Task.hpp"
 #include<ctime>

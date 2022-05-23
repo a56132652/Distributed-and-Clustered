@@ -3,8 +3,8 @@
 
 #include"CJsonObject.hpp"
 #include"INetClientS.hpp"
-#include<algorithm>
 #include<vector>
+#include<algorithm>
 
 namespace doyou {
 	namespace io {
@@ -49,6 +49,16 @@ namespace doyou {
 
 					return _listeners[index++];
 				}
+
+				void on_broadcast_do(const char* pData, int len)
+				{
+					size_t length = _listeners.size();
+					for (size_t i = 0; i < length; i++)
+					{
+						_listeners[i]->writeText(pData, len);
+					}
+				}
+
 			private:
 				std::vector<INetClientS*> _listeners;
 				int index = 0;
@@ -72,7 +82,7 @@ namespace doyou {
 
 			void del(INetClientS* client)
 			{
-				for (auto& itr: _msg_listeners)
+				for (auto& itr : _msg_listeners)
 				{
 					itr.second.del(client);
 				}
@@ -87,20 +97,33 @@ namespace doyou {
 				}
 			}
 
-			bool on_net_msg_do(std::string& cmd, std::string& data)
+			int on_net_msg_do(std::string& cmd, std::string& data)
 			{
 				auto itr = _msg_listeners.find(cmd);
 				if (itr == _msg_listeners.end())
-					return false;
+					return state_code_undefine_cmd;
 
 				auto s = itr->second.get();
 				if (s)
 				{
-					s->writeText(data.c_str(), data.length());
-					return true;
+					if (SOCKET_ERROR == s->writeText(data.c_str(), data.length()))
+					{
+						return state_code_server_busy;
+					}
+					return state_code_ok;
 				}
 
-				return false;
+				return state_code_server_off;
+			}
+
+			int on_broadcast_do(const std::string& cmd, const std::string& data)
+			{
+				auto itr = _msg_listeners.find(cmd);
+				if (itr == _msg_listeners.end())
+					return state_code_undefine_cmd;
+
+				itr->second.on_broadcast_do(data.c_str(), data.length());
+				return state_code_ok;
 			}
 		};
 	}

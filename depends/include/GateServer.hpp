@@ -1,6 +1,6 @@
 #ifndef _doyou_io_GateServer_HPP_
 #define _doyou_io_GateServer_HPP_
-
+ 
 #include"INetServer.hpp"
 #include"INetTransfer.hpp"
 
@@ -25,8 +25,9 @@ namespace doyou {
 
 				*/
 				_netserver.on_other_msg = std::bind(&GateServer::on_other_msg, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4);
+				_netserver.on_broadcast_msg = std::bind(&GateServer::on_broadcast_msg, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4);
 				_netserver.on_client_leave = std::bind(&GateServer::on_client_leave, this, std::placeholders::_1);
-				//网关服务器只关心心跳消息以及注册服务消息
+				//网关服务器只关心 心跳消息 以及 注册服务消息
 				_netserver.reg_msg_call("cs_msg_heart", std::bind(&GateServer::cs_msg_heart, this,std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
 				_netserver.reg_msg_call("ss_reg_api", std::bind(&GateServer::ss_reg_api, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
 				
@@ -78,10 +79,7 @@ namespace doyou {
 
 				if (!apis.IsArray())
 				{
-					neb::CJsonObject ret;
-					ret.Add("state", 0);
-					ret.Add("msg", "not found apis.");
-					client->response(msg, ret);
+					client->resp_error(msg, "not found apis.");
 					return;
 				}
 				int size = apis.GetArraySize();
@@ -91,15 +89,29 @@ namespace doyou {
 					_transfer.add(apis(i), client);
 				}
 
-				client->response(msg, "ss_reg_api ok!");
+				neb::CJsonObject json;
+				json.Add("ClientId", client->clientId());
+				client->response(msg, json);
 			}
 
 			void on_other_msg(Server* server, INetClientS* client, std::string& cmd, neb::CJsonObject& msg)
 			{
 				auto str = msg.ToString();
-				if (!_transfer.on_net_msg_do(cmd, str))
+				int ret = _transfer.on_net_msg_do(cmd, str);
+				if (state_code_undefine_cmd == ret)
 				{
 					CELLLog_Info("on_other_msg: transfer not found cmd<%s>.", cmd.c_str());
+					client->response(msg, "undefine cmd!", state_code_undefine_cmd);
+				}
+				else if (state_code_server_busy == ret)
+				{
+					CELLLog_Info("on_other_msg: server busy! cmd<%s>.", cmd.c_str());
+					client->response(msg, "server busy!", state_code_server_busy);
+				}
+				else if (state_code_server_off == ret)
+				{
+					CELLLog_Info("on_other_msg: server offline! cmd<%s>.", cmd.c_str());
+					client->response(msg, "server offline!", state_code_server_off);
 				}
 			}
 
@@ -107,6 +119,25 @@ namespace doyou {
 			{
 				if(client->is_ss_link())
 					_transfer.del(client);
+			}
+
+			void on_broadcast_msg(Server* server, INetClientS* client, std::string& cmd, neb::CJsonObject& msg)
+			{
+				auto str = msg.ToString();
+				_transfer.on_broadcast_do(cmd, str);
+			}
+
+			template<typename vT>
+			void broadcast(const std::string& cmd, const vT& data)
+			{
+				neb::CJsonObject ret;
+				ret.Add("cmd", cmd);
+				ret.Add("type", msg_type_broadcast);
+				ret.Add("time", Time::system_clock_now());
+				ret.Add("data", data);
+
+				auto str = ret.ToString();
+				_transfer.on_broadcast_do(cmd, str);
 			}
 		};
 	}

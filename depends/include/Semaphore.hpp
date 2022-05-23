@@ -13,7 +13,7 @@ namespace doyou {
 		public:
 			//阻塞当前线程
 			void wait()
-			{
+			{ 
 				std::unique_lock<std::mutex> lock(_mutex);
 				if (--_wait < 0)
 				{

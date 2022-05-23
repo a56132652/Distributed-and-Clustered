@@ -54,7 +54,7 @@ namespace doyou {
 			}
 
 			void run()
-			{
+			{ 
 				if (_timestamp.getElapsedSecond() > 10.0)
 				{
 					commit();

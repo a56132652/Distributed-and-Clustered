@@ -13,7 +13,7 @@ namespace doyou {
 			{
 				Close();
 			}
-
+			 
 			virtual void setClientNum(int nSocketNum)
 			{
 				_fdRead.create(nSocketNum);

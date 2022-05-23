@@ -14,7 +14,7 @@ namespace doyou {
 			{
 
 			}
-
+			 
 			ReadByteStream(char* pData, int nSize, bool bDelete = false)
 				:ByteStream(pData, nSize, bDelete)
 			{

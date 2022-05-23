@@ -13,7 +13,7 @@ namespace doyou {
 			CMD_S2C_HEART,
 			CMD_ERROR
 		};
-
+		 
 		struct netmsg_DataHeader
 		{
 			netmsg_DataHeader()

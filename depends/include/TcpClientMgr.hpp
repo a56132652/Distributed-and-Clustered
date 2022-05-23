@@ -18,6 +18,6 @@ namespace doyou {
 #else
 		typedef TcpSelectClient TcpClientMgr;
 #endif
-	}
+	} 
 }
 #endif // !_TcpClientMgr_hpp_

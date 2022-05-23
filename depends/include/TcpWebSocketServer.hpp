@@ -19,7 +19,7 @@ namespace doyou {
 				WebSocketClientS* pWSClient = dynamic_cast<WebSocketClientS*>(pClient);
 				if (!pWSClient)
 					return;
-
+				 
 				pWSClient->resetDTHeart();
 
 				if (clientState_join == pWSClient->state())

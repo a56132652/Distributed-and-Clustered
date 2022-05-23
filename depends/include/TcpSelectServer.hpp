@@ -12,7 +12,7 @@ namespace doyou {
 			void Start(int nCELLServer)
 			{
 				TcpServer::Start<SelectServer>(nCELLServer);
-			}
+			} 
 		protected:
 			//处理网络消息
 			void OnRun(Thread* pThread)

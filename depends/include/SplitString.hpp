@@ -16,7 +16,7 @@ namespace doyou {
 				_str = str;
 				_first = true;
 			}
-
+			 
 			char* get(char end)
 			{
 				if (!_str)

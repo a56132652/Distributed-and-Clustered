@@ -10,7 +10,7 @@
 ** inserted to getnerate this complete program source file.
 **
 ** The code from multiple files is combined into this single "shell.c"
-** source file to help make the command-line program easier to compile.
+** source file to help make the command-line program easier to compile. 
 **
 ** To modify this program, get a copy of the canonical SQLite source tree,
 ** edit the src/shell.c.in" and/or some of the other files that are included

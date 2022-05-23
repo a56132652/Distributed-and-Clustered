@@ -12,7 +12,7 @@ namespace doyou {
 	namespace io {
 		//执行任务的服务类型
 		class TaskServer
-		{
+		{ 
 		public:
 			//所属serverid
 			int serverId = -1;

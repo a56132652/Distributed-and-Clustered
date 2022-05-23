@@ -18,7 +18,7 @@ namespace doyou {
 			{
 				_ep.destory();
 				TcpClient::Close();
-			}
+			} 
 
 			//处理网络消息
 			bool OnRun(int microseconds = 1)
