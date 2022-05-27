@@ -12,11 +12,8 @@ namespace doyou {
 		class INetClientS :public WebSocketClientS
 		{
 		private:
-			//对客户端请求进行限流，对上册服务返回的消息不限流
 			std::string _link_name;
-			//连接类型(上层服务 or 客户端)，默认为客户端
 			std::string _link_type = "client";
-			//是否是服务，是服务的话不进行限流
 			bool _is_ss_link = false;
 			bool _is_cc_link = false;
 			//
@@ -44,7 +41,7 @@ namespace doyou {
 				return _link_type;
 			}
 
-			void link_type(std::string& str)
+			void link_type(const std::string& str)
 			{
 				_link_type = str;
 			}
@@ -78,6 +75,7 @@ namespace doyou {
 			{
 				_token = str;
 			}
+
 			int clientId()
 			{
 				return (int)this->sockfd();

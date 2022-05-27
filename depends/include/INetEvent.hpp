@@ -21,6 +21,8 @@ namespace doyou {
 			virtual void OnNetMsg(Server* pServer, Client* pClient, netmsg_DataHeader* header) = 0;
 			//recv事件
 			virtual void OnNetRecv(Client* pClient) = 0;
+			//Server线程循环
+			virtual void OnNetRun(Server* pServer) = 0;
 		private:
 
 		};

@@ -32,7 +32,7 @@ namespace doyou {
 		private:
 			//
 			typedef std::function<void(INetClient*, neb::CJsonObject&)> NetEventCall;
-			//对请求添加时间属性，标识该请求是什么时间发送的，用于超时反馈
+			//
 			struct NetEventCallData {
 				NetEventCall callFun = nullptr;
 				time_t dt = 0;
@@ -47,7 +47,6 @@ namespace doyou {
 		public:
 			INetClient()
 			{
-				//初始化超时反馈消息内容
 				_ret_timeout.Add("type", msg_type_resp);
 				_ret_timeout.Add("msgId", 0);
 				_ret_timeout.Add("state", state_code_timeout);
@@ -214,7 +213,7 @@ namespace doyou {
 			{
 				_timeout_dt = dt;
 			}
-			//请求超时检测
+
 			void check_timeout()
 			{
 				//如果_timeout_dt为0  就不检测超时
@@ -267,7 +266,7 @@ namespace doyou {
 				CELLLog_Info("%s::INetClient::on_net_msg_do not found msgId<%d>.", _link_name.c_str(), msgId);
 				return false;
 			}
-			//消息转发
+
 			bool transfer(neb::CJsonObject& msg)
 			{
 				std::string retStr = msg.ToString();
@@ -292,7 +291,7 @@ namespace doyou {
 
 				return transfer(msg);
 			}
-			//发起请求时注册回调，当收到该请求的响应时，调用该回调方法
+
 			template<typename vT>
 			bool request(const std::string& cmd, const vT& data, NetEventCall call)
 			{
@@ -380,7 +379,7 @@ namespace doyou {
 			{
 				response(msg, data, state);
 			}
-			//给网关推送 另一客户端异地登陆
+
 			template<typename vT>
 			void push(int clientId, const std::string& cmd, const vT& data, int state = state_code_ok)
 			{

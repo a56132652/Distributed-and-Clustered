@@ -4,11 +4,11 @@
 #include"CELL.hpp"
 #include"Buffer.hpp"
 #include"NetWork.hpp"
- 
+
 namespace doyou {
 	namespace io {
 		//客户端心跳检测死亡计时时间
-#define CLIENT_HREAT_DEAD_TIME 120000
+#define CLIENT_HREAT_DEAD_TIME 100000
 		//在间隔指定时间后才允许发送
 #define CLIENT_SEND_BUFF_TIME 200
 
@@ -69,6 +69,11 @@ namespace doyou {
 				return _sockfd;
 			}
 
+			bool canWrite(int size)
+			{
+				return _sendBuff.canWrite(size);
+			}
+
 			int RecvData()
 			{
 				return _recvBuff.read4socket(_sockfd);
@@ -108,7 +113,7 @@ namespace doyou {
 				return ret;
 			}
 
-			virtual void onSendComplete(){}
+			virtual void onSendComplete() {}
 
 			//缓冲区的控制根据业务需求的差异而调整
 			//发送数据
@@ -168,7 +173,7 @@ namespace doyou {
 			//设置客户端IP地址
 			void setIP(char* ip)
 			{
-				if(ip)
+				if (ip)
 					strncpy(_ip, ip, INET6_ADDRSTRLEN);
 			}
 			//返回客户端IP地址
@@ -189,7 +194,7 @@ namespace doyou {
 
 			void onClose()
 			{
-				CELLLog_Info("sockfd<%d> onClose", _sockfd);
+				//CELLLog_Info("sockfd<%d> onClose", _sockfd);
 				state(clientState_close);
 			}
 

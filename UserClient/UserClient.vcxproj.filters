@@ -191,5 +191,11 @@
     <ClInclude Include="..\depends\include\UserClient.hpp">
       <Filter>源文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\depends\include\TaskTimer.hpp">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\depends\include\LocalData.hpp">
+      <Filter>源文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,0 +1,44 @@
+Info [2022-5-27 16:33:49]Log::setLogPath success,<GroupServerLog.txt,w>
+Debug [2022-5-27 16:33:49]madeCmd k<nSendBuffSize> v<102400>
+Debug [2022-5-27 16:33:49]madeCmd k<nRecvBuffSize> v<102400>
+Error [2022-5-27 16:33:49]Config::getStr not find <csGateUrl>
+Info [2022-5-27 16:33:49]Config::getStr csGateUrl=ws://127.0.0.1:4567
+Info [2022-5-27 16:33:49]127.0.0.1 ipv4: 127.0.0.1
+Info [2022-5-27 16:33:49]connet2ip(127.0.0.1,4567)
+Info [2022-5-27 16:33:49]WebSocketClientC::handshake, Good.
+Info [2022-5-27 16:33:49]
+Info [2022-5-27 16:33:52]group.create: client<18000144> id<123> key<123>.
+Info [2022-5-27 16:33:55]group.join: client<18000144> id<123> key<123>.
+Info [2022-5-27 16:33:59]group.exit: client<18000144> id<123>.
+Info [2022-5-27 16:34:2]group.create: client<18000144> id<123> key<123>.
+Info [2022-5-27 16:34:4]group.exit: client<18000144> id<123>.
+Info [2022-5-27 16:34:5]group.create: client<18000144> id<123> key<123>.
+Info [2022-5-27 16:34:5]group.exit: client<18000144> id<123>.
+Info [2022-5-27 16:34:6]group.create: client<18000144> id<123> key<123>.
+Info [2022-5-27 16:34:6]group.exit: client<18000144> id<123>.
+Info [2022-5-27 16:34:7]group.create: client<18000144> id<123> key<123>.
+Info [2022-5-27 16:34:7]group.exit: client<18000144> id<123>.
+Info [2022-5-27 16:34:7]group.create: client<18000144> id<123> key<123>.
+Info [2022-5-27 16:34:8]group.exit: client<18000144> id<123>.
+Info [2022-5-27 16:34:8]group.create: client<18000144> id<123> key<123>.
+Info [2022-5-27 16:34:9]group.exit: client<18000144> id<123>.
+Info [2022-5-27 16:34:9]group.create: client<18000144> id<123> key<123>.
+Info [2022-5-27 16:34:10]group.exit: client<18000144> id<123>.
+Info [2022-5-27 16:34:11]group.create: client<18000144> id<123> key<123>.
+Info [2022-5-27 16:34:11]group.create: client<18000144> id<123> key<123>.
+Info [2022-5-27 16:34:12]group.create: client<18000144> id<123> key<123>.
+Info [2022-5-27 16:34:12]group.create: client<18000144> id<123> key<123>.
+Info [2022-5-27 16:34:12]group.create: client<18000144> id<123> key<123>.
+Info [2022-5-27 16:34:12]group.create: client<18000144> id<123> key<123>.
+Info [2022-5-27 16:34:12]group.create: client<18000144> id<123> key<123>.
+Info [2022-5-27 16:34:13]group.create: client<18000144> id<123> key<123>.
+Info [2022-5-27 16:34:13]group.create: client<18000144> id<123> key<123>.
+Info [2022-5-27 16:34:13]group.create: client<18000144> id<123> key<123>.
+Info [2022-5-27 16:34:13]group.create: client<18000144> id<123> key<123>.
+Info [2022-5-27 16:34:13]group.create: client<18000144> id<123> key<123>.
+Info [2022-5-27 16:34:14]group.create: client<18000144> id<123> key<123>.
+Info [2022-5-27 16:34:14]group.create: client<18000144> id<123> key<123>.
+Info [2022-5-27 16:34:14]group.create: client<18000144> id<123> key<123>.
+Info [2022-5-27 16:34:14]group.create: client<18000144> id<123> key<123>.
+Info [2022-5-27 16:34:15]group.create: client<18000144> id<123> key<123>.
+Info [2022-5-27 16:34:15]group.exit: client<18000144> id<123>.

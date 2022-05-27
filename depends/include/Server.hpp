@@ -12,7 +12,7 @@ namespace doyou {
 	namespace io {
 		//网络消息接收处理服务类
 		class Server
-		{ 
+		{
 		public:
 			virtual ~Server()
 			{
@@ -67,6 +67,9 @@ namespace doyou {
 						_clients_change = true;
 					}
 
+					if (_pNetEvent)
+						_pNetEvent->OnNetRun(this);
+
 					//如果没有需要处理的客户端，就跳过
 					if (_clients.empty())
 					{
@@ -113,12 +116,12 @@ namespace doyou {
 							OnClientLeave(pClient);
 							iter = _clients.erase(iter);
 							continue;
-					}
+						}
 #else
 						OnClientLeave(pClient);
-#endif // CELL_USE_IOCP
 						iter = _clients.erase(iter);
 						continue;
+#endif // CELL_USE_IOCP
 					}
 
 					////定时发送检测
@@ -198,13 +201,13 @@ namespace doyou {
 					nullptr,
 					//onRun
 					[this](Thread* pThread) {
-					OnRun(pThread);
-				},
+						OnRun(pThread);
+					},
 					//onDestory
-					[this](Thread* pThread) {
-					ClearClients();
-				}
-				);
+						[this](Thread* pThread) {
+						ClearClients();
+					}
+					);
 			}
 
 			size_t getClientCount()

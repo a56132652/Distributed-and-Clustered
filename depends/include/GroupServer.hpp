@@ -22,17 +22,13 @@ namespace doyou {
 				_csGate.connect("csGate", csGateUrl, 1024 * 1024 * 10, 1024 * 1024 * 10);
 
 				_csGate.reg_msg_call("onopen", std::bind(&GroupServer::onopen_csGate, this, std::placeholders::_1, std::placeholders::_2));
-				
+
 				_csGate.reg_msg_call("ss_msg_client_exit", std::bind(&GroupServer::ss_msg_client_exit, this, std::placeholders::_1, std::placeholders::_2));
 				_csGate.reg_msg_call("ss_msg_user_exit", std::bind(&GroupServer::ss_msg_user_exit, this, std::placeholders::_1, std::placeholders::_2));
-				
-				//创建
+
 				_csGate.reg_msg_call("cs_msg_group_create", std::bind(&GroupServer::cs_msg_group_create, this, std::placeholders::_1, std::placeholders::_2));
-				//加入
 				_csGate.reg_msg_call("cs_msg_group_join", std::bind(&GroupServer::cs_msg_group_join, this, std::placeholders::_1, std::placeholders::_2));
-				//退出
 				_csGate.reg_msg_call("cs_msg_group_exit", std::bind(&GroupServer::cs_msg_group_exit, this, std::placeholders::_1, std::placeholders::_2));
-				//发消息
 				_csGate.reg_msg_call("cs_msg_group_say", std::bind(&GroupServer::cs_msg_group_say, this, std::placeholders::_1, std::placeholders::_2));
 			}
 
@@ -63,7 +59,7 @@ namespace doyou {
 
 				client->request("ss_reg_server", json, [](INetClient* client, neb::CJsonObject& msg) {
 					CELLLog_Info(msg("data").c_str());
-				});
+					});
 			}
 
 			void ss_msg_client_exit(INetClient* client, neb::CJsonObject& msg)
@@ -96,7 +92,7 @@ namespace doyou {
 					//通知会话组里的已有成员
 					//有成员退出
 					auto group = _group_manager.get(group_id);
-					if(group)
+					if (group)
 					{
 						neb::CJsonObject json;
 						json.Add("group_id", group_id);
@@ -140,7 +136,7 @@ namespace doyou {
 
 				int64_t userId = 0;
 				msg.Get("userId", userId);
-				//未登录并且不是上层服务器
+
 				if (userId == 0 && !is_ss_link)
 				{
 					client->resp_error(msg, "not login!");
@@ -194,8 +190,7 @@ namespace doyou {
 					client->push(group->member(), "sc_msg_group_join", json);
 				}
 			}
-			 
-			//加入会话组
+
 			void cs_msg_group_join(INetClient* client, neb::CJsonObject& msg)
 			{
 				int clientId = 0;
@@ -262,7 +257,6 @@ namespace doyou {
 				}
 			}
 
-			//退出
 			void cs_msg_group_exit(INetClient* client, neb::CJsonObject& msg)
 			{
 				int clientId = 0;
@@ -401,4 +395,3 @@ namespace doyou {
 	}
 }
 #endif // !_doyou_io_GroupServer_HPP_
- 

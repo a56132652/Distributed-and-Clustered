@@ -1,12 +1,14 @@
-Info [2022-5-16 22:30:5]Log::setLogPath success,<LoginServerLog.txt,w>
-Debug [2022-5-16 22:30:5]madeCmd k<nSendBuffSize> v<102400>
-Debug [2022-5-16 22:30:5]madeCmd k<nRecvBuffSize> v<102400>
-Info [2022-5-16 22:30:5]DBUser::add_user changes=1
-Info [2022-5-16 22:30:5]DBUser::add_user changes=1
-Error [2022-5-16 22:30:5]Config::getStr not find <csGateUrl>
-Info [2022-5-16 22:30:5]Config::getStr csGateUrl=ws://127.0.0.1:4567
-Info [2022-5-16 22:30:5]Config::getInt nSendBuffSize=102400
-Info [2022-5-16 22:30:5]Config::getInt nRecvBuffSize=102400
-Info [2022-5-16 22:30:5]127.0.0.1 ipv4: 127.0.0.1
-PError [2022-5-16 22:30:7]<socket=212> connect <127.0.0.1:4567> failed...
-PError [2022-5-16 22:30:7]errno=10061,errmsg=由于目标计算机积极拒绝，无法连接。
+Info [2022-5-27 16:29:5]Log::setLogPath success,<LoginServerLog.txt,w>
+Debug [2022-5-27 16:29:5]madeCmd k<nSendBuffSize> v<102400>
+Debug [2022-5-27 16:29:5]madeCmd k<nRecvBuffSize> v<102400>
+Info [2022-5-27 16:29:5]DBUser::init(user.db.user_info) success.
+Error [2022-5-27 16:29:5]Config::getStr not find <csGateUrl>
+Info [2022-5-27 16:29:5]Config::getStr csGateUrl=ws://127.0.0.1:4567
+Info [2022-5-27 16:29:5]127.0.0.1 ipv4: 127.0.0.1
+Info [2022-5-27 16:29:5]connet2ip(127.0.0.1,4567)
+Info [2022-5-27 16:29:5]WebSocketClientC::handshake, Good.
+Info [2022-5-27 16:29:5]
+Info [2022-5-27 16:29:43]DBUser::add_user changes=1
+Error [2022-5-27 16:37:9]TcpIocpClient.DoIocpNetEvents rmClient sockfd=208, IO_TYPE::RECV bytesTrans=0
+Info [2022-5-27 16:37:9]csGate::INetClient::on_net_msg_do not found cmd<onclose>.
+Info [2022-5-27 16:37:9]127.0.0.1 ipv4: 127.0.0.1

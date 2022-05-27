@@ -15,7 +15,7 @@ namespace doyou {
 	namespace io {
 		class TcpServer : public INetEvent
 		{
-		private: 
+		private:
 			//
 			Thread _thread;
 			//消息处理对象，内部会创建线程
@@ -166,7 +166,7 @@ namespace doyou {
 #ifdef _WIN32
 				cSock = accept(_sock, (sockaddr*)&clientAddr, &nAddrLen);
 #else
-				cSock = accept(_sock, (sockaddr*)&clientAddr, (socklen_t *)&nAddrLen);
+				cSock = accept(_sock, (sockaddr*)&clientAddr, (socklen_t*)&nAddrLen);
 #endif
 				if (INVALID_SOCKET == cSock)
 				{
@@ -181,7 +181,7 @@ namespace doyou {
 				}
 				return cSock;
 			}
-			
+
 			SOCKET Accept_IPv4()
 			{
 				sockaddr_in clientAddr = {};
@@ -190,7 +190,7 @@ namespace doyou {
 #ifdef _WIN32
 				cSock = accept(_sock, (sockaddr*)&clientAddr, &nAddrLen);
 #else
-				cSock = accept(_sock, (sockaddr*)&clientAddr, (socklen_t *)&nAddrLen);
+				cSock = accept(_sock, (sockaddr*)&clientAddr, (socklen_t*)&nAddrLen);
 #endif
 				if (INVALID_SOCKET == cSock)
 				{
@@ -208,7 +208,7 @@ namespace doyou {
 			void AcceptClient(SOCKET cSock, char* ip)
 			{
 				NetWork::make_reuseaddr(cSock);
-				CELLLog_Info("Accept_IP: %s, %d", ip, cSock);
+				//CELLLog_Info("Accept_IP: %s, %d", ip, cSock);
 				if (_clientAccept < _nMaxClient)
 				{
 					_clientAccept++;
@@ -242,6 +242,20 @@ namespace doyou {
 				pMinServer->addClient(pClient);
 			}
 
+			Client* find_client(int id)
+			{
+				//查找客户数量最少的CELLServer消息处理对象
+				for (auto pServer : _cellServers)
+				{
+					Client* c = pServer->find_client(id);
+					if (c)
+					{
+						return c;
+					}
+				}
+				return nullptr;
+			}
+
 			template<class ServerT>
 			void Start(int nCELLServer)
 			{
@@ -258,8 +272,8 @@ namespace doyou {
 				}
 				_thread.Start(nullptr,
 					[this](Thread* pThread) {
-					OnRun(pThread);
-				});
+						OnRun(pThread);
+					});
 			}
 			//关闭Socket
 			void Close()
@@ -293,7 +307,7 @@ namespace doyou {
 			{
 				_clientAccept--;
 				_clientJoin--;
-				CELLLog_Info("client<%d> leave", pClient->sockfd());
+				//CELLLog_Info("client<%d> leave", pClient->sockfd());
 			}
 			//cellServer 4 多个线程触发 不安全
 			//如果只开启1个cellServer就是安全的
@@ -314,6 +328,7 @@ namespace doyou {
 			//计算并输出每秒收到的网络消息
 			void time4msg()
 			{
+				//return;
 				auto t1 = _tTime.getElapsedSecond();
 				if (t1 >= 1.0)
 				{

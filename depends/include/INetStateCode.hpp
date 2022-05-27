@@ -1,4 +1,4 @@
-﻿#ifndef _doyou_io_INetStateCode_hpp_
+﻿  #ifndef _doyou_io_INetStateCode_hpp_
 #define _doyou_io_INetStateCode_hpp_
 namespace doyou {
 	namespace io {

@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "f60b98ff-dd7a-4c3b-b77e-6e80a21bafec": {
+      "ProjectGuid": "f60b98ff-dd7a-4c3b-b77e-6e80a21bafec",
+      "DisplayName": "LinkServer",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

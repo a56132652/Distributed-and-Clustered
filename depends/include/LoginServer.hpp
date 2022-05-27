@@ -1,8 +1,9 @@
 ﻿#ifndef _doyou_io_LoginServer_HPP_
 #define _doyou_io_LoginServer_HPP_
 
-#include"INetClient.hpp"
 #include<regex>
+
+#include"INetClient.hpp"
 #include"DBUser.hpp"
 #include"UserManager.hpp"
 
@@ -21,7 +22,7 @@ namespace doyou {
 
 				auto csGateUrl = Config::Instance().getStr("csGateUrl", "ws://127.0.0.1:4567");
 				_csGate.connect("csGate", csGateUrl, 1024 * 1024 * 10, 1024 * 1024 * 10);
-				//注册关注事件
+
 				_csGate.reg_msg_call("onopen", std::bind(&LoginServer::onopen_csGate, this, std::placeholders::_1, std::placeholders::_2));
 
 				_csGate.reg_msg_call("ss_msg_client_exit", std::bind(&LoginServer::ss_msg_client_exit, this, std::placeholders::_1, std::placeholders::_2));
@@ -31,6 +32,8 @@ namespace doyou {
 				_csGate.reg_msg_call("cs_msg_register", std::bind(&LoginServer::cs_msg_register, this, std::placeholders::_1, std::placeholders::_2));
 				_csGate.reg_msg_call("cs_msg_change_pw", std::bind(&LoginServer::cs_msg_change_pw, this, std::placeholders::_1, std::placeholders::_2));
 				_csGate.reg_msg_call("cs_msg_login_by_token", std::bind(&LoginServer::cs_msg_login_by_token, this, std::placeholders::_1, std::placeholders::_2));
+
+				//_csGate.reg_msg_call("ss_msg_get_user_by_token", std::bind(&LoginServer::ss_msg_get_user_by_token, this, std::placeholders::_1, std::placeholders::_2));
 			}
 
 			void Run()
@@ -45,7 +48,6 @@ namespace doyou {
 			}
 
 		private:
-			//token生成
 			const std::string make_token(int64 userId, int clientId)
 			{
 				std::stringstream ss;
@@ -55,32 +57,25 @@ namespace doyou {
 				return sha1.hex();
 			}
 
-			//收到 onopen 消息时的回调，收到onopen消息后向网关服务器发起注册服务请求
 			void onopen_csGate(INetClient* client, neb::CJsonObject& msg)
 			{
 				neb::CJsonObject json;
-				//告知网关自己是什么类型的服务
 				json.Add("type", "LoginServer");
-				//自己的名字
 				json.Add("name", "LoginServer001");
-				//校验机制，网关服务器会校验该值
 				json.Add("sskey", "ssmm00@123456");
 				json.AddEmptySubArray("apis");
-				/*
-					告知网关自己关心什么类型的消息
-					网关收到该类型的消息到会分发给自己
-				*/
-				//登录
 				json["apis"].Add("cs_msg_login");
-				//注册
 				json["apis"].Add("cs_msg_register");
-				//改密码
 				json["apis"].Add("cs_msg_change_pw");
-				client->request("ss_reg_api", json, [](INetClient* client, neb::CJsonObject& msg) {
+				json["apis"].Add("cs_msg_login_by_token");
+				json["apis"].Add("ss_msg_client_exit");
+				json["apis"].Add("ss_msg_user_exit");
+
+				client->request("ss_reg_server", json, [](INetClient* client, neb::CJsonObject& msg) {
 					CELLLog_Info(msg("data").c_str());
-				});
+					});
 			}
-			//
+
 			void ss_msg_client_exit(INetClient* client, neb::CJsonObject& msg)
 			{
 				int clientId = 0;
@@ -119,7 +114,7 @@ namespace doyou {
 				}
 				//CELLLog_Info("ss_msg_user_exit: clientId<%d> userId<%lld>.", clientId, userId);
 			}
-			//用户登录
+
 			void cs_msg_login(INetClient* client, neb::CJsonObject& msg)
 			{
 				int clientId = 0;
@@ -233,13 +228,13 @@ namespace doyou {
 				ret.Add("clientId", clientId);
 				int linkId = ClientId::get_link_id(clientId);
 				client->push(linkId, "ss_msg_user_login", ret);
-				//向客户端返回登录结果
+				//返回登录结果
 				neb::CJsonObject json;
 				json.Add("userId", userId);
 				json.Add("token", token);
 				client->response(msg, json);
 			}
-			//用户注册
+
 			void cs_msg_register(INetClient* client, neb::CJsonObject& msg)
 			{
 				//当前请求字段获取与验证
@@ -342,7 +337,7 @@ namespace doyou {
 					client->resp_error(msg, "unkown error.");
 				}
 			}
-			//改密
+
 			void cs_msg_change_pw(INetClient* client, neb::CJsonObject& msg)
 			{
 				//当前请求字段获取与验证
@@ -435,7 +430,7 @@ namespace doyou {
 					client->resp_error(msg, "unkown error.");
 				}
 			}
-			//根据token取出响应用户数据
+
 			void ss_msg_get_user_by_token(INetClient* client, neb::CJsonObject& msg)
 			{
 				//当前请求字段获取与验证
@@ -477,7 +472,7 @@ namespace doyou {
 				//返回结果
 				client->response(msg, json);
 			}
-			//利用token登录
+
 			void cs_msg_login_by_token(INetClient* client, neb::CJsonObject& msg)
 			{
 				int clientId = 0;

@@ -170,22 +170,37 @@
     <ClInclude Include="..\depends\include\WebSocketObj.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\depends\include\GateServer.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="..\depends\include\INetClient.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\depends\include\INetClientS.hpp">
+    <ClInclude Include="..\depends\include\LoginServer.hpp">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\depends\include\GateServer.hpp">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\depends\include\INetClientS.hpp">
+      <Filter>源文件</Filter>
     </ClInclude>
     <ClInclude Include="..\depends\include\INetServer.hpp">
-      <Filter>头文件</Filter>
+      <Filter>源文件</Filter>
     </ClInclude>
     <ClInclude Include="..\depends\include\INetTransfer.hpp">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\depends\include\DBManager.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\depends\include\LoginServer.hpp">
+    <ClInclude Include="..\depends\include\DBUser.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\depends\include\INetStateCode.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\depends\include\UserClient.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\depends\include\UserManager.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
